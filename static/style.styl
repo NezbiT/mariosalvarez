@@ -1,0 +1,149 @@
+@import 'lib/nib'
+@import 'lib/nib/gradients'
+@import 'lib/nib/normalize'
+@import 'timeline.css'
+@import url('https://fonts.googleapis.com/css?family=Cabin|Inconsolata|Rubik')
+
+body
+	border-radius  .3em
+	font-size: 14px
+	font-color: rgba(28, 28, 28, 1)
+	font-family: 'Cabin', sans-serif
+	font-family: 'Inconsolata', monospace
+	font-family: 'Rubik', sans-serif
+	height: 100%
+	padding: 0 1em 0 1em 
+	text-align: justify
+	text-shadow: #777 1px 0 .1px 	
+	word-spacing: 2px
+	text-decoration: none
+
+h1
+	margin 0 	 
+h3 
+	color #D23D15 
+h4
+	color #000077
+	text-shadow none
+h5
+	font-style italic
+	text-shadow none
+
+	
+header:hover
+	text-shadow: #333 .5px 0 .5px 
+	border-radius .1em
+	word-spacing: .2em
+	
+#quote
+	color #1C1C1C
+	word-spacing: .5em	
+
+article
+	/* The image used */
+	/* Set a specific height */
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
+.image
+	backface-visibility: hidden
+	display inline-block
+	height: 10em
+	opacity: 1
+	transition: 1s ease
+	width: 12em
+
+#psdtohtml
+	width: 30em
+#linkedin
+	width 14em
+
+header #title
+	
+	font-size: 3em
+	color:#222
+	display: inline-block
+	text-decoration: none
+	
+header #title a
+	text-decoration: none
+	
+header #quote	
+	font-size .9em
+	padding 0 1em
+
+header  #title, #quote
+	&:hover
+		text-shadow: #222 .5px 0 .5px 
+
+#nav, #links
+	
+	list-style none
+	text-align center
+	margin: 1em
+
+#nav .pages,  #links .pages
+	
+	display: inline-block
+
+#nav .pages a , #links  .pages a
+
+	border-radius: 0.2em
+	color:#222
+	margin: 0 1em 0 0
+	padding: 0.5em 1em
+	text-decoration: none
+	transition: all 2s ease
+
+
+#nav .pages a:hover, #findMe #links a:hover
+	background: #222
+	color: white
+	transform: scale(1.1) 
+
+.container
+	display inline-block
+	margin: 1em 0 
+	padding 1em
+	
+	
+#certification
+	padding: 2em 2em	
+#skills
+	border 1em black
+
+// fade-in img
+.cont 
+	box-shadow .2em .2em #fff
+	display inline-block
+	margin .2em 
+	position: relative
+
+.fade-in 	
+	transition: 1s ease
+	opacity: 0
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	-ms-transform: translate(-50%, -50%)
+
+
+.cont:hover .image 
+	opacity: 0.3
+
+
+.cont:hover .fade-in 
+	opacity: 1
+
+
+.text 
+	background-color: rgba(50, 50, 50, .8)
+	border-radius .6em
+	color: azure
+	display inline-block
+	font-size: 1.4em
+	padding: 16px 32px
+	
