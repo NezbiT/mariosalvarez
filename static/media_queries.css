@@ -1,0 +1,31 @@
+@media screen and (max-width: 600px) {
+  #title {
+    font-size: 3em !important;
+  }
+  #avatar {
+    width: 150px;
+    height: 150px;
+    background: url("https://s3.amazonaws.com/www.mariosalvarez.com/static/images/avatar.svg") fixed no-repeat;
+    border-radius: 0.5em;
+    box-shadow: 1em 0px 20em 0.5em #2f2f2f;
+    margin-bottom: 1em;
+    float: left;
+    transition: all 1.4s ease;
+  }
+  #avatar:hover,
+  #avatar:active {
+    border-radius: 100px;
+    transform: scale(0.9) rotate(-365deg);
+  }
+}
+.flex-cont {
+  display: flex;
+  flex-direction: row !important;
+  text-align: center;
+  align-items: flex-start !important;
+  font-size: 0.8em;
+  padding: 0.7em !important;
+}
+.grid-cont {
+  grid-template-column: repeat(auto-fill, 10px);
+}

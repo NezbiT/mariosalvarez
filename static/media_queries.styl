@@ -1,0 +1,29 @@
+@media screen and (max-width 600px)
+	#title
+		font-size 3em !important
+	#avatar
+		width 150px	
+		height  150px	
+		background url('https://s3.amazonaws.com/www.mariosalvarez.com/static/images/avatar.svg') fixed no-repeat
+		border-radius .5em
+		box-shadow 1em 0px 20em .5em	#2f2f2f
+		margin-bottom  1em
+		float left 	
+		transition: all 1.4s ease;	
+		&:hover 
+		&:active
+			border-radius 100px
+			transform: scale(.9)rotate(-365deg)
+.flex-cont
+	display flex
+	flex-direction row !important
+	text-align: center
+	align-items  flex-start !important
+	font-size: .8em
+	padding .7em !important
+
+.grid-cont
+	grid-template-column repeat(auto-fill,10px)
+
+
+	

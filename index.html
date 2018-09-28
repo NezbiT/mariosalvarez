@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107744096-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-107744096-2');
+      
+      
+    </script>
     <title>Mario S Alvarez </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,21 +17,24 @@
     <link rel="stylesheet" href="static/style.css">
   </head>
   <body>
-    <header><a href="http://mariosalvarez.com"> 
-        <h1 id="title">Mario S Alvarez</h1></a>
-      <h2 id="quote">90% of success is showing up.</h2>
-      <nav>
-        <ul id="nav">
-          <li class="pages"><a href="#summary" class="botton">Summary</a></li>
-          <li class="pages"><a href="#experience" class="botton">Experience</a></li>
-          <li class="pages"><a href="#certification" class="botton">Certification</a></li>
-          <li class="pages"><a href="#Skills" class="botton"> Skills</a></li>
-          <li class="pages"><a href="#findMe" class="botton">More about me</a></li>
+    <header>
+      <div id="htop">
+        <div id="avatar"></div><a href="http://mariosalvarez.com">
+          <h1 id="title">Mario Alvarez</h1></a>
+        <h2 id="quote">90% of success is showing up.</h2>
+      </div>
+      <nav id="findMe">
+        <ul class="flex-cont">
+          <li class="pages"><a class="botton" href="https://www.linkedin.com/in/nezbit/" target="_blank"> Linkedin</a></li>
+          <li class="pages"><a class="botton" href="https://github.com/NezbiT" target="_blank">Github</a></li>
+          <li class="pages"><a class="botton" href="mailto:mariosalv2@gmail.com" target="_blank"> Email</a></li>
+          <li class="pages"><a class="botton" href="https://s3.amazonaws.com/www.mariosalvarez.com/static/Docx/cv.docx" target="_blank">Resume</a></li>
         </ul>
       </nav>
     </header>
-    <article> 
-      <section id="summary" class="container">
+    <hr>
+    <article id="cv">
+      <aside class="container" id="summary">
         <h3>Summary</h3>
         <ul>
           <li>Outstanding certifications include Cisco Certified Network Associate (CCNA) and Comptia A+.</li>
@@ -31,8 +43,8 @@
           <li>High aptitude for learning new skills and developing professionally concerning “IT”.</li>
           <li>Trilingual English(Professional) / Spanish(Native) / French(Fluent).</li>
         </ul>
-      </section>
-      <section id="experience" class="container">
+      </aside>
+      <aside class="container" id="experience">
         <h3>Experience</h3>
         <div class="timeline">
           <div class="containerTimeline left">
@@ -91,84 +103,71 @@
             </div>
           </div>
         </div>
-        <section id="certification" class="container">
-          <h3>Certification</h3>
-          <ul>
-            <li>A+ Certification</li>
-            <li>Cisco IT Essentials: PC Hardware and Software,</li>
-            <li>Cisco CCNA Discovery: Networking for home and small businesses</li>
-            <li>Platzi Certification Web programming</li>
-          </ul>
-        </section>
-      </section>
-      <section id="skills" class="container">
+      </aside>
+      <aside class="container" id="certification">
+        <h3>Certification</h3>
+        <ul>
+          <li>A+ Certification</li>
+          <li>Cisco IT Essentials: PC Hardware and Software,</li>
+          <li>Cisco CCNA Discovery: Networking for home and small businesses</li>
+          <li>Platzi Certification Web programming</li>
+        </ul>
+      </aside>
+      <aside class="container" id="skills">
         <h3>Skills</h3>
-        <div class="cont"><img src="static/images/css3.png" alt="Css3" class="image">
-          <div class="fade-in">
-            <div class="text">Css3</div>
+        <div class="grid-cont">
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/html5.svg" alt="Html5">
+            <div class="fade-in">
+              <div class="text">Html5</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/css3.svg" alt="Css3">
+            <div class="fade-in">
+              <div class="text">Css3</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/js.svg" alt="Javascript">
+            <div class="fade-in">
+              <div class="text">Javascript</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/pug.svg" alt="Pug">
+            <div class="fade-in">
+              <div class="text">Pug</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/stylus.svg" alt="Stylus">
+            <div class="fade-in">
+              <div class="text">Stylus</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/vue.svg" alt="Veu.js">
+            <div class="fade-in">
+              <div class="text">Vue.js</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/psd-to-html5.svg" alt="Psd-to-Html5" id="psdtohtml">
+            <div class="fade-in">
+              <div class="text">Psd to Html5</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/python.svg" alt="Python">
+            <div class="fade-in">
+              <div class="text">Python</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/django.svg" alt="Django">
+            <div class="fade-in">
+              <div class="text">Django</div>
+            </div>
+          </div>
+          <div class="cont"><img class="image" src="https://s3.amazonaws.com/www.mariosalvarez.com/static/images/scrapy.svg" alt="Scrapy">
+            <div class="fade-in">
+              <div class="text">Scrapy</div>
+            </div>
           </div>
         </div>
-        <div class="cont"><img src="static/images/html5.png" alt="Html5" class="image">
-          <div class="fade-in">
-            <div class="text">Html5</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/js.png" alt="Javascript" class="image">
-          <div class="fade-in">
-            <div class="text">Javascript</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/veu.png" alt="Veu.js" class="image">
-          <div class="fade-in">
-            <div class="text">Veu.js</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/stylus.png" alt="Stylus" class="image">
-          <div class="fade-in">
-            <div class="text">Stylus</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/jade.png" alt="Jade" class="image">
-          <div class="fade-in">
-            <div class="text">Jade</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/coffeescript.png" alt="Coffescript" class="image">
-          <div class="fade-in">
-            <div class="text">Coffeescript</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/python.png" alt="Python" class="image">
-          <div class="fade-in">
-            <div class="text">Python</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/django.png" alt="Django" class="image">
-          <div class="fade-in">
-            <div class="text">Django</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/scrapy.png" alt="Scrapy" class="image">
-          <div class="fade-in">
-            <div class="text">Scrapy</div>
-          </div>
-        </div>
-        <div class="cont"><img src="static/images/psd-to-html5.png" alt="Psd-to-Html5" id="psdtohtml" class="image">
-          <div class="fade-in">
-            <div class="text">Psd-to-Html</div>
-          </div>
-        </div>
-      </section>
+      </aside>
     </article>
-    <section id="findMe" class="container">
-      <h3>Find me</h3>
-      <ul id="links">
-        <li class="pages"><a href="https://twitter.com/NezsbiT" class="botton"><img src="static/images/twitter.png" alt="twitter" class="image"></a></li>
-        <li class="pages"><a href="https://github.com/NezbiT" class="botton"><img src="static/images/github.png" alt="github" class="image"></a></li>
-        <li class="pages"><a href="https://www.linkedin.com/in/nezbit/" class="botton"> <img src="static/images/linkedin.png" alt="linkedin" id="linkedin" class="image"></a></li>
-        <li class="pages"><a href="mailto:mariosalv2@gmail.com" class="botton"> <img src="static/images/email.png" alt="email" class="image"></a></li>
-        <li class="pages"><a href="http://mariosalvarez.com/docx/cv.docx" class="botton"><img src="static/images/docx.png" alt="docx" class="image"></a></li>
-      </ul>
-    </section>
   </body>
 </html>
