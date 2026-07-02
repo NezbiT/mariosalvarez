@@ -3,6 +3,7 @@ import { techGroups } from '../data/technologies'
 import { useI18n } from '../composables/useI18n'
 import ScrollReveal from './ScrollReveal.vue'
 import TiltCard from './effects/TiltCard.vue'
+import TechBadge from './TechBadge.vue'
 
 const { t, t_ui } = useI18n()
 </script>
@@ -20,7 +21,7 @@ const { t, t_ui } = useI18n()
         </header>
       </ScrollReveal>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:gap-8">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 2xl:gap-8">
         <ScrollReveal v-for="(group, index) in techGroups" :key="group.id" :delay="index * 100">
           <TiltCard>
             <article class="h-full rounded-2xl glass-card p-6 xl:p-8 shadow-md transition-shadow duration-300 hover:shadow-xl">
@@ -29,13 +30,7 @@ const { t, t_ui } = useI18n()
                 {{ t(group.title) }}
               </h3>
               <ul class="flex flex-wrap gap-2">
-                <li
-                  v-for="item in group.items"
-                  :key="item"
-                  class="rounded-lg bg-industrial-100 px-3 py-1.5 text-sm font-medium text-industrial-700 transition-all duration-300 hover:bg-gradient-to-r hover:from-accent-500 hover:to-cyan-500 hover:text-white hover:scale-105"
-                >
-                  {{ item }}
-                </li>
+                <TechBadge v-for="tech in group.items" :key="tech.id" :tech="tech" />
               </ul>
             </article>
           </TiltCard>

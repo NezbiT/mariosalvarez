@@ -37,7 +37,7 @@ export const projects: Project[] = [
     technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite', 'Vercel'],
     status: 'live',
     links: {
-      site: 'https://txbizfinder.com',
+      site: 'https://www.txbizfinder.com',
       github: 'https://github.com/NezbiT',
     },
     priority: 1,
@@ -87,7 +87,7 @@ export const projects: Project[] = [
       en: 'Data intelligence tool aggregating public permits from Houston and nearby municipalities. Features alerts by project type, interactive map, and export for business analysis. Bridges industrial construction with actionable data.',
     },
     technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Vue 3', 'Mapbox'],
-    status: 'live',
+    status: 'coming-soon',
     links: {
       github: 'https://github.com/NezbiT',
     },
@@ -112,7 +112,7 @@ export const projects: Project[] = [
       en: 'Operational dashboard for the La Porte and Houston Ship Channel industrial corridor. Combines tide data, navigation notices, and port activity in a unified view. Built for operators who need reliable info before mobilizing crews or equipment.',
     },
     technologies: ['Vue 3', 'TypeScript', 'Node.js', 'REST APIs', 'Chart.js'],
-    status: 'live',
+    status: 'coming-soon',
     links: {
       github: 'https://github.com/NezbiT',
     },
