@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <a href="https://mariosalvarez-portfolio.vercel.app">🌐 Sitio en vivo</a> ·
+  <a href="https://mariosalvarez.vercel.app">🌐 Sitio en vivo</a> ·
   <a href="https://mariosalvarez.com">mariosalvarez.com</a> ·
   <a href="mailto:mario@mariosalvarez.com">mario@mariosalvarez.com</a>
 </p>
