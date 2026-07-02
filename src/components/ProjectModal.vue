@@ -55,25 +55,24 @@ watch(
 
 <template>
   <Teleport to="body">
-    <div
-      v-if="open && project"
-      class="fixed inset-0 z-[100] flex items-center justify-center p-4"
-      role="dialog"
-      aria-modal="true"
-      :aria-labelledby="'modal-title-' + project.id"
-    >
-      <!-- Overlay oscuro -->
+    <Transition name="modal-fade">
       <div
-        class="absolute inset-0 bg-industrial-900/60 backdrop-blur-sm"
-        @click="close"
-      />
-
-      <!-- Panel del modal -->
-      <div
-        id="project-modal"
-        tabindex="-1"
-        class="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 sm:p-8 shadow-2xl"
+        v-if="open && project"
+        class="fixed inset-0 z-[100] flex items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        :aria-labelledby="'modal-title-' + project.id"
       >
+        <div
+          class="absolute inset-0 bg-industrial-900/60 backdrop-blur-sm transition-opacity duration-300"
+          @click="close"
+        />
+
+        <div
+          id="project-modal"
+          tabindex="-1"
+          class="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 sm:p-8 shadow-2xl transition-all duration-300 modal-panel"
+        >
         <!-- Botón cerrar -->
         <button
           type="button"
@@ -163,8 +162,9 @@ watch(
             {{ t_ui.projects.viewGithub }}
           </a>
         </footer>
+        </div>
       </div>
-    </div>
+    </Transition>
   </Teleport>
 </template>
 

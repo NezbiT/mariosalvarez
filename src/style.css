@@ -41,6 +41,177 @@ body {
   @apply outline-2 outline-offset-2 outline-accent-500;
 }
 
+/* --- Animaciones reactivas del portafolio --- */
+
+/* Revelado al scroll (ScrollReveal.vue) */
+.reveal--hidden {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero: entrada escalonada al cargar */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-enter {
+  animation: hero-fade-up 0.7s ease-out both;
+}
+
+/* Blobs de fondo flotantes */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(12px, -18px) scale(1.05);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slow 12s ease-in-out infinite reverse;
+}
+
+/* Transición de tarjetas de proyectos (TransitionGroup) */
+.project-list-enter-active {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-list-leave-active {
+  transition: all 0.3s ease-in;
+  position: absolute;
+  width: calc(50% - 12px);
+}
+
+@media (max-width: 639px) {
+  .project-list-leave-active {
+    width: 100%;
+  }
+}
+
+.project-list-enter-from {
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+}
+
+.project-list-leave-to {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+.project-list-move {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Modal de proyectos */
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.modal-fade-enter-active .modal-panel,
+.modal-fade-leave-active .modal-panel {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-from .modal-panel {
+  opacity: 0;
+  transform: scale(0.95) translateY(12px);
+}
+
+.modal-fade-leave-to .modal-panel {
+  opacity: 0;
+  transform: scale(0.98) translateY(8px);
+}
+
+/* Feedback del formulario */
+.status-fade-enter-active,
+.status-fade-leave-active {
+  transition: all 0.35s ease;
+}
+
+.status-fade-enter-from,
+.status-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* Menú móvil del navbar */
+.menu-slide-enter-active,
+.menu-slide-leave-active {
+  transition: all 0.25s ease-out;
+  overflow: hidden;
+}
+
+.menu-slide-enter-from,
+.menu-slide-leave-to {
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-8px);
+}
+
+.menu-slide-enter-to,
+.menu-slide-leave-from {
+  opacity: 1;
+  max-height: 280px;
+}
+
+/* Botones con feedback táctil */
+.btn-interactive {
+  @apply transition-all duration-200 active:scale-95;
+}
+
+.btn-interactive:hover {
+  transform: translateY(-1px);
+}
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal--hidden,
+  .reveal--visible,
+  .hero-enter,
+  .animate-float-slow,
+  .animate-float-slower,
+  .project-list-enter-active,
+  .project-list-leave-active,
+  .project-list-move {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .btn-interactive:hover {
+    transform: none;
+  }
+}
+
 /**
  * ### Cómo ejecutar este archivo
  * Se importa automáticamente desde main.ts al iniciar la aplicación.
