@@ -2,46 +2,43 @@
 import { techGroups } from '../data/technologies'
 import { useI18n } from '../composables/useI18n'
 import ScrollReveal from './ScrollReveal.vue'
+import TiltCard from './effects/TiltCard.vue'
 
 const { t, t_ui } = useI18n()
 </script>
 
 <template>
-  <section id="technologies" class="py-20 px-4 sm:px-6 bg-industrial-50">
-    <div class="mx-auto max-w-6xl">
+  <section id="technologies" class="relative py-20 sm:py-28 bg-gradient-to-b from-industrial-50 to-white overflow-hidden">
+    <div class="absolute inset-0 mesh-gradient opacity-20 pointer-events-none" aria-hidden="true" />
+
+    <div class="site-container relative z-10">
       <ScrollReveal>
-        <header class="mb-12 text-center">
-          <h2 class="text-3xl sm:text-4xl font-bold text-industrial-900 mb-4">
-            {{ t_ui.technologies.title }}
-          </h2>
-          <p class="text-lg text-industrial-600 max-w-2xl mx-auto">
-            {{ t_ui.technologies.subtitle }}
-          </p>
+        <header class="mb-14 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-600 mb-3">Stack</p>
+          <h2 class="display-lg font-bold text-industrial-900 mb-4">{{ t_ui.technologies.title }}</h2>
+          <p class="text-lg xl:text-xl text-industrial-600 max-w-3xl mx-auto">{{ t_ui.technologies.subtitle }}</p>
         </header>
       </ScrollReveal>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <ScrollReveal
-          v-for="(group, index) in techGroups"
-          :key="group.id"
-          :delay="index * 80"
-        >
-          <article
-            class="h-full rounded-xl border border-industrial-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-300 hover:shadow-lg hover:shadow-accent-500/10"
-          >
-            <h3 class="mb-4 text-lg font-semibold text-industrial-800 border-b border-industrial-100 pb-3">
-              {{ t(group.title) }}
-            </h3>
-            <ul class="flex flex-wrap gap-2">
-              <li
-                v-for="item in group.items"
-                :key="item"
-                class="rounded-md bg-industrial-100 px-3 py-1.5 text-sm text-industrial-700 transition-colors duration-200 hover:bg-accent-100 hover:text-accent-700"
-              >
-                {{ item }}
-              </li>
-            </ul>
-          </article>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:gap-8">
+        <ScrollReveal v-for="(group, index) in techGroups" :key="group.id" :delay="index * 100">
+          <TiltCard>
+            <article class="h-full rounded-2xl glass-card p-6 xl:p-8 shadow-md transition-shadow duration-300 hover:shadow-xl">
+              <h3 class="mb-5 text-lg xl:text-xl font-bold text-industrial-800 flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-gradient-to-r from-accent-500 to-cyan-400 animate-float-slow" />
+                {{ t(group.title) }}
+              </h3>
+              <ul class="flex flex-wrap gap-2">
+                <li
+                  v-for="item in group.items"
+                  :key="item"
+                  class="rounded-lg bg-industrial-100 px-3 py-1.5 text-sm font-medium text-industrial-700 transition-all duration-300 hover:bg-gradient-to-r hover:from-accent-500 hover:to-cyan-500 hover:text-white hover:scale-105"
+                >
+                  {{ item }}
+                </li>
+              </ul>
+            </article>
+          </TiltCard>
         </ScrollReveal>
       </div>
     </div>

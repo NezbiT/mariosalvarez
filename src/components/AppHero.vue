@@ -1,123 +1,107 @@
-<!--
-  Sección hero con animaciones de entrada y parallax sutil en la imagen.
--->
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from '../composables/useI18n'
 import { useScrollTo } from '../composables/useScrollTo'
+import { useMousePosition } from '../composables/useMousePosition'
+import { useScrollProgress } from '../composables/useScrollProgress'
+import ParticleCanvas from './effects/ParticleCanvas.vue'
+import MagneticButton from './effects/MagneticButton.vue'
 import heroImage from '../assets/hero.png'
 
-const { t_ui } = useI18n()
+const { t_ui, locale } = useI18n()
 const { scrollToSection } = useScrollTo()
+const { mouseX, mouseY } = useMousePosition()
+const { scrollY } = useScrollProgress()
 
-/** Controla si las animaciones de entrada ya se dispararon */
 const isLoaded = ref(false)
 
-/** Offset parallax de la imagen según posición del mouse */
-const parallaxX = ref(0)
-const parallaxY = ref(0)
-
 onMounted(() => {
-  requestAnimationFrame(() => {
-    isLoaded.value = true
-  })
+  requestAnimationFrame(() => { isLoaded.value = true })
 })
 
-/**
- * Parallax suave en la foto — solo en desktop con mouse.
- */
-function onHeroMouseMove(event: MouseEvent): void {
-  if (window.innerWidth < 1024) return
+/** Parallax multi-capa: scroll + mouse */
+const textParallax = computed(() => ({
+  transform: `translateY(${scrollY.value * 0.15}px) translate(${mouseX.value * -20}px, ${mouseY.value * -12}px)`,
+}))
 
-  const { clientX, clientY, currentTarget } = event
-  const rect = (currentTarget as HTMLElement).getBoundingClientRect()
-  const x = (clientX - rect.left) / rect.width - 0.5
-  const y = (clientY - rect.top) / rect.height - 0.5
+const imageParallax = computed(() => ({
+  transform: `
+    translateY(${scrollY.value * -0.08}px)
+    translate(${mouseX.value * 28}px, ${mouseY.value * 20}px)
+    rotateY(${mouseX.value * 8}deg)
+    rotateX(${mouseY.value * -6}deg)
+  `,
+}))
 
-  parallaxX.value = x * 10
-  parallaxY.value = y * 10
-}
-
-function resetParallax(): void {
-  parallaxX.value = 0
-  parallaxY.value = 0
-}
-
-onUnmounted(() => {
-  resetParallax()
-})
+const bgParallax = computed(() => ({
+  transform: `translateY(${scrollY.value * 0.3}px)`,
+}))
 </script>
 
 <template>
   <section
     id="hero"
-    class="relative min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 overflow-hidden"
-    @mousemove="onHeroMouseMove"
-    @mouseleave="resetParallax"
+    class="hero-cinematic relative min-h-[100dvh] flex items-center overflow-hidden"
   >
-    <!-- Fondo con blobs animados -->
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-industrial-100 via-industrial-50 to-accent-400/10 -z-10"
-      aria-hidden="true"
-    />
-    <div
-      class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent-400/20 blur-3xl animate-float-slow -z-10"
-      aria-hidden="true"
-    />
-    <div
-      class="absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-industrial-300/30 blur-3xl animate-float-slower -z-10"
-      aria-hidden="true"
-    />
+    <div class="absolute inset-0 mesh-gradient animated-grid opacity-60" :style="bgParallax" aria-hidden="true" />
+    <ParticleCanvas />
 
-    <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
-      <!-- Texto principal con entrada escalonada -->
-      <div class="space-y-6">
+    <div class="absolute -top-32 -right-32 h-[min(50vw,28rem)] w-[min(50vw,28rem)] rounded-full bg-cyan-500/20 blur-3xl animate-float-slow" aria-hidden="true" />
+    <div class="absolute -bottom-40 -left-32 h-[min(60vw,32rem)] w-[min(60vw,32rem)] rounded-full bg-accent-600/15 blur-3xl animate-float-slower" aria-hidden="true" />
+
+    <div class="site-container relative z-10 grid gap-10 py-28 lg:grid-cols-2 lg:items-center lg:gap-16 xl:gap-24">
+      <div class="space-y-6 lg:space-y-8 parallax-layer" :style="textParallax">
         <p
-          class="text-accent-600 font-medium tracking-wide uppercase text-sm hero-enter"
+          class="stat-pill inline-block hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.1s' }"
         >
           {{ t_ui.hero.greeting }}
         </p>
+
         <h1
-          class="text-4xl sm:text-5xl lg:text-6xl font-bold text-industrial-900 leading-tight hero-enter"
+          class="display-xl font-bold text-gradient-hero hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.2s' }"
         >
           {{ t_ui.hero.name }}
         </h1>
+
         <p
-          class="text-xl sm:text-2xl font-semibold text-industrial-700 leading-snug hero-enter"
+          class="display-lg font-semibold text-industrial-100/90 leading-snug hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.35s' }"
         >
-          {{ t_ui.hero.slogan }}
+          <span class="text-gradient-accent">{{ t_ui.hero.slogan }}</span>
         </p>
+
         <p
-          class="text-lg text-industrial-600 max-w-xl leading-relaxed hero-enter"
+          class="text-base sm:text-lg lg:text-xl text-industrial-200/80 max-w-2xl leading-relaxed hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.5s' }"
         >
           {{ t_ui.hero.subtitle }}
         </p>
-        <p
-          class="flex items-center gap-2 text-sm text-industrial-500 hero-enter"
+
+        <div
+          class="flex flex-wrap gap-3 hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
-          :style="{ animationDelay: '0.65s' }"
+          :style="{ animationDelay: '0.6s' }"
         >
-          <svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
+          <span class="stat-pill">Vue 3</span>
+          <span class="stat-pill">TypeScript</span>
+          <span class="stat-pill">15+ {{ locale === 'es' ? 'años web' : 'yrs web' }}</span>
+          <span class="stat-pill">Houston, TX</span>
+        </div>
+
+        <p
+          class="flex items-center gap-2 text-sm text-industrial-300 hero-enter"
+          :class="{ 'opacity-0': !isLoaded }"
+          :style="{ animationDelay: '0.7s' }"
+        >
+          <svg class="h-4 w-4 shrink-0 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           {{ t_ui.hero.location }}
         </p>
@@ -125,60 +109,49 @@ onUnmounted(() => {
         <div
           class="flex flex-wrap gap-4 pt-2 hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
-          :style="{ animationDelay: '0.8s' }"
+          :style="{ animationDelay: '0.85s' }"
         >
-          <button
-            type="button"
-            class="btn-interactive rounded-lg bg-accent-600 px-6 py-3 text-white font-medium hover:bg-accent-500 shadow-lg shadow-accent-600/25 hover:shadow-accent-500/40"
-            @click="scrollToSection('projects')"
-          >
+          <MagneticButton variant="primary" @click="scrollToSection('projects')">
             {{ t_ui.hero.ctaProjects }}
-          </button>
-          <button
-            type="button"
-            class="btn-interactive rounded-lg border-2 border-industrial-300 px-6 py-3 text-industrial-700 font-medium hover:border-accent-500 hover:text-accent-600 hover:bg-white/60"
-            @click="scrollToSection('contact')"
-          >
+          </MagneticButton>
+          <MagneticButton variant="ghost" @click="scrollToSection('contact')">
             {{ t_ui.hero.ctaContact }}
-          </button>
+          </MagneticButton>
         </div>
       </div>
 
-      <!-- Imagen con parallax y hover -->
       <div
-        class="relative flex justify-center lg:justify-end hero-enter"
+        class="relative flex justify-center lg:justify-end perspective-container hero-image-enter"
         :class="{ 'opacity-0': !isLoaded }"
-        :style="{ animationDelay: '0.45s' }"
+        :style="{ animationDelay: '0.4s', ...imageParallax }"
       >
-        <div
-          class="relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-industrial-200 transition-transform duration-500 hover:scale-[1.02] hover:shadow-accent-500/20"
-          :style="{
-            transform: `translate(${parallaxX}px, ${parallaxY}px)`,
-          }"
-        >
-          <img
-            :src="heroImage"
-            alt="Mario Alvarez — Industrial Data Developer"
-            class="h-auto w-full max-w-md object-cover transition-transform duration-700 hover:scale-105"
-            width="480"
-            height="480"
-            loading="eager"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-industrial-900/20 to-transparent pointer-events-none"
-            aria-hidden="true"
-          />
+        <div class="relative">
+          <div class="absolute -inset-4 rounded-3xl bg-gradient-to-r from-accent-500/40 to-cyan-400/40 blur-2xl opacity-60 animate-float-slow" aria-hidden="true" />
+          <div class="relative overflow-hidden rounded-2xl xl:rounded-3xl shadow-2xl ring-2 ring-accent-400/30 glass-card-dark">
+            <img
+              :src="heroImage"
+              alt="Mario Alvarez — Industrial Data Developer"
+              class="h-auto w-full max-w-[min(100%,28rem)] xl:max-w-[min(100%,36rem)] 2xl:max-w-[min(100%,42rem)] object-cover"
+              width="640"
+              height="640"
+              loading="eager"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-industrial-900/50 via-transparent to-accent-500/10 pointer-events-none" aria-hidden="true" />
+            <div class="absolute bottom-4 left-4 right-4 glass-card-dark rounded-xl px-4 py-3 text-sm text-industrial-100">
+              <span class="text-accent-400 font-mono text-xs">// developer</span>
+              <p class="mt-1 font-medium">Industrial Data · Web · Houston</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-industrial-400 animate-float-slow" aria-hidden="true">
+      <span class="text-xs uppercase tracking-widest">Scroll</span>
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
   </section>
 </template>
-
-<!--
-### Cómo ejecutar este archivo
-Importado en App.vue como primera sección.
-
-### Qué aprendí en este archivo
-- Animaciones escalonadas con animation-delay dan vida al hero sin librerías
-- Parallax ligero con mouse mejora la sensación de profundidad en desktop
--->

@@ -105,14 +105,16 @@ async function handleSubmit(): Promise<void> {
 </script>
 
 <template>
-  <section id="contact" class="py-20 px-4 sm:px-6 bg-white">
-    <div class="mx-auto max-w-6xl">
+  <section id="contact" class="relative py-20 sm:py-28 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-t from-accent-50/50 to-white pointer-events-none" aria-hidden="true" />
+    <div class="site-container relative z-10">
       <ScrollReveal>
-        <header class="mb-12 text-center">
-          <h2 class="text-3xl sm:text-4xl font-bold text-industrial-900 mb-4">
+        <header class="mb-14 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-600 mb-3">Contact</p>
+          <h2 class="display-lg font-bold text-industrial-900 mb-4">
             {{ t_ui.contact.title }}
           </h2>
-          <p class="text-lg text-industrial-600 max-w-2xl mx-auto">
+          <p class="text-lg xl:text-xl text-industrial-600 max-w-3xl mx-auto">
             {{ t_ui.contact.subtitle }}
           </p>
         </header>
@@ -121,7 +123,7 @@ async function handleSubmit(): Promise<void> {
       <div class="grid gap-12 lg:grid-cols-5">
         <ScrollReveal :delay="100" class="lg:col-span-3">
         <form
-          class="space-y-5"
+          class="space-y-5 rounded-2xl glass-card p-6 sm:p-8 shadow-lg"
           @submit.prevent="handleSubmit"
         >
           <div class="grid gap-5 sm:grid-cols-2">
