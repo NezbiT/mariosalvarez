@@ -10,6 +10,7 @@ import AppContact from './components/AppContact.vue'
 import AppFooter from './components/AppFooter.vue'
 import CursorGlow from './components/effects/CursorGlow.vue'
 import ScrollProgressBar from './components/effects/ScrollProgressBar.vue'
+import ParticleCanvas from './components/effects/ParticleCanvas.vue'
 
 const { t_ui, locale } = useI18n()
 const { mouseX, mouseY } = useMousePosition()
@@ -18,7 +19,6 @@ const isDevHost = computed(() =>
   typeof window !== 'undefined' && window.location.hostname.startsWith('dev.'),
 )
 
-/** Parallax sutil global del fondo según mouse */
 const globalParallax = computed(() => ({
   transform: `translate(${mouseX.value * -12}px, ${mouseY.value * -8}px)`,
 }))
@@ -38,22 +38,26 @@ watch(locale, updateMeta, { immediate: true })
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col relative">
+  <div class="min-h-screen flex flex-col relative bg-theme-page text-theme-primary">
     <ScrollProgressBar />
     <CursorGlow />
 
-    <!-- Capa de parallax global muy sutil -->
-    <div
-      class="fixed inset-0 pointer-events-none -z-20 opacity-40 parallax-layer"
-      :style="globalParallax"
-      aria-hidden="true"
-    >
-      <div class="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-accent-400/10 blur-3xl" />
-      <div class="absolute bottom-1/3 right-1/4 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl" />
+    <!-- Fondo global: partículas + grid + mesh en toda la página -->
+    <div class="global-bg-layer" aria-hidden="true">
+      <ParticleCanvas />
+      <div class="absolute inset-0 animated-grid opacity-50" />
+      <div class="absolute inset-0 mesh-gradient opacity-40" />
+      <div
+        class="absolute inset-0 parallax-layer opacity-60"
+        :style="globalParallax"
+      >
+        <div class="absolute top-1/4 left-1/4 h-96 w-96 rounded-full parallax-orb-1 blur-3xl" />
+        <div class="absolute bottom-1/3 right-1/4 h-80 w-80 rounded-full parallax-orb-2 blur-3xl" />
+      </div>
     </div>
 
     <AppNavbar :show-dev-badge="isDevHost" />
-    <main class="flex-grow">
+    <main class="flex-grow relative z-0">
       <AppHero />
       <div class="section-wave -mt-1" aria-hidden="true" />
       <AppProjects />

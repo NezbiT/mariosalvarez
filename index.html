@@ -24,6 +24,14 @@
       rel="stylesheet"
     />
     <title>Mario Alvarez | mariosalvarez.com</title>
+    <script>
+      (function () {
+        var t = localStorage.getItem('mariosalvarez-theme');
+        var mode = t === 'dark' ? 'dark' : 'light';
+        document.documentElement.dataset.theme = mode;
+        document.documentElement.style.colorScheme = mode;
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>

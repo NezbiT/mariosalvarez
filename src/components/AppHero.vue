@@ -4,7 +4,6 @@ import { useI18n } from '../composables/useI18n'
 import { useScrollTo } from '../composables/useScrollTo'
 import { useMousePosition } from '../composables/useMousePosition'
 import { useScrollProgress } from '../composables/useScrollProgress'
-import ParticleCanvas from './effects/ParticleCanvas.vue'
 import MagneticButton from './effects/MagneticButton.vue'
 import heroImage from '../assets/hero.png'
 
@@ -19,7 +18,6 @@ onMounted(() => {
   requestAnimationFrame(() => { isLoaded.value = true })
 })
 
-/** Parallax multi-capa: scroll + mouse */
 const textParallax = computed(() => ({
   transform: `translateY(${scrollY.value * 0.15}px) translate(${mouseX.value * -20}px, ${mouseY.value * -12}px)`,
 }))
@@ -43,11 +41,10 @@ const bgParallax = computed(() => ({
     id="hero"
     class="hero-cinematic relative min-h-[100dvh] flex items-center overflow-hidden"
   >
-    <div class="absolute inset-0 mesh-gradient animated-grid opacity-60" :style="bgParallax" aria-hidden="true" />
-    <ParticleCanvas />
+    <div class="absolute inset-0 mesh-gradient animated-grid opacity-50" :style="bgParallax" aria-hidden="true" />
 
-    <div class="absolute -top-32 -right-32 h-[min(50vw,28rem)] w-[min(50vw,28rem)] rounded-full bg-cyan-500/20 blur-3xl animate-float-slow" aria-hidden="true" />
-    <div class="absolute -bottom-40 -left-32 h-[min(60vw,32rem)] w-[min(60vw,32rem)] rounded-full bg-accent-600/15 blur-3xl animate-float-slower" aria-hidden="true" />
+    <div class="absolute -top-32 -right-32 h-[min(50vw,28rem)] w-[min(50vw,28rem)] rounded-full orb-cyan blur-3xl animate-float-slow" aria-hidden="true" />
+    <div class="absolute -bottom-40 -left-32 h-[min(60vw,32rem)] w-[min(60vw,32rem)] rounded-full orb-accent blur-3xl animate-float-slower" aria-hidden="true" />
 
     <div class="site-container relative z-10 grid gap-10 py-28 lg:grid-cols-2 lg:items-center lg:gap-16 xl:gap-24">
       <div class="space-y-6 lg:space-y-8 parallax-layer" :style="textParallax">
@@ -68,7 +65,7 @@ const bgParallax = computed(() => ({
         </h1>
 
         <p
-          class="display-lg font-semibold text-industrial-100/90 leading-snug hero-enter"
+          class="display-lg font-semibold text-theme-secondary leading-snug hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.35s' }"
         >
@@ -76,7 +73,7 @@ const bgParallax = computed(() => ({
         </p>
 
         <p
-          class="text-base sm:text-lg lg:text-xl text-industrial-200/80 max-w-2xl leading-relaxed hero-enter"
+          class="text-base sm:text-lg lg:text-xl text-theme-muted max-w-2xl leading-relaxed hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.5s' }"
         >
@@ -95,11 +92,11 @@ const bgParallax = computed(() => ({
         </div>
 
         <p
-          class="flex items-center gap-2 text-sm text-industrial-300 hero-enter"
+          class="flex items-center gap-2 text-sm text-theme-muted hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.7s' }"
         >
-          <svg class="h-4 w-4 shrink-0 text-accent-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="h-4 w-4 shrink-0 text-accent-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
@@ -136,18 +133,17 @@ const bgParallax = computed(() => ({
               height="640"
               loading="eager"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-industrial-900/50 via-transparent to-accent-500/10 pointer-events-none" aria-hidden="true" />
-            <div class="absolute bottom-4 left-4 right-4 glass-card-dark rounded-xl px-4 py-3 text-sm text-industrial-100">
-              <span class="text-accent-400 font-mono text-xs">// developer</span>
-              <p class="mt-1 font-medium">Industrial Data · Web · Houston</p>
+            <div class="absolute inset-0 bg-gradient-to-t from-industrial-900/30 via-transparent to-accent-500/10 pointer-events-none" aria-hidden="true" />
+            <div class="absolute bottom-4 left-4 right-4 glass-card-dark rounded-xl px-4 py-3 text-sm text-theme-secondary">
+              <span class="text-accent-500 font-mono text-xs">// developer</span>
+              <p class="mt-1 font-medium text-theme-primary">Industrial Data · Web · Houston</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-industrial-400 animate-float-slow" aria-hidden="true">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-theme-muted animate-float-slow" aria-hidden="true">
       <span class="text-xs uppercase tracking-widest">Scroll</span>
       <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />

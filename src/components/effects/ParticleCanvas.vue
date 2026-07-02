@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { useDeviceCapability } from '../../composables/useDeviceCapability'
+import { useTheme } from '../../composables/useTheme'
 
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const { enableHeavyEffects, isHighRes } = useDeviceCapability()
+const { theme } = useTheme()
 
 interface Particle {
   x: number
@@ -18,6 +20,13 @@ let particles: Particle[] = []
 let animationId = 0
 let mouseX = 0
 let mouseY = 0
+
+function getParticleColors(): { rgb: string; lineAlpha: number } {
+  const root = document.documentElement
+  const rgb = getComputedStyle(root).getPropertyValue('--color-particle-rgb').trim() || '14, 165, 233'
+  const lineAlpha = parseFloat(getComputedStyle(root).getPropertyValue('--color-particle-line')) || 0.1
+  return { rgb, lineAlpha }
+}
 
 function initParticles(w: number, h: number): void {
   const base = isHighRes.value ? 120 : 70
@@ -40,6 +49,7 @@ function draw(): void {
 
   const w = canvas.width
   const h = canvas.height
+  const { rgb, lineAlpha } = getParticleColors()
   ctx.clearRect(0, 0, w, h)
 
   particles.forEach((p, i) => {
@@ -60,7 +70,7 @@ function draw(): void {
 
     ctx.beginPath()
     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-    ctx.fillStyle = `rgba(14, 165, 233, ${p.alpha})`
+    ctx.fillStyle = `rgba(${rgb}, ${p.alpha})`
     ctx.fill()
 
     for (let j = i + 1; j < particles.length; j++) {
@@ -72,7 +82,7 @@ function draw(): void {
         ctx.beginPath()
         ctx.moveTo(p.x, p.y)
         ctx.lineTo(p2.x, p2.y)
-        ctx.strokeStyle = `rgba(14, 165, 233, ${0.12 * (1 - dist / 100)})`
+        ctx.strokeStyle = `rgba(${rgb}, ${lineAlpha * (1 - dist / 100)})`
         ctx.lineWidth = 0.5
         ctx.stroke()
       }
@@ -100,6 +110,10 @@ function onMouseMove(e: MouseEvent): void {
   mouseX = e.clientX - rect.left
   mouseY = e.clientY - rect.top
 }
+
+watch(theme, () => {
+  /* colors read each frame from CSS vars */
+})
 
 onMounted(() => {
   resize()

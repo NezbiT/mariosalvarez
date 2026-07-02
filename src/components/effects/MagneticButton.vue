@@ -40,7 +40,7 @@ function onLeave(): void {
     :class="
       variant === 'primary'
         ? 'bg-gradient-to-r from-accent-600 to-cyan-500 text-white shadow-lg shadow-accent-600/30 hover:shadow-accent-500/50'
-        : 'glass-btn text-industrial-800 border border-white/40'
+        : 'glass-btn border'
     "
     :style="{ transform: `translate(${offsetX}px, ${offsetY}px)` }"
     @mousemove="onMove"

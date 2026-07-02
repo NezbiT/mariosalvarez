@@ -22,10 +22,10 @@ const filters: { value: ProjectFilter; labelKey: 'filterAll' | 'filterLive' | 'f
       <ScrollReveal>
         <header class="mb-14 text-center">
           <p class="text-sm font-semibold uppercase tracking-widest text-accent-600 mb-3">Portfolio</p>
-          <h2 class="display-lg font-bold text-industrial-900 mb-4">
+          <h2 class="display-lg font-bold text-theme-primary mb-4">
             {{ t_ui.projects.title }}
           </h2>
-          <p class="text-lg xl:text-xl text-industrial-600 max-w-3xl mx-auto">
+          <p class="text-lg xl:text-xl text-theme-muted max-w-3xl mx-auto">
             {{ t_ui.projects.subtitle }}
           </p>
         </header>
@@ -43,7 +43,7 @@ const filters: { value: ProjectFilter; labelKey: 'filterAll' | 'filterLive' | 'f
             :class="
               activeFilter === filter.value
                 ? 'bg-gradient-to-r from-accent-600 to-cyan-500 text-white shadow-lg shadow-accent-500/30 scale-105'
-                : 'glass-card text-industrial-600 hover:scale-[1.02]'
+                : 'glass-card text-theme-muted hover:scale-[1.02]'
             "
             @click="setFilter(filter.value)"
           >
@@ -67,7 +67,7 @@ const filters: { value: ProjectFilter; labelKey: 'filterAll' | 'filterLive' | 'f
         />
       </TransitionGroup>
 
-      <p v-else class="text-center text-industrial-500">No hay proyectos en esta categoría.</p>
+      <p v-else class="text-center text-theme-muted">No hay proyectos en esta categoría.</p>
     </div>
 
     <ProjectModal :project="selectedProject" :open="isModalOpen" @close="closeProject" />

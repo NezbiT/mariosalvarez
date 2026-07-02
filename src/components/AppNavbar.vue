@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useI18n } from '../composables/useI18n'
 import { useScrollTo, useScrollDetection } from '../composables/useScrollTo'
 import { useScrollSpy } from '../composables/useScrollSpy'
+import ThemeToggle from './ThemeToggle.vue'
 
 defineProps<{
   showDevBadge?: boolean
@@ -31,7 +32,7 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
 <template>
   <header
     class="fixed top-1 left-0 right-0 z-50 transition-all duration-500"
-    :class="onHero ? 'glass-nav mx-3 mt-2 rounded-2xl' : 'glass-nav-light shadow-lg'"
+    :class="onHero ? 'glass-nav mx-3 mt-2 rounded-2xl' : 'glass-nav shadow-lg'"
   >
     <nav
       class="site-container flex items-center justify-between py-3 sm:py-4"
@@ -40,8 +41,7 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
       <div class="flex items-center gap-3">
         <button
           type="button"
-          class="font-display text-lg font-bold transition-all duration-300 hover:scale-105"
-          :class="onHero ? 'text-white hover:text-accent-400' : 'text-industrial-800 hover:text-accent-600'"
+          class="font-display text-lg font-bold transition-all duration-300 hover:scale-105 text-theme-primary hover:text-accent-500"
           @click="navigate('hero')"
         >
           <span class="text-gradient-accent">MA</span>
@@ -53,16 +53,8 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
         <li v-for="link in navLinks" :key="link.id">
           <button
             type="button"
-            class="relative rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300"
-            :class="
-              isActive(link.id)
-                ? onHero
-                  ? 'text-accent-300 bg-white/10'
-                  : 'text-accent-600 bg-accent-50'
-                : onHero
-                  ? 'text-industrial-200 hover:text-white hover:bg-white/5'
-                  : 'text-industrial-600 hover:text-accent-600 hover:bg-industrial-50'
-            "
+            class="nav-link relative rounded-xl px-4 py-2 text-sm font-medium"
+            :class="isActive(link.id) ? 'nav-link--active' : ''"
             @click="navigate(link.id)"
           >
             {{ t_ui.nav[link.key] }}
@@ -72,11 +64,13 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
             />
           </button>
         </li>
-        <li class="ml-2">
+        <li class="ml-1">
+          <ThemeToggle />
+        </li>
+        <li>
           <button
             type="button"
-            class="btn-interactive rounded-xl border px-3 py-1.5 text-sm font-medium transition-all duration-300"
-            :class="onHero ? 'border-white/20 text-white hover:bg-white/10' : 'border-industrial-300 text-industrial-700 hover:border-accent-500'"
+            class="btn-interactive rounded-xl border border-theme px-3 py-1.5 text-sm font-medium text-theme-secondary hover:text-accent-500 transition-all duration-300"
             @click="toggleLocale"
           >
             {{ t_ui.nav.language }}
@@ -85,10 +79,20 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
       </ul>
 
       <div class="flex items-center gap-2 md:hidden">
-        <button type="button" class="rounded-lg border px-2.5 py-1 text-sm" :class="onHero ? 'border-white/20 text-white' : 'border-industrial-300'" @click="toggleLocale">
+        <ThemeToggle />
+        <button
+          type="button"
+          class="rounded-lg border border-theme px-2.5 py-1 text-sm text-theme-secondary"
+          @click="toggleLocale"
+        >
           {{ t_ui.nav.language }}
         </button>
-        <button type="button" class="rounded-lg p-2" :class="onHero ? 'text-white' : 'text-industrial-700'" :aria-expanded="isMenuOpen" @click="isMenuOpen = !isMenuOpen">
+        <button
+          type="button"
+          class="rounded-lg p-2 text-theme-primary"
+          :aria-expanded="isMenuOpen"
+          @click="isMenuOpen = !isMenuOpen"
+        >
           <svg class="h-6 w-6 transition-transform duration-300" :class="{ 'rotate-90': isMenuOpen }" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -98,13 +102,13 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
     </nav>
 
     <Transition name="menu-slide">
-      <div v-if="isMenuOpen" class="border-t md:hidden" :class="onHero ? 'border-white/10 bg-industrial-900/95' : 'border-industrial-200 bg-white'">
+      <div v-if="isMenuOpen" class="border-t border-theme glass-nav md:hidden">
         <ul class="site-container flex flex-col py-3">
           <li v-for="link in navLinks" :key="link.id">
             <button
               type="button"
-              class="block w-full rounded-xl py-3 px-3 text-left transition-colors"
-              :class="isActive(link.id) ? 'text-accent-500 bg-accent-50 font-medium' : onHero ? 'text-industrial-200' : 'text-industrial-700'"
+              class="block w-full rounded-xl py-3 px-3 text-left transition-colors nav-link"
+              :class="isActive(link.id) ? 'nav-link--active font-medium' : ''"
               @click="navigate(link.id)"
             >
               {{ t_ui.nav[link.key] }}
