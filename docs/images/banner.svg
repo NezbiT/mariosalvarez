@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="200" viewBox="0 0 920 200" fill="none">
+  <rect width="920" height="200" rx="12" fill="#102a43"/>
+  <rect x="0" y="0" width="920" height="200" rx="12" fill="url(#grad)" opacity="0.4"/>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="920" y2="200">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#102a43"/>
+    </linearGradient>
+  </defs>
+  <text x="460" y="85" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="700">Mario Alvarez</text>
+  <text x="460" y="125" text-anchor="middle" fill="#38bdf8" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="500">From Refinery Rope Access to Industrial Data Developer</text>
+  <text x="460" y="160" text-anchor="middle" fill="#9fb3c8" font-family="Inter, system-ui, sans-serif" font-size="14">mariosalvarez.com · Houston, Texas</text>
+</svg>

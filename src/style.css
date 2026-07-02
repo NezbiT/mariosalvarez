@@ -1,0 +1,52 @@
+/**
+ * Estilos globales del portafolio mariosalvarez.com
+ *
+ * Qué hace:
+ * - Importa Tailwind CSS v4
+ * - Define variables de color industrial y tipografía base
+ * - Habilita scroll suave para navegación por anclas
+ */
+
+@import "tailwindcss";
+
+/* Variables de tema: azules industriales + grises profesionales */
+@theme {
+  --color-industrial-50: #f0f4f8;
+  --color-industrial-100: #d9e2ec;
+  --color-industrial-200: #bcccdc;
+  --color-industrial-300: #9fb3c8;
+  --color-industrial-400: #829ab1;
+  --color-industrial-500: #627d98;
+  --color-industrial-600: #486581;
+  --color-industrial-700: #334e68;
+  --color-industrial-800: #243b53;
+  --color-industrial-900: #102a43;
+  --color-accent-400: #38bdf8;
+  --color-accent-500: #0ea5e9;
+  --color-accent-600: #0284c7;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Scroll suave al navegar entre secciones */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-industrial-50 text-industrial-900 font-sans antialiased;
+}
+
+/* Enfoque visible para accesibilidad de teclado */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent-500;
+}
+
+/**
+ * ### Cómo ejecutar este archivo
+ * Se importa automáticamente desde main.ts al iniciar la aplicación.
+ *
+ * ### Qué aprendí en este archivo
+ * - Configuración de tema personalizado con @theme en Tailwind v4
+ * - Scroll suave nativo con scroll-behavior: smooth
+ * - Estilos de foco accesibles con :focus-visible
+ */
