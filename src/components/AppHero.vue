@@ -57,7 +57,7 @@ const bgParallax = computed(() => ({
         </p>
 
         <h1
-          class="display-xl font-bold text-gradient-hero hero-enter"
+          class="display-xl font-bold text-theme-primary hero-enter"
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.2s' }"
         >
@@ -69,7 +69,7 @@ const bgParallax = computed(() => ({
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.35s' }"
         >
-          <span class="text-gradient-accent">{{ t_ui.hero.slogan }}</span>
+          {{ t_ui.hero.slogan }}
         </p>
 
         <p
