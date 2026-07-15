@@ -16,7 +16,7 @@
 <p align="center">
   <a href="https://mariosalvarez.vercel.app">🌐 Sitio en vivo</a> ·
   <a href="https://mariosalvarez.com">mariosalvarez.com</a> ·
-  <a href="mailto:mario@mariosalvarez.com">mario@mariosalvarez.com</a>
+  <a href="mailto:mario@mariosalvarez.com">sales@mariosalvarez.com</a>
 </p>
 
 <p align="center">
@@ -40,7 +40,6 @@ Disponible para proyectos **freelance** y oportunidades **full-time** en el áre
 | 📍 Ubicación | Houston, Texas |
 | 💼 Especialidad | Datos industriales · Vue 3 · Python |
 | 🌐 Idiomas | Español (nativo) · Inglés (profesional) |
-| 🔗 LinkedIn | [mariosalv2](https://www.linkedin.com/in/mariosalv2/) |
 | 🐙 GitHub | [NezbiT](https://github.com/NezbiT) |
 
 ---
