@@ -25,10 +25,20 @@ export interface Project {
   priority: number
 }
 
+/** Tecnología con logo y enlace oficial */
+export interface TechItem {
+  id: string
+  name: string
+  url: string
+  /** Slug de Simple Icons para cdn.simpleicons.org */
+  icon: string
+  color?: string
+}
+
 export interface TechGroup {
   id: string
   title: BilingualText
-  items: string[]
+  items: TechItem[]
 }
 
 export interface ContactFormData {

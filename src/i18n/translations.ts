@@ -97,6 +97,11 @@ export interface Translations {
     siteTitle: string
     siteDescription: string
   }
+  theme: {
+    light: string
+    dark: string
+    label: string
+  }
 }
 
 const es: Translations = {
@@ -186,6 +191,11 @@ const es: Translations = {
     siteDescription:
       'Portafolio de Mario Alvarez — desarrollador de datos industriales en Houston, Texas. Proyectos en Vue 3, Python y herramientas para el sector petroquímico.',
   },
+  theme: {
+    light: 'Claro',
+    dark: 'Oscuro',
+    label: 'Tema',
+  },
 }
 
 const en: Translations = {
@@ -274,6 +284,11 @@ const en: Translations = {
     siteTitle: 'Mario Alvarez | mariosalvarez.com',
     siteDescription:
       'Portfolio of Mario Alvarez — industrial data developer in Houston, Texas. Vue 3, Python, and petrochemical sector tools.',
+  },
+  theme: {
+    light: 'Clear',
+    dark: 'Dark',
+    label: 'Theme',
   },
 }
 

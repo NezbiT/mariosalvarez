@@ -31,13 +31,13 @@ const EMAIL = 'mario@mariosalvarez.com'
 </script>
 
 <template>
-  <footer class="border-t border-industrial-200 bg-industrial-900 text-industrial-300 py-12 px-4 sm:px-6">
+  <footer class="site-footer py-12 px-4 sm:px-6">
     <div class="mx-auto max-w-6xl">
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-8">
         <!-- Marca -->
         <div>
-          <p class="text-xl font-bold text-white mb-2">Mario Alvarez</p>
-          <p class="text-sm text-industrial-400 italic">
+          <p class="text-xl font-bold footer-title mb-2">Mario Alvarez</p>
+          <p class="text-sm italic opacity-80">
             {{ t_ui.footer.tagline }}
           </p>
         </div>
@@ -99,7 +99,7 @@ const EMAIL = 'mario@mariosalvarez.com'
         </div>
       </div>
 
-      <div class="border-t border-industrial-700 pt-8 flex flex-col sm:flex-row justify-between gap-4 text-sm text-industrial-500">
+      <div class="footer-divider border-t pt-8 flex flex-col sm:flex-row justify-between gap-4 text-sm opacity-70">
         <p>{{ rightsText }}</p>
         <p>{{ t_ui.footer.builtWith }}</p>
       </div>

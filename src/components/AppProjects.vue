@@ -6,15 +6,7 @@ import ProjectCard from './ProjectCard.vue'
 import ProjectModal from './ProjectModal.vue'
 
 const { t_ui } = useI18n()
-const {
-  activeFilter,
-  selectedProject,
-  isModalOpen,
-  filteredProjects,
-  setFilter,
-  openProject,
-  closeProject,
-} = useProjects()
+const { activeFilter, selectedProject, isModalOpen, filteredProjects, setFilter, openProject, closeProject } = useProjects()
 
 const filters: { value: ProjectFilter; labelKey: 'filterAll' | 'filterLive' | 'filterComingSoon' }[] = [
   { value: 'all', labelKey: 'filterAll' },
@@ -24,36 +16,34 @@ const filters: { value: ProjectFilter; labelKey: 'filterAll' | 'filterLive' | 'f
 </script>
 
 <template>
-  <section id="projects" class="py-20 px-4 sm:px-6 bg-white">
-    <div class="mx-auto max-w-6xl">
+  <section id="projects" class="relative py-20 sm:py-28 overflow-hidden">
+    <div class="absolute inset-0 animated-grid opacity-30 pointer-events-none" aria-hidden="true" />
+    <div class="site-container relative z-10">
       <ScrollReveal>
-        <header class="mb-12 text-center">
-          <h2 class="text-3xl sm:text-4xl font-bold text-industrial-900 mb-4">
+        <header class="mb-14 text-center">
+          <p class="text-sm font-semibold uppercase tracking-widest text-accent-600 mb-3">Portfolio</p>
+          <h2 class="display-lg font-bold text-theme-primary mb-4">
             {{ t_ui.projects.title }}
           </h2>
-          <p class="text-lg text-industrial-600 max-w-2xl mx-auto">
+          <p class="text-lg xl:text-xl text-theme-muted max-w-3xl mx-auto">
             {{ t_ui.projects.subtitle }}
           </p>
         </header>
       </ScrollReveal>
 
       <ScrollReveal :delay="100">
-        <div
-          class="mb-10 flex flex-wrap justify-center gap-2"
-          role="tablist"
-          aria-label="Filtrar proyectos"
-        >
+        <div class="mb-12 flex flex-wrap justify-center gap-3" role="tablist">
           <button
             v-for="filter in filters"
             :key="filter.value"
             type="button"
             role="tab"
             :aria-selected="activeFilter === filter.value"
-            class="btn-interactive rounded-full px-4 py-2 text-sm font-medium transition-all duration-300"
+            class="btn-interactive rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-400"
             :class="
               activeFilter === filter.value
-                ? 'bg-accent-600 text-white shadow-md shadow-accent-600/30 scale-105'
-                : 'bg-industrial-100 text-industrial-600 hover:bg-industrial-200 hover:scale-[1.02]'
+                ? 'bg-gradient-to-r from-accent-600 to-cyan-500 text-white shadow-lg shadow-accent-500/30 scale-105'
+                : 'glass-card text-theme-muted hover:scale-[1.02]'
             "
             @click="setFilter(filter.value)"
           >
@@ -66,7 +56,7 @@ const filters: { value: ProjectFilter; labelKey: 'filterAll' | 'filterLive' | 'f
         v-if="filteredProjects.length > 0"
         name="project-list"
         tag="div"
-        class="relative grid gap-6 sm:grid-cols-2"
+        class="relative grid gap-6 sm:grid-cols-2 2xl:grid-cols-2 3xl:gap-10"
       >
         <ProjectCard
           v-for="(project, index) in filteredProjects"
@@ -77,15 +67,9 @@ const filters: { value: ProjectFilter; labelKey: 'filterAll' | 'filterLive' | 'f
         />
       </TransitionGroup>
 
-      <p v-else class="text-center text-industrial-500">
-        No hay proyectos en esta categoría.
-      </p>
+      <p v-else class="text-center text-theme-muted">No hay proyectos en esta categoría.</p>
     </div>
 
-    <ProjectModal
-      :project="selectedProject"
-      :open="isModalOpen"
-      @close="closeProject"
-    />
+    <ProjectModal :project="selectedProject" :open="isModalOpen" @close="closeProject" />
   </section>
 </template>
