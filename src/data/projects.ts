@@ -2,7 +2,7 @@
  * Catálogo de proyectos del portafolio de Mario Alvarez.
  *
  * Qué hace:
- * - Define los 4 proyectos industriales destacados con textos bilingües ES/EN
+ * - Define los proyectos destacados con textos bilingües ES/EN
  * - Ordena por prioridad para mostrar primero los más relevantes
  *
  * Por qué existe:
@@ -31,10 +31,10 @@ export const projects: Project[] = [
       en: 'Helps Gulf Coast businesses get discovered by local customers and industrial contractors.',
     },
     longDescription: {
-      es: 'Plataforma web que centraliza negocios de Texas con filtros por ubicación, industria y servicios. Diseñada para el ecosistema industrial del área de Houston, con SEO optimizado y experiencia móvil rápida. Actualmente en producción en txbizfinder.com.',
-      en: 'Web platform that centralizes Texas businesses with filters by location, industry, and services. Built for the Houston-area industrial ecosystem with optimized SEO and fast mobile experience. Currently live at txbizfinder.com.',
+      es: 'Plataforma web que centraliza negocios de Texas con filtros por ubicación, industria y servicios. Es el hub de la suite TxBizFinder Intelligence: leads de negocios, permisos, aire, emisiones, inundaciones y red eléctrica en un solo ecosistema. En producción en txbizfinder.com.',
+      en: 'Web platform that centralizes Texas businesses with filters by location, industry, and services. It is the hub of the TxBizFinder Intelligence suite: business leads, permits, air, emissions, flood, and grid data in one ecosystem. Live at txbizfinder.com.',
     },
-    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite', 'Vercel'],
+    technologies: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite', 'FastAPI'],
     status: 'live',
     links: {
       site: 'https://www.txbizfinder.com',
@@ -69,6 +69,32 @@ export const projects: Project[] = [
     priority: 2,
   },
   {
+    id: 'navcosolutions',
+    title: {
+      es: 'NavCo Solutions',
+      en: 'NavCo Solutions',
+    },
+    shortDescription: {
+      es: 'Sitio de servicios notariales bilingüe con agendamiento de citas en línea.',
+      en: 'Bilingual notary services website with online appointment booking.',
+    },
+    realUse: {
+      es: 'Clientes reales agendan citas notariales en línea y reciben confirmación por email; el negocio recibe el aviso al instante.',
+      en: 'Real clients book notary appointments online and get email confirmations; the business is notified instantly.',
+    },
+    longDescription: {
+      es: 'Sitio en producción para un negocio de servicios notariales en Texas. Agendamiento de citas guardado en Supabase, confirmaciones por email con Resend, i18n ES/EN y despliegue continuo en Vercel. En vivo en navcosolutions.com.',
+      en: 'Production website for a Texas notary services business. Appointment booking stored in Supabase, email confirmations via Resend, ES/EN i18n, and continuous deployment on Vercel. Live at navcosolutions.com.',
+    },
+    technologies: ['Nuxt', 'Vue 3', 'TypeScript', 'Supabase', 'Resend', 'Vercel'],
+    status: 'live',
+    links: {
+      site: 'https://www.navcosolutions.com',
+      github: 'https://github.com/NezbiT',
+    },
+    priority: 3,
+  },
+  {
     id: 'permitradar-houston',
     title: {
       es: 'PermitRadar Houston',
@@ -83,15 +109,42 @@ export const projects: Project[] = [
       en: 'Lets contractors and rope access teams anticipate job opportunities from newly filed permits.',
     },
     longDescription: {
-      es: 'Herramienta de inteligencia de datos que agrega permisos públicos de Houston y municipios cercanos. Incluye alertas por tipo de obra, mapa interactivo y exportación para análisis comercial. Conecta el mundo de la construcción industrial con datos accionables.',
-      en: 'Data intelligence tool aggregating public permits from Houston and nearby municipalities. Features alerts by project type, interactive map, and export for business analysis. Bridges industrial construction with actionable data.',
+      es: 'Herramienta de inteligencia de datos que agrega permisos públicos de Houston. Mapa interactivo con heatmap y línea de tiempo, filtros por tipo de obra, tags, exportación CSV e ingesta semanal automatizada con GitHub Actions. Parte de la suite TxBizFinder en radar.txbizfinder.com.',
+      en: 'Data intelligence tool aggregating Houston public permits. Interactive map with heatmap and time slider, filters by project type, tags, CSV export, and weekly automated ingest via GitHub Actions. Part of the TxBizFinder suite at radar.txbizfinder.com.',
     },
-    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Vue 3', 'Mapbox'],
-    status: 'coming-soon',
+    technologies: ['Nuxt', 'Vue 3', 'TypeScript', 'Supabase', 'Python', 'MapLibre'],
+    status: 'live',
     links: {
+      site: 'https://radar.txbizfinder.com',
       github: 'https://github.com/NezbiT',
     },
-    priority: 3,
+    priority: 4,
+  },
+  {
+    id: 'maphub-texas',
+    title: {
+      es: 'MapHub Texas',
+      en: 'MapHub Texas',
+    },
+    shortDescription: {
+      es: 'Mapa unificado de Texas con todas las capas de la suite TxBizFinder en una sola vista.',
+      en: 'Unified Texas map with every TxBizFinder suite layer in a single view.',
+    },
+    realUse: {
+      es: 'Un solo mapa para cruzar negocios, permisos, aire, emisiones, inundaciones y red eléctrica antes de tomar decisiones de campo.',
+      en: 'One map to cross-reference businesses, permits, air, emissions, flood, and grid data before making field decisions.',
+    },
+    longDescription: {
+      es: 'Hub cartográfico de la suite TxBizFinder Intelligence: capas FINDER, RADAR, CHANNEL, SENTINEL, FLOOD y POWER sobre un mapa MapLibre interactivo con toggles de filtro e i18n ES/EN. En map.txbizfinder.com.',
+      en: 'Cartographic hub of the TxBizFinder Intelligence suite: FINDER, RADAR, CHANNEL, SENTINEL, FLOOD, and POWER layers on one interactive MapLibre map with filter toggles and ES/EN i18n. At map.txbizfinder.com.',
+    },
+    technologies: ['Nuxt', 'Vue 3', 'TypeScript', 'Tailwind CSS', 'MapLibre'],
+    status: 'live',
+    links: {
+      site: 'https://map.txbizfinder.com',
+      github: 'https://github.com/NezbiT',
+    },
+    priority: 5,
   },
   {
     id: 'channelwatch-laporte',
@@ -100,23 +153,24 @@ export const projects: Project[] = [
       en: 'ChannelWatch La Porte',
     },
     shortDescription: {
-      es: 'Seguimiento de condiciones del canal de navegación y actividad portuaria en La Porte, TX.',
-      en: 'Navigation channel conditions and port activity tracking in La Porte, TX.',
+      es: 'Dashboard comunitario de datos ambientales públicos del Houston Ship Channel y La Porte, TX.',
+      en: 'Community dashboard of public environmental data for the Houston Ship Channel and La Porte, TX.',
     },
     realUse: {
-      es: 'Apoya a equipos offshore y logística a planificar embarcaciones según mareas, tráfico y restricciones del canal.',
-      en: 'Helps offshore crews and logistics plan vessel movements based on tides, traffic, and channel restrictions.',
+      es: 'Da a residentes y trabajadores del corredor industrial una vista clara de calidad del aire, eventos de emisión y facilidades cercanas.',
+      en: 'Gives industrial-corridor residents and workers a clear view of air quality, emission events, and nearby facilities.',
     },
     longDescription: {
-      es: 'Dashboard operativo para el corredor industrial de La Porte y Houston Ship Channel. Combina datos de mareas, avisos a la navegación y actividad portuaria en una vista unificada. Pensado para operadores que necesitan información confiable antes de movilizar personal o equipos.',
-      en: 'Operational dashboard for the La Porte and Houston Ship Channel industrial corridor. Combines tide data, navigation notices, and port activity in a unified view. Built for operators who need reliable info before mobilizing crews or equipment.',
+      es: 'Dashboard de transparencia con snapshot de AQI, monitores CAMS (Deer Park, La Porte, Shore Acres), eventos de emisión estilo TCEQ EER y capa de facilidades TRI, con fuentes y metodología documentadas en ES/EN. Parte de la suite TxBizFinder en channel.txbizfinder.com.',
+      en: 'Transparency dashboard with AQI snapshot, CAMS monitors (Deer Park, La Porte, Shore Acres), TCEQ EER-style emission events, and a TRI facilities layer, with sources and methodology documented in ES/EN. Part of the TxBizFinder suite at channel.txbizfinder.com.',
     },
-    technologies: ['Vue 3', 'TypeScript', 'Node.js', 'REST APIs', 'Chart.js'],
-    status: 'coming-soon',
+    technologies: ['Nuxt', 'Vue 3', 'TypeScript', 'MapLibre', 'FastAPI', 'PostGIS'],
+    status: 'live',
     links: {
+      site: 'https://channel.txbizfinder.com',
       github: 'https://github.com/NezbiT',
     },
-    priority: 4,
+    priority: 6,
   },
   {
     id: 'emissions-sentinel',
@@ -125,23 +179,76 @@ export const projects: Project[] = [
       en: 'Emissions Sentinel',
     },
     shortDescription: {
-      es: 'Monitoreo de emisiones y cumplimiento ambiental para plantas de refinería y petroquímica.',
-      en: 'Emissions monitoring and environmental compliance for refinery and petrochemical plants.',
+      es: 'Detección de anomalías de energía y emisiones en Texas a partir de datos públicos.',
+      en: 'Texas energy and emissions anomaly detection from public data.',
     },
     realUse: {
-      es: 'Traduce experiencia de campo en refinería en alertas tempranas de desviaciones de emisiones y reportes regulatorios.',
-      en: 'Translates refinery field experience into early alerts on emission deviations and regulatory reporting.',
+      es: 'Convierte datos públicos tipo EIA/TCEQ en señales accionables para anticipar desviaciones antes de que escalen.',
+      en: 'Turns EIA/TCEQ-style public data into actionable signals to catch deviations before they escalate.',
     },
     longDescription: {
-      es: 'Sistema en desarrollo que integrará sensores, registros SCADA y normativas TCEQ/EPA para detectar anomalías antes de multas o paros. Incluirá paneles por unidad de proceso, historial de eventos y exportación para auditorías. Próximamente disponible.',
-      en: 'System in development that will integrate sensors, SCADA logs, and TCEQ/EPA regulations to detect anomalies before fines or shutdowns. Will include process unit dashboards, event history, and audit exports. Coming soon.',
+      es: 'Pipeline de datos con conectores a fuentes públicas (EIA, CAMPD, OpenAQ), detección de anomalías con scikit-learn y paneles con ECharts. API en FastAPI con Polars y persistencia en Supabase Postgres. Parte de la suite TxBizFinder en sentinel.txbizfinder.com.',
+      en: 'Data pipeline with connectors to public sources (EIA, CAMPD, OpenAQ), anomaly detection with scikit-learn, and ECharts dashboards. FastAPI backend with Polars and Supabase Postgres persistence. Part of the TxBizFinder suite at sentinel.txbizfinder.com.',
     },
-    technologies: ['Python', 'InfluxDB', 'Grafana', 'MQTT', 'Vue 3'],
-    status: 'coming-soon',
+    technologies: ['Nuxt', 'ECharts', 'FastAPI', 'Polars', 'scikit-learn', 'Supabase'],
+    status: 'live',
     links: {
+      site: 'https://sentinel.txbizfinder.com',
       github: 'https://github.com/NezbiT',
     },
-    priority: 5,
+    priority: 7,
+  },
+  {
+    id: 'powerpulse-texas',
+    title: {
+      es: 'PowerPulse Texas',
+      en: 'PowerPulse Texas',
+    },
+    shortDescription: {
+      es: 'Estado de la red eléctrica de Texas al estilo ERCOT: demanda, reservas y estrés regional.',
+      en: 'ERCOT-style Texas grid awareness: demand, reserves, and regional stress.',
+    },
+    realUse: {
+      es: 'Ayuda a cualquier texano a entender el estado de la red y anticipar alertas de demanda o cortes.',
+      en: 'Helps any Texan understand grid conditions and anticipate demand alerts or outages.',
+    },
+    longDescription: {
+      es: 'Panel de conciencia de red con demanda, reservas y estrés por región sobre un mapa interactivo MapLibre, con series de tiempo, i18n ES/EN y modo demo por defecto. Parte de la suite TxBizFinder en power.txbizfinder.com.',
+      en: 'Grid awareness panel with demand, reserves, and regional stress on an interactive MapLibre map, with time series, ES/EN i18n, and demo mode by default. Part of the TxBizFinder suite at power.txbizfinder.com.',
+    },
+    technologies: ['Nuxt', 'Vue 3', 'TypeScript', 'Tailwind CSS', 'MapLibre'],
+    status: 'live',
+    links: {
+      site: 'https://power.txbizfinder.com',
+      github: 'https://github.com/NezbiT',
+    },
+    priority: 8,
+  },
+  {
+    id: 'floodguard-texas',
+    title: {
+      es: 'FloodGuard Texas',
+      en: 'FloodGuard Texas',
+    },
+    shortDescription: {
+      es: 'Conciencia de riesgo de inundación en Texas: búsqueda por ZIP y mapa interactivo.',
+      en: 'Texas flood-risk awareness: ZIP lookup and interactive map.',
+    },
+    realUse: {
+      es: 'Permite a personas y vecindarios consultar su nivel de riesgo de inundación antes de comprar, rentar o asegurar.',
+      en: 'Lets people and neighborhoods check their flood-risk level before buying, renting, or insuring.',
+    },
+    longDescription: {
+      es: 'Consulta de riesgo por código ZIP con zonas sobre mapa MapLibre/OpenFreeMap (sin API key), scores de demostración e i18n ES/EN. Parte de la suite TxBizFinder en flood.txbizfinder.com.',
+      en: 'ZIP-code risk lookup with zones on a MapLibre/OpenFreeMap map (no API key), demo scores, and ES/EN i18n. Part of the TxBizFinder suite at flood.txbizfinder.com.',
+    },
+    technologies: ['Nuxt', 'Vue 3', 'TypeScript', 'Tailwind CSS', 'MapLibre'],
+    status: 'live',
+    links: {
+      site: 'https://flood.txbizfinder.com',
+      github: 'https://github.com/NezbiT',
+    },
+    priority: 9,
   },
 ]
 
