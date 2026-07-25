@@ -41,15 +41,6 @@ export interface TechGroup {
   items: TechItem[]
 }
 
-export interface ContactFormData {
-  name: string
-  company: string
-  email: string
-  projectType: string
-  message: string
-  budget: string
-}
-
 export interface SelectOption {
   value: string
   label: BilingualText

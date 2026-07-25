@@ -18,6 +18,7 @@ const rightsText = computed(() =>
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/mariosalv2/'
 const GITHUB_URL = 'https://github.com/NezbiT'
+const X_URL = 'https://x.com/nezsbit'
 </script>
 
 <template>
@@ -80,6 +81,14 @@ const GITHUB_URL = 'https://github.com/NezbiT'
             class="hover:text-accent-400 transition-colors"
           >
             {{ t_ui.footer.agency }}
+          </a>
+          <a
+            :href="X_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-accent-400 transition-colors"
+          >
+            X / @nezsbit
           </a>
           <a
             :href="LINKEDIN_URL"

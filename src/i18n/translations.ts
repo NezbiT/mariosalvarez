@@ -64,41 +64,12 @@ export interface Translations {
   contact: {
     title: string
     subtitle: string
-    nameLabel: string
-    namePlaceholder: string
-    companyLabel: string
-    companyPlaceholder: string
-    emailLabel: string
-    emailPlaceholder: string
-    projectTypeLabel: string
-    projectTypePlaceholder: string
-    budgetLabel: string
-    budgetPlaceholder: string
-    messageLabel: string
-    messagePlaceholder: string
-    submit: string
-    submitting: string
-    success: string
-    error: string
     hireVia: string
     hireViaBody: string
     visitAgency: string
+    x: string
     linkedin: string
     github: string
-    projectTypes: {
-      webApp: string
-      dataDashboard: string
-      industrialTool: string
-      consulting: string
-      other: string
-    }
-    budgets: {
-      small: string
-      medium: string
-      large: string
-      enterprise: string
-      discuss: string
-    }
   }
   footer: {
     rights: string
@@ -171,42 +142,13 @@ const es: Translations = {
   contact: {
     title: 'Contacto',
     subtitle:
-      '¿Necesitas una herramienta de datos, dashboard industrial o aplicación web? Cuéntame tu proyecto o contáctame por ZeroDigitX.',
-    nameLabel: 'Nombre',
-    namePlaceholder: 'Tu nombre completo',
-    companyLabel: 'Empresa',
-    companyPlaceholder: 'Nombre de tu empresa (opcional)',
-    emailLabel: 'Correo electrónico',
-    emailPlaceholder: 'tu@empresa.com',
-    projectTypeLabel: 'Tipo de proyecto',
-    projectTypePlaceholder: 'Selecciona una opción',
-    budgetLabel: 'Presupuesto estimado',
-    budgetPlaceholder: 'Selecciona un rango',
-    messageLabel: 'Mensaje',
-    messagePlaceholder: 'Describe tu proyecto, plazos y objetivos...',
-    submit: 'Enviar mensaje',
-    submitting: 'Enviando...',
-    success: '¡Mensaje enviado! Te responderé pronto.',
-    error: 'Hubo un error al enviar. Intenta de nuevo o contáctame por ZeroDigitX.',
+      '¿Necesitas una herramienta de datos, dashboard industrial o aplicación web? Contáctame por ZeroDigitX o en redes.',
     hireVia: 'Trabajo profesional',
-    hireViaBody: 'Para cotizaciones, sitios web y soluciones a medida, usa el formulario de ZeroDigitX.',
+    hireViaBody: 'Para cotizaciones, sitios web y soluciones a medida, usa el contacto de ZeroDigitX.',
     visitAgency: 'Ir a ZeroDigitX',
+    x: 'X / @nezsbit',
     linkedin: 'LinkedIn',
     github: 'GitHub',
-    projectTypes: {
-      webApp: 'Aplicación web',
-      dataDashboard: 'Dashboard de datos',
-      industrialTool: 'Herramienta industrial',
-      consulting: 'Consultoría técnica',
-      other: 'Otro',
-    },
-    budgets: {
-      small: 'Menos de $5,000',
-      medium: '$5,000 – $15,000',
-      large: '$15,000 – $50,000',
-      enterprise: 'Más de $50,000',
-      discuss: 'Prefiero discutirlo',
-    },
   },
   footer: {
     rights: '© {year} Mario Alvarez. Todos los derechos reservados.',
@@ -280,42 +222,13 @@ const en: Translations = {
   contact: {
     title: 'Contact',
     subtitle:
-      'Need a data tool, industrial dashboard, or web application? Tell me about your project or reach me through ZeroDigitX.',
-    nameLabel: 'Name',
-    namePlaceholder: 'Your full name',
-    companyLabel: 'Company',
-    companyPlaceholder: 'Your company name (optional)',
-    emailLabel: 'Email',
-    emailPlaceholder: 'you@company.com',
-    projectTypeLabel: 'Project type',
-    projectTypePlaceholder: 'Select an option',
-    budgetLabel: 'Estimated budget',
-    budgetPlaceholder: 'Select a range',
-    messageLabel: 'Message',
-    messagePlaceholder: 'Describe your project, timeline, and goals...',
-    submit: 'Send message',
-    submitting: 'Sending...',
-    success: 'Message sent! I will get back to you soon.',
-    error: 'Something went wrong. Please try again or contact me via ZeroDigitX.',
+      'Need a data tool, industrial dashboard, or web application? Reach me through ZeroDigitX or social media.',
     hireVia: 'Professional work',
-    hireViaBody: 'For quotes, business websites, and custom solutions, use the ZeroDigitX contact form.',
+    hireViaBody: 'For quotes, business websites, and custom solutions, use ZeroDigitX contact.',
     visitAgency: 'Go to ZeroDigitX',
+    x: 'X / @nezsbit',
     linkedin: 'LinkedIn',
     github: 'GitHub',
-    projectTypes: {
-      webApp: 'Web application',
-      dataDashboard: 'Data dashboard',
-      industrialTool: 'Industrial tool',
-      consulting: 'Technical consulting',
-      other: 'Other',
-    },
-    budgets: {
-      small: 'Under $5,000',
-      medium: '$5,000 – $15,000',
-      large: '$15,000 – $50,000',
-      enterprise: 'Over $50,000',
-      discuss: 'Prefer to discuss',
-    },
   },
   footer: {
     rights: '© {year} Mario Alvarez. All rights reserved.',
