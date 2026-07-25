@@ -85,8 +85,8 @@ const bgParallax = computed(() => ({
           :class="{ 'opacity-0': !isLoaded }"
           :style="{ animationDelay: '0.6s' }"
         >
-          <span class="stat-pill">Vue 3</span>
-          <span class="stat-pill">TypeScript</span>
+          <span class="stat-pill">Nuxt</span>
+          <span class="stat-pill">Python</span>
           <span class="stat-pill">15+ {{ locale === 'es' ? 'años web' : 'yrs web' }}</span>
           <span class="stat-pill">Houston, TX</span>
         </div>

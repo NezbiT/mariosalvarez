@@ -4,6 +4,7 @@ import { useI18n } from '../composables/useI18n'
 import { useScrollTo, useScrollDetection } from '../composables/useScrollTo'
 import { useScrollSpy } from '../composables/useScrollSpy'
 import ThemeToggle from './ThemeToggle.vue'
+import CanvasLogo from './CanvasLogo.vue'
 
 defineProps<{
   showDevBadge?: boolean
@@ -42,10 +43,11 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
       <div class="flex items-center gap-3">
         <button
           type="button"
-          class="font-display text-lg font-bold transition-all duration-300 hover:scale-105 text-theme-primary hover:text-accent-500"
+          class="flex items-center gap-2 rounded-full transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/50"
+          aria-label="Mario Alvarez — Home"
           @click="navigate('hero')"
         >
-          <span class="text-gradient-accent">MA</span>
+          <CanvasLogo :size="36" />
         </button>
         <span v-if="showDevBadge" class="dev-badge">DEV</span>
       </div>
