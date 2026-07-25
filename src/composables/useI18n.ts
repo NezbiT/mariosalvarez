@@ -9,7 +9,7 @@
  * - El portafolio es bilingüe; vue-i18n sería overkill para un sitio estático
  *
  * Cómo funciona:
- * 1. Lee locale guardado o usa 'es' por defecto
+ * 1. Lee locale guardado o usa 'en' por defecto
  * 2. Provee setLocale() que actualiza ref + localStorage + atributo html[lang]
  * 3. t() resuelve BilingualText según locale actual
  */
@@ -18,9 +18,9 @@ import type { Locale, BilingualText } from '../types'
 import { translations } from '../i18n/translations'
 
 const STORAGE_KEY = 'mariosalvarez-locale'
-const DEFAULT_LOCALE: Locale = 'es'
+const DEFAULT_LOCALE: Locale = 'en'
 
-/** Lee locale persistido o devuelve español por defecto */
+/** Lee locale persistido o devuelve inglés por defecto */
 function getStoredLocale(): Locale {
   if (typeof window === 'undefined') return DEFAULT_LOCALE
   const stored = localStorage.getItem(STORAGE_KEY)

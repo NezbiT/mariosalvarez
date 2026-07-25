@@ -20,6 +20,7 @@ export interface Translations {
     home: string
     projects: string
     technologies: string
+    reviews: string
     contact: string
     language: string
   }
@@ -51,6 +52,15 @@ export interface Translations {
     title: string
     subtitle: string
   }
+  reviews: {
+    title: string
+    subtitle: string
+    ctaTitle: string
+    ctaBody: string
+    ctaButton: string
+    ctaSecondary: string
+    agencyLabel: string
+  }
   contact: {
     title: string
     subtitle: string
@@ -70,7 +80,9 @@ export interface Translations {
     submitting: string
     success: string
     error: string
-    directEmail: string
+    hireVia: string
+    hireViaBody: string
+    visitAgency: string
     linkedin: string
     github: string
     projectTypes: {
@@ -92,6 +104,7 @@ export interface Translations {
     rights: string
     builtWith: string
     tagline: string
+    agency: string
   }
   meta: {
     siteTitle: string
@@ -109,6 +122,7 @@ const es: Translations = {
     home: 'Inicio',
     projects: 'Proyectos',
     technologies: 'Tecnologías',
+    reviews: 'Reseñas',
     contact: 'Contacto',
     language: 'EN',
   },
@@ -141,12 +155,23 @@ const es: Translations = {
   technologies: {
     title: 'Tecnologías',
     subtitle:
-      'Stack moderno de desarrollo web combinado con conocimiento profundo del sector industrial y regulatorio de Texas.',
+      'Stack real de producción: Vue/Nuxt, mapas MapLibre, FastAPI, Supabase y pipelines de datos usados en la suite TxBizFinder y proyectos de clientes.',
+  },
+  reviews: {
+    title: 'Reseñas profesionales',
+    subtitle:
+      'Feedback de proyectos en producción. Para trabajo profesional y cotizaciones, contáctame a través de ZeroDigitX.',
+    ctaTitle: '¿Listo para tu próximo proyecto?',
+    ctaBody:
+      'Diseño y desarrollo web bilingüe, sitios de negocio y soluciones a medida en Houston y la Costa del Golfo. Cotización y contacto en ZeroDigitX.',
+    ctaButton: 'Contactar en ZeroDigitX',
+    ctaSecondary: 'Ver agencia',
+    agencyLabel: 'zeroˣ digit',
   },
   contact: {
     title: 'Contacto',
     subtitle:
-      '¿Necesitas una herramienta de datos, dashboard industrial o aplicación web? Cuéntame tu proyecto.',
+      '¿Necesitas una herramienta de datos, dashboard industrial o aplicación web? Cuéntame tu proyecto o contáctame por ZeroDigitX.',
     nameLabel: 'Nombre',
     namePlaceholder: 'Tu nombre completo',
     companyLabel: 'Empresa',
@@ -162,8 +187,10 @@ const es: Translations = {
     submit: 'Enviar mensaje',
     submitting: 'Enviando...',
     success: '¡Mensaje enviado! Te responderé pronto.',
-    error: 'Hubo un error al enviar. Intenta de nuevo o escríbeme directamente.',
-    directEmail: 'mario@mariosalvarez.com',
+    error: 'Hubo un error al enviar. Intenta de nuevo o contáctame por ZeroDigitX.',
+    hireVia: 'Trabajo profesional',
+    hireViaBody: 'Para cotizaciones, sitios web y soluciones a medida, usa el formulario de ZeroDigitX.',
+    visitAgency: 'Ir a ZeroDigitX',
     linkedin: 'LinkedIn',
     github: 'GitHub',
     projectTypes: {
@@ -185,6 +212,7 @@ const es: Translations = {
     rights: '© {year} Mario Alvarez. Todos los derechos reservados.',
     builtWith: 'Construido con Vue 3, TypeScript y Tailwind CSS',
     tagline: 'From Refinery Rope Access to Industrial Data Developer',
+    agency: 'ZeroDigitX',
   },
   meta: {
     siteTitle: 'Mario Alvarez | mariosalvarez.com',
@@ -203,6 +231,7 @@ const en: Translations = {
     home: 'Home',
     projects: 'Projects',
     technologies: 'Technologies',
+    reviews: 'Reviews',
     contact: 'Contact',
     language: 'ES',
   },
@@ -235,12 +264,23 @@ const en: Translations = {
   technologies: {
     title: 'Technologies',
     subtitle:
-      'Modern web development stack combined with deep knowledge of Texas industrial and regulatory sectors.',
+      'Real production stack: Vue/Nuxt, MapLibre maps, FastAPI, Supabase, and data pipelines used across the TxBizFinder suite and client projects.',
+  },
+  reviews: {
+    title: 'Professional reviews',
+    subtitle:
+      'Feedback from production projects. For professional work and quotes, reach me through ZeroDigitX.',
+    ctaTitle: 'Ready for your next project?',
+    ctaBody:
+      'Bilingual web design and development, business sites, and custom solutions in Houston and the Gulf Coast. Quotes and contact via ZeroDigitX.',
+    ctaButton: 'Contact on ZeroDigitX',
+    ctaSecondary: 'Visit agency',
+    agencyLabel: 'zeroˣ digit',
   },
   contact: {
     title: 'Contact',
     subtitle:
-      'Need a data tool, industrial dashboard, or web application? Tell me about your project.',
+      'Need a data tool, industrial dashboard, or web application? Tell me about your project or reach me through ZeroDigitX.',
     nameLabel: 'Name',
     namePlaceholder: 'Your full name',
     companyLabel: 'Company',
@@ -256,8 +296,10 @@ const en: Translations = {
     submit: 'Send message',
     submitting: 'Sending...',
     success: 'Message sent! I will get back to you soon.',
-    error: 'Something went wrong. Please try again or email me directly.',
-    directEmail: 'mario@mariosalvarez.com',
+    error: 'Something went wrong. Please try again or contact me via ZeroDigitX.',
+    hireVia: 'Professional work',
+    hireViaBody: 'For quotes, business websites, and custom solutions, use the ZeroDigitX contact form.',
+    visitAgency: 'Go to ZeroDigitX',
     linkedin: 'LinkedIn',
     github: 'GitHub',
     projectTypes: {
@@ -279,6 +321,7 @@ const en: Translations = {
     rights: '© {year} Mario Alvarez. All rights reserved.',
     builtWith: 'Built with Vue 3, TypeScript, and Tailwind CSS',
     tagline: 'From Refinery Rope Access to Industrial Data Developer',
+    agency: 'ZeroDigitX',
   },
   meta: {
     siteTitle: 'Mario Alvarez | mariosalvarez.com',
@@ -293,12 +336,3 @@ const en: Translations = {
 }
 
 export const translations: Record<Locale, Translations> = { es, en }
-
-/**
- * ### Cómo ejecutar este archivo
- * Importar `translations` desde useI18n.ts; no se ejecuta directamente.
- *
- * ### Qué aprendí en este archivo
- * - Tipar traducciones con interface evita claves faltantes en tiempo de compilación
- * - Mantener ES y EN lado a lado facilita revisar paridad de contenido
- */

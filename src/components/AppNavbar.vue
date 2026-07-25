@@ -12,7 +12,7 @@ defineProps<{
 const { t_ui, toggleLocale } = useI18n()
 const { scrollAndClose } = useScrollTo()
 const { isScrolled } = useScrollDetection()
-const { activeSection } = useScrollSpy(['hero', 'projects', 'technologies', 'contact'])
+const { activeSection } = useScrollSpy(['hero', 'projects', 'technologies', 'reviews', 'contact'])
 
 const isMenuOpen = ref(false)
 const onHero = computed(() => activeSection.value === 'hero' && !isScrolled.value)
@@ -21,6 +21,7 @@ const navLinks = [
   { id: 'hero', key: 'home' as const },
   { id: 'projects', key: 'projects' as const },
   { id: 'technologies', key: 'technologies' as const },
+  { id: 'reviews', key: 'reviews' as const },
   { id: 'contact', key: 'contact' as const },
 ]
 

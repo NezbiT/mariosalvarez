@@ -1,20 +1,11 @@
 <!--
   Pie de página del portafolio.
-
-  Qué hace:
-  - Muestra copyright, stack tecnológico y slogan de marca
-  - Enlaces rápidos a secciones y redes sociales
-
-  Por qué existe:
-  - Cierre profesional con información de contacto persistente
-
-  Cómo funciona:
-  - Año dinámico con new Date(); useI18n para textos bilingües
 -->
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from '../composables/useI18n'
 import { useScrollTo } from '../composables/useScrollTo'
+import { ZERODIGITX_URL } from '../data/reviews'
 
 const { t_ui } = useI18n()
 const { scrollToSection } = useScrollTo()
@@ -27,14 +18,12 @@ const rightsText = computed(() =>
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/mariosalv2/'
 const GITHUB_URL = 'https://github.com/NezbiT'
-const EMAIL = 'mario@mariosalvarez.com'
 </script>
 
 <template>
   <footer class="site-footer py-12 px-4 sm:px-6">
     <div class="mx-auto max-w-6xl">
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-        <!-- Marca -->
         <div>
           <p class="text-xl font-bold footer-title mb-2">Mario Alvarez</p>
           <p class="text-sm italic opacity-80">
@@ -42,8 +31,7 @@ const EMAIL = 'mario@mariosalvarez.com'
           </p>
         </div>
 
-        <!-- Enlaces rápidos -->
-        <nav aria-label="Enlaces del pie">
+        <nav aria-label="Footer links">
           <ul class="space-y-2 text-sm">
             <li>
               <button
@@ -67,6 +55,15 @@ const EMAIL = 'mario@mariosalvarez.com'
               <button
                 type="button"
                 class="hover:text-accent-400 transition-colors"
+                @click="scrollToSection('reviews')"
+              >
+                {{ t_ui.nav.reviews }}
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="hover:text-accent-400 transition-colors"
                 @click="scrollToSection('contact')"
               >
                 {{ t_ui.nav.contact }}
@@ -75,10 +72,14 @@ const EMAIL = 'mario@mariosalvarez.com'
           </ul>
         </nav>
 
-        <!-- Redes -->
         <div class="flex flex-col gap-2 text-sm">
-          <a :href="`mailto:${EMAIL}`" class="hover:text-accent-400 transition-colors">
-            {{ EMAIL }}
+          <a
+            :href="ZERODIGITX_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-accent-400 transition-colors"
+          >
+            {{ t_ui.footer.agency }}
           </a>
           <a
             :href="LINKEDIN_URL"
@@ -106,12 +107,3 @@ const EMAIL = 'mario@mariosalvarez.com'
     </div>
   </footer>
 </template>
-
-<!--
-  ### Cómo ejecutar este archivo
-  Último componente en App.vue, visible al final de la página.
-
-  ### Qué aprendí en este archivo
-  - Reemplazar {year} en traducciones evita strings hardcodeados en plantilla
-  - Footer oscuro contrasta con secciones claras y ancla visualmente el sitio
--->

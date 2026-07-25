@@ -6,6 +6,7 @@ import AppNavbar from './components/AppNavbar.vue'
 import AppHero from './components/AppHero.vue'
 import AppProjects from './components/AppProjects.vue'
 import AppTechnologies from './components/AppTechnologies.vue'
+import AppReviews from './components/AppReviews.vue'
 import AppContact from './components/AppContact.vue'
 import AppFooter from './components/AppFooter.vue'
 import CursorGlow from './components/effects/CursorGlow.vue'
@@ -62,6 +63,7 @@ watch(locale, updateMeta, { immediate: true })
       <div class="section-wave -mt-1" aria-hidden="true" />
       <AppProjects />
       <AppTechnologies />
+      <AppReviews />
       <AppContact />
     </main>
     <AppFooter />
