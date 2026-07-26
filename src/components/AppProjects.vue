@@ -67,7 +67,25 @@ const filters: { value: ProjectFilter; labelKey: 'filterAll' | 'filterLive' | 'f
         />
       </TransitionGroup>
 
-      <p v-else class="text-center text-theme-muted">No hay proyectos en esta categoría.</p>
+      <div
+        v-else
+        class="mx-auto max-w-lg rounded-2xl glass-card p-8 text-center shadow-md"
+        role="status"
+      >
+        <h3 class="mb-2 text-lg font-semibold text-theme-primary">
+          {{ t_ui.projects.emptyTitle }}
+        </h3>
+        <p class="mb-5 text-sm text-theme-muted leading-relaxed">
+          {{ t_ui.projects.emptyBody }}
+        </p>
+        <button
+          type="button"
+          class="btn-interactive inline-flex min-h-11 items-center justify-center rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-500"
+          @click="setFilter('all')"
+        >
+          {{ t_ui.projects.emptyAction }}
+        </button>
+      </div>
     </div>
 
     <ProjectModal :project="selectedProject" :open="isModalOpen" @close="closeProject" />

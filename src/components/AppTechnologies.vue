@@ -26,7 +26,7 @@ const { t, t_ui } = useI18n()
           <TiltCard>
             <article class="h-full rounded-2xl glass-card p-6 xl:p-8 shadow-md transition-shadow duration-300 hover:shadow-xl">
               <h3 class="mb-5 text-lg xl:text-xl font-bold text-theme-primary flex items-center gap-2">
-                <span class="h-2 w-2 rounded-full bg-gradient-to-r from-accent-500 to-cyan-400 animate-float-slow" />
+                <span class="h-2 w-2 rounded-full bg-gradient-to-r from-accent-500 to-cyan-400" />
                 {{ t(group.title) }}
               </h3>
               <ul class="flex flex-wrap gap-2">

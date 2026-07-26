@@ -24,6 +24,11 @@ export interface Translations {
     reviews: string
     contact: string
     language: string
+    languageAria: string
+    menuOpen: string
+    menuClose: string
+    mainNav: string
+    skipToContent: string
   }
   hero: {
     greeting: string
@@ -48,6 +53,9 @@ export interface Translations {
     filterAll: string
     filterLive: string
     filterComingSoon: string
+    emptyTitle: string
+    emptyBody: string
+    emptyAction: string
   }
   technologies: {
     title: string
@@ -60,6 +68,8 @@ export interface Translations {
     openTool: string
     viewGithub: string
     viewPypi: string
+    emptyTitle: string
+    emptyBody: string
   }
   reviews: {
     title: string
@@ -76,6 +86,9 @@ export interface Translations {
     hireVia: string
     hireViaBody: string
     visitAgency: string
+    callNow: string
+    responseTime: string
+    socialHeading: string
     x: string
     linkedin: string
     github: string
@@ -106,6 +119,11 @@ const es: Translations = {
     reviews: 'Reseñas',
     contact: 'Contacto',
     language: 'EN',
+    languageAria: 'Cambiar idioma a inglés',
+    menuOpen: 'Abrir menú',
+    menuClose: 'Cerrar menú',
+    mainNav: 'Navegación principal',
+    skipToContent: 'Saltar al contenido',
   },
   hero: {
     greeting: 'Hola, soy',
@@ -114,24 +132,27 @@ const es: Translations = {
     subtitle:
       'Llevo más de 15 años en desarrollo web. Pasé años en rope access y NDT dentro de refinerías del Golfo de México, y hoy construyo aplicaciones y dashboards que conectan esa experiencia de campo con datos accionables para equipos offshore, contratistas y operadores de Texas.',
     ctaProjects: 'Ver proyectos',
-    ctaContact: 'Contactar',
+    ctaContact: 'Pedir cotización',
     location: 'Houston, Texas · Disponible remoto',
   },
   projects: {
     title: 'Proyectos',
     subtitle:
       'Herramientas reales para el corredor industrial de Houston: directorios, permisos, canales y cumplimiento ambiental.',
-    viewDetails: 'Ver detalles',
-    visitSite: 'Visitar sitio',
-    viewGithub: 'Ver en GitHub',
+    viewDetails: 'Ver detalles del proyecto',
+    visitSite: 'Abrir sitio en vivo',
+    viewGithub: 'Ver código en GitHub',
     statusLive: 'En vivo',
     statusComingSoon: 'Próximamente',
     realUseLabel: 'Uso real',
     technologiesLabel: 'Tecnologías',
-    closeModal: 'Cerrar',
+    closeModal: 'Cerrar detalles del proyecto',
     filterAll: 'Todos',
     filterLive: 'En vivo',
     filterComingSoon: 'Próximamente',
+    emptyTitle: 'No hay proyectos en este filtro',
+    emptyBody: 'Prueba “Todos” o “En vivo” para ver el trabajo en producción.',
+    emptyAction: 'Mostrar todos los proyectos',
   },
   technologies: {
     title: 'Tecnologías',
@@ -144,8 +165,10 @@ const es: Translations = {
     subtitle:
       'Herramientas propias del lab: auditorías web, licencias open source y utilidades listas para usar.',
     openTool: 'Abrir tool',
-    viewGithub: 'GitHub',
-    viewPypi: 'PyPI',
+    viewGithub: 'Ver en GitHub',
+    viewPypi: 'Instalar desde PyPI',
+    emptyTitle: 'Aún no hay tools en el lab',
+    emptyBody: 'Pronto publicaré más herramientas open source y utilidades aquí.',
   },
   reviews: {
     title: 'Reseñas profesionales',
@@ -154,17 +177,20 @@ const es: Translations = {
     ctaTitle: '¿Listo para tu próximo proyecto?',
     ctaBody:
       'Diseño y desarrollo web bilingüe, sitios de negocio y soluciones a medida en Houston y la Costa del Golfo. Cotización y contacto en ZeroDigitX.',
-    ctaButton: 'Contactar en ZeroDigitX',
-    ctaSecondary: 'Ver agencia',
+    ctaButton: 'Pedir cotización en ZeroDigitX',
+    ctaSecondary: 'Visitar zerodigitx.com',
     agencyLabel: 'zeroˣ digit',
   },
   contact: {
     title: 'Contacto',
     subtitle:
-      '¿Necesitas una herramienta de datos, dashboard industrial o aplicación web? Contáctame por ZeroDigitX o en redes.',
-    hireVia: 'Trabajo profesional',
-    hireViaBody: 'Para cotizaciones, sitios web y soluciones a medida, usa el contacto de ZeroDigitX.',
-    visitAgency: 'Ir a ZeroDigitX',
+      '¿Necesitas una herramienta de datos, dashboard industrial o aplicación web? Pide cotización o llámame.',
+    hireVia: 'Pedir cotización',
+    hireViaBody: 'Para sitios web y soluciones a medida, usa el contacto de ZeroDigitX. Suele responder el mismo día.',
+    visitAgency: 'Pedir cotización en ZeroDigitX',
+    callNow: 'Llamar ahora',
+    responseTime: 'Suele responder el mismo día',
+    socialHeading: 'Redes',
     x: 'X / @nezsbit',
     linkedin: 'LinkedIn',
     github: 'GitHub',
@@ -196,6 +222,11 @@ const en: Translations = {
     reviews: 'Reviews',
     contact: 'Contact',
     language: 'ES',
+    languageAria: 'Switch language to Spanish',
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
+    mainNav: 'Main navigation',
+    skipToContent: 'Skip to content',
   },
   hero: {
     greeting: "Hi, I'm",
@@ -204,24 +235,27 @@ const en: Translations = {
     subtitle:
       'I have over 15 years of web development experience. I spent years in rope access and NDT inside Gulf Coast refineries, and today I build web apps and dashboards that bridge that field experience with actionable data for offshore crews, contractors, and Texas operators.',
     ctaProjects: 'View projects',
-    ctaContact: 'Get in touch',
+    ctaContact: 'Request a quote',
     location: 'Houston, Texas · Available remotely',
   },
   projects: {
     title: 'Projects',
     subtitle:
       'Real tools for the Houston industrial corridor: directories, permits, channels, and environmental compliance.',
-    viewDetails: 'View details',
-    visitSite: 'Visit site',
-    viewGithub: 'View on GitHub',
+    viewDetails: 'View project details',
+    visitSite: 'Open live site',
+    viewGithub: 'View code on GitHub',
     statusLive: 'Live',
     statusComingSoon: 'Coming soon',
     realUseLabel: 'Real-world use',
     technologiesLabel: 'Technologies',
-    closeModal: 'Close',
+    closeModal: 'Close project details',
     filterAll: 'All',
     filterLive: 'Live',
     filterComingSoon: 'Coming soon',
+    emptyTitle: 'No projects in this filter',
+    emptyBody: 'Try “All” or “Live” to see production work.',
+    emptyAction: 'Show all projects',
   },
   technologies: {
     title: 'Technologies',
@@ -234,8 +268,10 @@ const en: Translations = {
     subtitle:
       'My lab tools: website audits, open-source license scanning, and utilities ready to use.',
     openTool: 'Open tool',
-    viewGithub: 'GitHub',
-    viewPypi: 'PyPI',
+    viewGithub: 'View on GitHub',
+    viewPypi: 'Install from PyPI',
+    emptyTitle: 'No lab tools yet',
+    emptyBody: 'More open-source tools and utilities will show up here soon.',
   },
   reviews: {
     title: 'Professional reviews',
@@ -244,17 +280,20 @@ const en: Translations = {
     ctaTitle: 'Ready for your next project?',
     ctaBody:
       'Bilingual web design and development, business sites, and custom solutions in Houston and the Gulf Coast. Quotes and contact via ZeroDigitX.',
-    ctaButton: 'Contact on ZeroDigitX',
-    ctaSecondary: 'Visit agency',
+    ctaButton: 'Request a quote on ZeroDigitX',
+    ctaSecondary: 'Visit zerodigitx.com',
     agencyLabel: 'zeroˣ digit',
   },
   contact: {
     title: 'Contact',
     subtitle:
-      'Need a data tool, industrial dashboard, or web application? Reach me through ZeroDigitX or social media.',
-    hireVia: 'Professional work',
-    hireViaBody: 'For quotes, business websites, and custom solutions, use ZeroDigitX contact.',
-    visitAgency: 'Go to ZeroDigitX',
+      'Need a data tool, industrial dashboard, or web application? Request a quote or call me.',
+    hireVia: 'Request a quote',
+    hireViaBody: 'For websites and custom solutions, use ZeroDigitX contact. Usually replies the same day.',
+    visitAgency: 'Request a quote on ZeroDigitX',
+    callNow: 'Call now',
+    responseTime: 'Usually replies the same day',
+    socialHeading: 'Social',
     x: 'X / @nezsbit',
     linkedin: 'LinkedIn',
     github: 'GitHub',

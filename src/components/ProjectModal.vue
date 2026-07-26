@@ -38,15 +38,20 @@ function onKeydown(event: KeyboardEvent): void {
 }
 
 onMounted(() => window.addEventListener('keydown', onKeydown))
-onUnmounted(() => window.removeEventListener('keydown', onKeydown))
+onUnmounted(() => {
+  window.removeEventListener('keydown', onKeydown)
+  if (typeof document !== 'undefined') document.body.style.overflow = ''
+})
 
-// Enfocar el modal al abrir para accesibilidad
+// Enfocar el botón cerrar al abrir; bloquear scroll del body
 watch(
   () => props.open,
   (isOpen) => {
+    if (typeof document === 'undefined') return
+    document.body.style.overflow = isOpen ? 'hidden' : ''
     if (isOpen) {
       requestAnimationFrame(() => {
-        document.getElementById('project-modal')?.focus()
+        document.getElementById('project-modal-close')?.focus()
       })
     }
   },
@@ -75,12 +80,13 @@ watch(
         >
         <!-- Botón cerrar -->
         <button
+          id="project-modal-close"
           type="button"
-          class="absolute right-4 top-4 rounded-lg p-2 text-industrial-500 hover:bg-industrial-100 hover:text-industrial-800"
+          class="absolute right-3 top-3 flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-industrial-500 hover:bg-industrial-100 hover:text-industrial-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500"
           :aria-label="t_ui.projects.closeModal"
           @click="close"
         >
-          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -145,10 +151,10 @@ watch(
             :href="project.links.site"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white hover:bg-accent-500 transition-colors"
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-500 transition-colors"
           >
             {{ t_ui.projects.visitSite }}
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
@@ -157,7 +163,7 @@ watch(
             :href="project.links.github"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-lg border border-industrial-300 px-4 py-2 text-sm font-medium text-industrial-700 hover:border-accent-500 hover:text-accent-600 transition-colors"
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-industrial-300 px-4 py-2.5 text-sm font-medium text-industrial-700 hover:border-accent-500 hover:text-accent-600 transition-colors"
           >
             {{ t_ui.projects.viewGithub }}
           </a>

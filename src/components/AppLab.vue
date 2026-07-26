@@ -34,7 +34,16 @@ const items = computed(() =>
         </header>
       </ScrollReveal>
 
-      <div class="grid gap-6 md:grid-cols-2">
+      <div
+        v-if="items.length === 0"
+        class="mx-auto max-w-lg rounded-2xl glass-card p-8 text-center shadow-md"
+        role="status"
+      >
+        <h3 class="mb-2 text-lg font-semibold text-theme-primary">{{ t_ui.lab.emptyTitle }}</h3>
+        <p class="text-sm text-theme-muted">{{ t_ui.lab.emptyBody }}</p>
+      </div>
+
+      <div v-else class="grid gap-6 md:grid-cols-2">
         <ScrollReveal
           v-for="(item, index) in items"
           :key="item.id"
@@ -75,7 +84,7 @@ const items = computed(() =>
                   :href="item.site"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn-interactive inline-flex items-center gap-2 rounded-lg bg-accent-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-500 shadow-md shadow-accent-600/15"
+                  class="btn-interactive inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-500 shadow-md shadow-accent-600/15"
                 >
                   {{ t_ui.lab.openTool }}
                   <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -87,7 +96,7 @@ const items = computed(() =>
                   :href="item.github"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn-interactive inline-flex items-center gap-2 rounded-lg border border-theme px-4 py-2.5 text-sm font-medium text-theme-secondary hover:text-accent-600 hover:border-accent-500"
+                  class="btn-interactive inline-flex min-h-11 items-center gap-2 rounded-lg border border-theme px-4 py-2.5 text-sm font-medium text-theme-secondary hover:text-accent-600 hover:border-accent-500"
                 >
                   {{ t_ui.lab.viewGithub }}
                 </a>
@@ -96,7 +105,7 @@ const items = computed(() =>
                   :href="item.install"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn-interactive inline-flex items-center gap-2 rounded-lg border border-theme px-4 py-2.5 text-sm font-medium text-theme-secondary hover:text-accent-600 hover:border-accent-500"
+                  class="btn-interactive inline-flex min-h-11 items-center gap-2 rounded-lg border border-theme px-4 py-2.5 text-sm font-medium text-theme-secondary hover:text-accent-600 hover:border-accent-500"
                 >
                   {{ t_ui.lab.viewPypi }}
                 </a>

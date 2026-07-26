@@ -1,14 +1,16 @@
 /**
- * Composable para revelar elementos al entrar en el viewport.
+ * Revela elementos al entrar en el viewport — delays cortos para sensación de velocidad.
  */
 import { ref, watch, onUnmounted, type Ref } from 'vue'
+import { useDeviceCapability } from './useDeviceCapability'
 
-export function useScrollReveal(threshold = 0.15): {
+export function useScrollReveal(threshold = 0.08): {
   target: Ref<HTMLElement | null>
   isVisible: Ref<boolean>
 } {
   const target = ref<HTMLElement | null>(null)
   const isVisible = ref(false)
+  const { isReducedMotion } = useDeviceCapability()
 
   let observer: IntersectionObserver | null = null
 
@@ -18,6 +20,12 @@ export function useScrollReveal(threshold = 0.15): {
       observer?.disconnect()
       if (!el) return
 
+      // Instant for reduced motion — no “waiting for fade”
+      if (isReducedMotion.value) {
+        isVisible.value = true
+        return
+      }
+
       observer = new IntersectionObserver(
         ([entry]) => {
           if (entry?.isIntersecting) {
@@ -25,7 +33,8 @@ export function useScrollReveal(threshold = 0.15): {
             observer?.disconnect()
           }
         },
-        { threshold, rootMargin: '0px 0px -40px 0px' },
+        // Reveal earlier so content is ready before the user finishes scrolling
+        { threshold, rootMargin: '0px 0px 80px 0px' },
       )
 
       observer.observe(el)
@@ -39,11 +48,3 @@ export function useScrollReveal(threshold = 0.15): {
 
   return { target, isVisible }
 }
-
-/**
- * ### Cómo ejecutar este archivo
- * const { target, isVisible } = useScrollReveal(); ref="target" en el template.
- *
- * ### Qué aprendí en este archivo
- * - watch sobre template ref conecta el observer cuando el DOM está listo
- */

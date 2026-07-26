@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watch, computed } from 'vue'
 import { useI18n } from './composables/useI18n'
-import { useMousePosition } from './composables/useMousePosition'
+import { useDeviceCapability } from './composables/useDeviceCapability'
 import AppNavbar from './components/AppNavbar.vue'
 import AppHero from './components/AppHero.vue'
 import AppProjects from './components/AppProjects.vue'
@@ -15,15 +15,11 @@ import ScrollProgressBar from './components/effects/ScrollProgressBar.vue'
 import ParticleCanvas from './components/effects/ParticleCanvas.vue'
 
 const { t_ui, locale } = useI18n()
-const { mouseX, mouseY } = useMousePosition()
+const { enableHeavyEffects } = useDeviceCapability()
 
 const isDevHost = computed(() =>
   typeof window !== 'undefined' && window.location.hostname.startsWith('dev.'),
 )
-
-const globalParallax = computed(() => ({
-  transform: `translate(${mouseX.value * -12}px, ${mouseY.value * -8}px)`,
-}))
 
 function updateMeta(): void {
   document.title = t_ui.value.meta.siteTitle
@@ -41,25 +37,26 @@ watch(locale, updateMeta, { immediate: true })
 
 <template>
   <div class="min-h-screen flex flex-col relative bg-theme-page text-theme-primary">
-    <ScrollProgressBar />
-    <CursorGlow />
+    <a href="#main-content" class="skip-link">
+      {{ t_ui.nav.skipToContent }}
+    </a>
 
-    <!-- Fondo global: partículas + grid + mesh en toda la página -->
+    <ScrollProgressBar />
+    <CursorGlow v-if="enableHeavyEffects" />
+
+    <!-- Fondo: grid + mesh (baratos). Partículas solo en desktop capable -->
     <div class="global-bg-layer" aria-hidden="true">
       <ParticleCanvas />
-      <div class="absolute inset-0 animated-grid opacity-50" />
-      <div class="absolute inset-0 mesh-gradient opacity-40" />
-      <div
-        class="absolute inset-0 parallax-layer opacity-60"
-        :style="globalParallax"
-      >
-        <div class="absolute top-1/4 left-1/4 h-96 w-96 rounded-full parallax-orb-1 blur-3xl" />
-        <div class="absolute bottom-1/3 right-1/4 h-80 w-80 rounded-full parallax-orb-2 blur-3xl" />
+      <div class="absolute inset-0 animated-grid opacity-40" />
+      <div class="absolute inset-0 mesh-gradient opacity-30" />
+      <div class="absolute inset-0 opacity-50">
+        <div class="absolute top-1/4 left-1/4 h-72 w-72 rounded-full parallax-orb-1 blur-3xl" />
+        <div class="absolute bottom-1/3 right-1/4 h-64 w-64 rounded-full parallax-orb-2 blur-3xl" />
       </div>
     </div>
 
     <AppNavbar :show-dev-badge="isDevHost" />
-    <main class="flex-grow relative z-0">
+    <main id="main-content" class="flex-grow relative z-0" tabindex="-1">
       <AppHero />
       <div class="section-wave -mt-1" aria-hidden="true" />
       <AppProjects />

@@ -10,7 +10,6 @@ const props = withDefaults(
 
 const { target, isVisible } = useScrollReveal()
 
-/** Conecta el elemento DOM al observer del composable */
 function setTarget(el: unknown): void {
   target.value = el instanceof HTMLElement ? el : null
 }
@@ -19,9 +18,9 @@ function setTarget(el: unknown): void {
 <template>
   <div
     :ref="setTarget"
-    class="reveal transition-all duration-700 ease-out"
+    class="reveal"
     :class="isVisible ? 'reveal--visible' : 'reveal--hidden'"
-    :style="{ transitionDelay: `${props.delay}ms` }"
+    :style="{ transitionDelay: props.delay ? `${Math.min(props.delay, 120)}ms` : undefined }"
   >
     <slot />
   </div>

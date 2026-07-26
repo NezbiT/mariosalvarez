@@ -27,7 +27,7 @@ function handleClick(): void { emit('select', props.project) }
       <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-500 via-cyan-400 to-accent-600 scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
 
       <div class="mb-4 flex items-start justify-between gap-3">
-        <h3 class="text-lg xl:text-xl font-semibold text-industrial-900 group-hover:text-accent-600 transition-colors duration-300">
+        <h3 class="text-lg xl:text-xl font-semibold text-theme-primary group-hover:text-accent-600 transition-colors duration-300">
           {{ t(project.title) }}
         </h3>
         <span
@@ -38,7 +38,7 @@ function handleClick(): void { emit('select', props.project) }
         </span>
       </div>
 
-      <p class="mb-4 flex-grow text-sm xl:text-base text-industrial-600 leading-relaxed">
+      <p class="mb-4 flex-grow text-sm xl:text-base text-theme-muted leading-relaxed">
         {{ t(project.shortDescription) }}
       </p>
 
