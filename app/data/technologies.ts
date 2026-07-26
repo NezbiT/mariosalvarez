@@ -3,7 +3,7 @@
  * Ordenados por uso real en los proyectos del portafolio (suite TxBizFinder,
  * NavCo, INESA, etc.).
  */
-import type { TechGroup } from '~/types'
+import type { TechGroup } from '#shared/types'
 
 export const techGroups: TechGroup[] = [
   {

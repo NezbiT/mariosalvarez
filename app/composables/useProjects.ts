@@ -16,7 +16,7 @@
  * 3. openProject/closeProject manejan visibilidad del modal
  */
 import { ref, computed } from 'vue'
-import type { Project } from '~/types'
+import type { Project } from '#shared/types'
 import { projects } from '~/data/projects'
 
 export type ProjectFilter = 'all' | 'live' | 'coming-soon'

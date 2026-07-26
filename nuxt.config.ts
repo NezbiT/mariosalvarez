@@ -1,4 +1,4 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// https://nuxt.com/docs/4.x/getting-started/configuration
 import tailwindcss from '@tailwindcss/vite'
 
 const siteUrl = 'https://mariosalvarez.com'
@@ -7,7 +7,7 @@ const siteDescription =
   'Portfolio of Mario Alvarez — industrial data developer in Houston, Texas. From Refinery Rope Access to Industrial Data Developer. Vue/Nuxt, Python, and Gulf Coast data tools.'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2025-01-01',
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
   // Full HTML at build time for crawlers (SSG)
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss() as never],
   },
 
   app: {
@@ -61,8 +61,8 @@ export default defineNuxtConfig({
       ],
       script: [
         {
-          // Prevent theme flash before hydration
-          children: `(function(){try{var t=localStorage.getItem('mariosalvarez-theme');var m=t==='dark'?'dark':'light';document.documentElement.dataset.theme=m;document.documentElement.style.colorScheme=m;}catch(e){}})();`,
+          // Prevent theme flash (Unhead v2: textContent, not children)
+          textContent: `(function(){try{var t=localStorage.getItem('mariosalvarez-theme');var m=t==='dark'?'dark':'light';document.documentElement.dataset.theme=m;document.documentElement.style.colorScheme=m;}catch(e){}})();`,
           type: 'text/javascript',
         },
       ],
@@ -72,5 +72,11 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: false,
+    tsConfig: {
+      compilerOptions: {
+        // Align with TS 7 defaults used in Nuxt 4/5
+        noUncheckedIndexedAccess: true,
+      },
+    },
   },
 })

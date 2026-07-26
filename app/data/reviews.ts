@@ -1,7 +1,7 @@
 /**
  * Reseñas profesionales de clientes y partners.
  */
-import type { BilingualText } from '~/types'
+import type { BilingualText } from '#shared/types'
 
 export interface Review {
   id: string

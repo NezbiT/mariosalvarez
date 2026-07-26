@@ -13,7 +13,7 @@
  * - Cada proyecto implementa la interfaz Project de src/types/index.ts
  * - status 'live' muestra enlace al sitio; 'coming-soon' muestra badge de próximamente
  */
-import type { Project } from '~/types'
+import type { Project } from '#shared/types'
 
 export const projects: Project[] = [
   {

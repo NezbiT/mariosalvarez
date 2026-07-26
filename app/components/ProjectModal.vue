@@ -13,7 +13,7 @@
 -->
 <script setup lang="ts">
 import { watch, onMounted, onUnmounted } from 'vue'
-import type { Project } from '~/types'
+import type { Project } from '#shared/types'
 import { useI18n } from '~/composables/useI18n'
 
 const props = defineProps<{

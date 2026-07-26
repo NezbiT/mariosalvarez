@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Project } from '~/types'
+import type { Project } from '#shared/types'
 import { useI18n } from '~/composables/useI18n'
 import TiltCard from './effects/TiltCard.vue'
 

@@ -1,7 +1,7 @@
 /**
  * Tools del Lab — herramientas propias (open source y web apps).
  */
-import type { LabItem } from '~/types'
+import type { LabItem } from '#shared/types'
 
 export const labItems: LabItem[] = [
   {

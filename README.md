@@ -20,9 +20,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt&logoColor=white" alt="Nuxt 3"/>
+  <img src="https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxt&logoColor=white" alt="Nuxt 4"/>
   <img src="https://img.shields.io/badge/Vue_3-3.5-4FC08D?logo=vue.js&logoColor=white" alt="Vue 3"/>
-  <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/TypeScript-7-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
   <img src="https://img.shields.io/badge/SSG-SEO-000000?logo=vercel&logoColor=white" alt="SSG"/>
   <img src="https://img.shields.io/badge/Vercel-Deploy-000000?logo=vercel&logoColor=white" alt="Vercel"/>
@@ -70,13 +70,14 @@ El sitio incluye **selector ES/EN** instantáneo con preferencia guardada en `lo
 ## Stack técnico
 
 ```
-Nuxt 3 (SSG / nuxt generate)
+Nuxt 4 (SSG / nuxt generate)
 ├── Vue 3 Composition API
-├── TypeScript
+├── TypeScript 7 (project references)
 ├── Tailwind CSS v4
-├── Composables (i18n, proyectos, scroll)
+├── app/ + shared/types structure
 └── Vercel (static deploy from .output/public)
 ```
+
 
 HTML prerendered for crawlers (projects, lab, meta, JSON-LD). Client hydrates filters, modal, and locale toggle.
 

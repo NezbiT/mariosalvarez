@@ -3,7 +3,7 @@
  * Default EN for SSG so prerendered HTML is in English for recruiters/crawlers.
  */
 import { ref, computed, watch } from 'vue'
-import type { Locale, BilingualText } from '~/types'
+import type { Locale, BilingualText } from '#shared/types'
 import { translations } from '~/i18n/translations'
 
 const STORAGE_KEY = 'mariosalvarez-locale'

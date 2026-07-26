@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { TechItem } from '~/types'
+import type { TechItem } from '#shared/types'
 import { techLogoUrl } from '~/data/technologies'
 
 defineProps<{
