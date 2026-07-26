@@ -1,27 +1,27 @@
 {
   "name": "mariosalvarez-com",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "Portafolio profesional de Mario Alvarez — Industrial Data Developer en Houston, Texas",
   "author": "Mario Alvarez <mario@mariosalvarez.com>",
   "homepage": "https://mariosalvarez.com",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "dev": "nuxt dev",
+    "build": "nuxt generate",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "vue": "^3.5.39"
+    "nuxt": "^3.16.2",
+    "vue": "^3.5.39",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^24.13.2",
-    "@vitejs/plugin-vue": "^6.0.7",
-    "@vue/tsconfig": "^0.9.1",
     "tailwindcss": "^4.3.2",
-    "typescript": "~6.0.2",
-    "vite": "^8.1.1",
-    "vue-tsc": "^3.3.5"
+    "typescript": "~5.8.3"
   }
 }

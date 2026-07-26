@@ -20,10 +20,11 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Nuxt-3-00DC82?logo=nuxt&logoColor=white" alt="Nuxt 3"/>
   <img src="https://img.shields.io/badge/Vue_3-3.5-4FC08D?logo=vue.js&logoColor=white" alt="Vue 3"/>
-  <img src="https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
-  <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite"/>
+  <img src="https://img.shields.io/badge/SSG-SEO-000000?logo=vercel&logoColor=white" alt="SSG"/>
   <img src="https://img.shields.io/badge/Vercel-Deploy-000000?logo=vercel&logoColor=white" alt="Vercel"/>
 </p>
 
@@ -69,12 +70,22 @@ El sitio incluye **selector ES/EN** instantáneo con preferencia guardada en `lo
 ## Stack técnico
 
 ```
-Vue 3 (Composition API + script setup)
+Nuxt 3 (SSG / nuxt generate)
+├── Vue 3 Composition API
 ├── TypeScript
 ├── Tailwind CSS v4
-├── Vite 8
-├── Composables propios (i18n, proyectos, scroll)
-└── Vercel (deploy)
+├── Composables (i18n, proyectos, scroll)
+└── Vercel (static deploy from .output/public)
+```
+
+HTML prerendered for crawlers (projects, lab, meta, JSON-LD). Client hydrates filters, modal, and locale toggle.
+
+### Scripts
+
+```bash
+npm run dev        # desarrollo
+npm run generate   # build estático (SEO)
+npm run preview    # previsualizar .output/public
 ```
 
 **También en producción:** [inesa.institute](https://inesa.institute) — Vue 3, Vue Router, Vue I18n, PWA, Sentry.
