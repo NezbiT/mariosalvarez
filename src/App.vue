@@ -5,6 +5,7 @@ import { useMousePosition } from './composables/useMousePosition'
 import AppNavbar from './components/AppNavbar.vue'
 import AppHero from './components/AppHero.vue'
 import AppProjects from './components/AppProjects.vue'
+import AppLab from './components/AppLab.vue'
 import AppTechnologies from './components/AppTechnologies.vue'
 import AppReviews from './components/AppReviews.vue'
 import AppContact from './components/AppContact.vue'
@@ -62,6 +63,7 @@ watch(locale, updateMeta, { immediate: true })
       <AppHero />
       <div class="section-wave -mt-1" aria-hidden="true" />
       <AppProjects />
+      <AppLab />
       <AppTechnologies />
       <AppReviews />
       <AppContact />

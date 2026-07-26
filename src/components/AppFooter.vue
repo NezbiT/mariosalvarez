@@ -47,6 +47,15 @@ const X_URL = 'https://x.com/nezsbit'
               <button
                 type="button"
                 class="hover:text-accent-400 transition-colors"
+                @click="scrollToSection('lab')"
+              >
+                {{ t_ui.nav.lab }}
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="hover:text-accent-400 transition-colors"
                 @click="scrollToSection('technologies')"
               >
                 {{ t_ui.nav.technologies }}

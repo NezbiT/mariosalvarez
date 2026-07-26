@@ -41,6 +41,24 @@ export interface TechGroup {
   items: TechItem[]
 }
 
+/** Tool del Lab (productos/herramientas propias) */
+export interface LabItem {
+  id: string
+  title: BilingualText
+  shortDescription: BilingualText
+  longDescription: BilingualText
+  technologies: string[]
+  /** App / docs live URL */
+  site?: string
+  github?: string
+  /** e.g. PyPI package page */
+  install?: string
+  /** Optional install one-liner shown under the card */
+  command?: string
+  badge: BilingualText
+  priority: number
+}
+
 export interface SelectOption {
   value: string
   label: BilingualText

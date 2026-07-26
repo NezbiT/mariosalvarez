@@ -19,6 +19,7 @@ export interface Translations {
   nav: {
     home: string
     projects: string
+    lab: string
     technologies: string
     reviews: string
     contact: string
@@ -51,6 +52,14 @@ export interface Translations {
   technologies: {
     title: string
     subtitle: string
+  }
+  lab: {
+    eyebrow: string
+    title: string
+    subtitle: string
+    openTool: string
+    viewGithub: string
+    viewPypi: string
   }
   reviews: {
     title: string
@@ -92,6 +101,7 @@ const es: Translations = {
   nav: {
     home: 'Inicio',
     projects: 'Proyectos',
+    lab: 'Lab',
     technologies: 'Tecnologías',
     reviews: 'Reseñas',
     contact: 'Contacto',
@@ -127,6 +137,15 @@ const es: Translations = {
     title: 'Tecnologías',
     subtitle:
       'Stack real de producción: Vue/Nuxt, mapas MapLibre, FastAPI, Supabase y pipelines de datos usados en la suite TxBizFinder y proyectos de clientes.',
+  },
+  lab: {
+    eyebrow: 'Tools',
+    title: 'Lab',
+    subtitle:
+      'Herramientas propias del lab: auditorías web, licencias open source y utilidades listas para usar.',
+    openTool: 'Abrir tool',
+    viewGithub: 'GitHub',
+    viewPypi: 'PyPI',
   },
   reviews: {
     title: 'Reseñas profesionales',
@@ -172,6 +191,7 @@ const en: Translations = {
   nav: {
     home: 'Home',
     projects: 'Projects',
+    lab: 'Lab',
     technologies: 'Technologies',
     reviews: 'Reviews',
     contact: 'Contact',
@@ -207,6 +227,15 @@ const en: Translations = {
     title: 'Technologies',
     subtitle:
       'Real production stack: Vue/Nuxt, MapLibre maps, FastAPI, Supabase, and data pipelines used across the TxBizFinder suite and client projects.',
+  },
+  lab: {
+    eyebrow: 'Tools',
+    title: 'Lab',
+    subtitle:
+      'My lab tools: website audits, open-source license scanning, and utilities ready to use.',
+    openTool: 'Open tool',
+    viewGithub: 'GitHub',
+    viewPypi: 'PyPI',
   },
   reviews: {
     title: 'Professional reviews',
