@@ -20,6 +20,14 @@ export default defineNuxtConfig({
     },
   },
 
+  // GA4: set NUXT_PUBLIC_GA_ID=G-XXXXXXXX on Vercel
+  runtimeConfig: {
+    public: {
+      siteUrl,
+      gaId: '',
+    },
+  },
+
   css: ['~/assets/css/main.css'],
 
   vite: {
