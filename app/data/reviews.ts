@@ -61,5 +61,5 @@ export const reviews: Review[] = [
 /** Enlace principal de contacto profesional vía ZeroDigitX */
 export const ZERODIGITX_URL = 'https://zerodigitx.com'
 export const ZERODIGITX_CONTACT_URL = 'https://zerodigitx.com/contact'
-export const ZERODIGITX_PHONE = 'tel:+12814689892'
-export const ZERODIGITX_PHONE_DISPLAY = '(281) 468-9892'
+export const ZERODIGITX_PHONE = 'tel:+18325097570'
+export const ZERODIGITX_PHONE_DISPLAY = '(832) 509-7570'
