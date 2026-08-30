@@ -31,6 +31,7 @@ const rightsText = computed(() =>
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-8">
         <div>
           <p class="text-xl font-bold footer-title mb-2">Mario Alvarez</p>
+          <p class="text-sm opacity-80">Mario S. Alvarez</p>
           <p class="text-sm italic opacity-80">
             {{ t_ui.footer.tagline }}
           </p>

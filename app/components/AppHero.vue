@@ -33,6 +33,9 @@ const { scrollToSection } = useScrollTo()
         <h1 class="display-xl font-bold text-theme-primary">
           {{ t_ui.hero.name }}
         </h1>
+        <p class="text-base sm:text-lg font-medium text-theme-muted">
+          {{ t_ui.hero.legalName }}
+        </p>
 
         <p class="text-lg sm:text-xl font-semibold text-accent-600 leading-snug">
           {{ t_ui.hero.role }}
@@ -94,7 +97,7 @@ const { scrollToSection } = useScrollTo()
           <div class="relative overflow-hidden rounded-2xl xl:rounded-3xl shadow-2xl ring-2 ring-accent-400/30 glass-card-dark">
             <img
               :src="heroImage"
-              alt="Mario Alvarez, founder, CEO, and owner of ZeroDigitX in Houston, Texas"
+              alt="Mario S. Alvarez (Mario Alvarez), founder, CEO, and owner of ZeroDigitX in Houston, Texas"
               class="h-auto w-full max-w-[min(100%,28rem)] xl:max-w-[min(100%,36rem)] 2xl:max-w-[min(100%,42rem)] object-cover"
               width="640"
               height="640"

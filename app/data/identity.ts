@@ -22,11 +22,13 @@ export const PHONE_DISPLAY = '(832) 509-7570'
 export const OG_IMAGE = `${SITE_URL}/og-image.png`
 
 export const PERSON_NAME = 'Mario Alvarez'
+export const PERSON_LEGAL_NAME = 'Mario S. Alvarez'
+export const PERSON_NAMES = ['Mario Alvarez', 'Mario S. Alvarez', 'Mario S Alvarez'] as const
 export const JOB_TITLE_CEO = 'Founder and CEO of ZeroDigitX'
 export const JOB_TITLE_DEV = 'Industrial Data Developer'
 
 export const PERSON_DESCRIPTION =
-  'Mario Alvarez is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com), a bilingual web studio in Houston and La Porte, Texas. Industrial data developer with 15+ years in web development and a decade of Gulf Coast refinery field experience (rope access and NDT).'
+  'Mario S. Alvarez (Mario Alvarez) is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com), a bilingual web studio in Houston and La Porte, Texas. Industrial data developer with 15+ years in web development and a decade of Gulf Coast refinery field experience (rope access and NDT).'
 
 export const SAME_AS = [
   ZERODIGITX_URL,
@@ -39,7 +41,11 @@ export function personJsonLd() {
   return {
     '@type': 'Person' as const,
     '@id': PERSON_ID,
-    name: PERSON_NAME,
+    name: PERSON_LEGAL_NAME,
+    alternateName: [...PERSON_NAMES],
+    givenName: 'Mario',
+    additionalName: 'S',
+    familyName: 'Alvarez',
     url: SITE_URL,
     image: OG_IMAGE,
     jobTitle: [JOB_TITLE_CEO, JOB_TITLE_DEV],

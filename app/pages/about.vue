@@ -45,7 +45,7 @@ useHead({
             '@type': 'AboutPage',
             '@id': `${pageUrl}#page`,
             url: pageUrl,
-            name: 'About Mario Alvarez',
+            name: 'About Mario S. Alvarez (Mario Alvarez)',
             description: pageDescription,
             mainEntity: { '@id': `${SITE_URL}/#person` },
             isPartOf: { '@id': `${SITE_URL}/#website` },
@@ -69,9 +69,12 @@ useHead({
       <p class="text-sm font-semibold uppercase tracking-widest text-accent-600 mb-3">
         {{ t_ui.about.role }}
       </p>
-      <h1 class="display-lg font-bold text-theme-primary mb-6">
+      <h1 class="display-lg font-bold text-theme-primary mb-2">
         {{ t_ui.hero.name }}
       </h1>
+      <p class="text-lg font-medium text-theme-muted mb-6">
+        {{ t_ui.hero.legalName }}
+      </p>
       <p class="text-lg sm:text-xl text-theme-secondary leading-relaxed mb-6">
         {{ t_ui.about.lead }}
       </p>

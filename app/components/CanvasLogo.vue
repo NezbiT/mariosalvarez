@@ -101,7 +101,7 @@ watch(() => props.size, paint)
     :width="size"
     :height="size"
     role="img"
-    aria-label="Mario Alvarez"
+    aria-label="Mario Alvarez, Mario S. Alvarez"
   />
 </template>
 

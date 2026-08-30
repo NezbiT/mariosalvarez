@@ -2,9 +2,9 @@
 import tailwindcss from '@tailwindcss/vite'
 
 const siteUrl = 'https://mariosalvarez.com'
-const siteTitle = 'Mario Alvarez — Founder & CEO of ZeroDigitX | Houston'
+const siteTitle = 'Mario S. Alvarez (Mario Alvarez) — CEO of ZeroDigitX | Houston'
 const siteDescription =
-  'Mario Alvarez is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com). Industrial data developer in Houston and La Porte, Texas. Vue/Nuxt, Python, and Gulf Coast data tools.'
+  'Mario S. Alvarez, also known as Mario Alvarez, is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com). Industrial data developer in Houston and La Porte, Texas.'
 const ogImage = `${siteUrl}/og-image.png`
 
 export default defineNuxtConfig({
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: siteDescription },
-        { name: 'author', content: 'Mario Alvarez' },
+        { name: 'author', content: 'Mario S. Alvarez' },
         { name: 'robots', content: 'index, follow' },
         { name: 'theme-color', content: '#0284c7' },
         { property: 'og:type', content: 'profile' },
