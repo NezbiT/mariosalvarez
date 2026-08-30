@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="docs/images/banner.svg" alt="Mario Alvarez — mariosalvarez.com" width="920" />
+  <img src="docs/images/banner.svg" alt="Mario S. Alvarez (Mario Alvarez) — mariosalvarez.com" width="920" />
 </p>
 
 <p align="center">
-  <img src="docs/images/hero.png" alt="Mario Alvarez — Industrial Data Developer" width="280" />
+  <img src="docs/images/hero.png" alt="Mario S. Alvarez (Mario Alvarez) — Founder & CEO of ZeroDigitX" width="280" />
 </p>
 
 <h1 align="center">mariosalvarez.com</h1>
 
 <p align="center">
-  <strong>Portafolio profesional bilingüe (ES/EN) de Mario Alvarez</strong><br/>
+  <strong>Portafolio profesional bilingüe (ES/EN) de Mario S. Alvarez (Mario Alvarez)</strong><br/>
   <em>From Refinery Rope Access to Industrial Data Developer</em>
 </p>
 
@@ -30,9 +30,9 @@
 
 ---
 
-## Sobre Mario
+## Sobre Mario S. Alvarez (Mario Alvarez)
 
-Con **más de 15 años en desarrollo web**, Mario combina experiencia real en **rope access y NDT en refinerías del Golfo de México** con desarrollo moderno de **aplicaciones web, dashboards y herramientas de datos** para el sector energético de Houston/Texas.
+**Founder & CEO of ZeroDigitX.** Con **más de 15 años en desarrollo web**, Mario S. Alvarez (Mario Alvarez) combina experiencia real en **rope access y NDT en refinerías del Golfo de México** con desarrollo moderno de **aplicaciones web, dashboards y herramientas de datos** para el sector energético de Houston/Texas.
 
 Disponible para proyectos **freelance** y oportunidades **full-time** en el área de Houston.
 
@@ -181,4 +181,4 @@ O conectar el repo en [vercel.com](https://vercel.com) — Vercel detecta Vite a
 
 ## Licencia
 
-© Mario Alvarez. Todos los derechos reservados.
+© Mario S. Alvarez (Mario Alvarez). Todos los derechos reservados.

@@ -1,6 +1,6 @@
 /**
  * Canonical identity for crawlers, JSON-LD, and AI agents.
- * Visible copy must match these facts: Mario Alvarez is founder, CEO, and owner of ZeroDigitX.
+ * Visible copy must match these facts: Mario S. Alvarez (Mario Alvarez) is founder, CEO, and owner of ZeroDigitX.
  */
 export const SITE_URL = 'https://mariosalvarez.com'
 export const PERSON_ID = `${SITE_URL}/#person`

@@ -53,7 +53,7 @@ export default defineNuxtConfig({
         { property: 'og:image', content: ogImage },
         { property: 'og:locale', content: 'en_US' },
         { property: 'og:locale:alternate', content: 'es_US' },
-        { property: 'og:site_name', content: 'Mario Alvarez' },
+        { property: 'og:site_name', content: 'Mario S. Alvarez' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: siteTitle },
         { name: 'twitter:description', content: siteDescription },

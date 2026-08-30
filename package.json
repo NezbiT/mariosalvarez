@@ -3,8 +3,8 @@
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "description": "Portafolio profesional de Mario Alvarez — Industrial Data Developer en Houston, Texas",
-  "author": "Mario Alvarez <mario@mariosalvarez.com>",
+  "description": "Portafolio de Mario S. Alvarez (Mario Alvarez) — Founder & CEO of ZeroDigitX. Industrial Data Developer en Houston, Texas",
+  "author": "Mario S. Alvarez (Mario Alvarez) <mario@mariosalvarez.com>",
   "homepage": "https://mariosalvarez.com",
   "scripts": {
     "dev": "nuxt dev",
