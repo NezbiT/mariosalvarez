@@ -5,106 +5,69 @@
  */
 import { projects } from '~/data/projects'
 import { labItems } from '~/data/lab'
+import {
+  OG_IMAGE,
+  PERSON_DESCRIPTION,
+  SITE_URL,
+  organizationJsonLd,
+  personJsonLd,
+  websiteJsonLd,
+} from '~/data/identity'
 
-const siteUrl = 'https://mariosalvarez.com'
-const siteTitle = 'Mario Alvarez | mariosalvarez.com'
-const siteDescription =
-  'Portfolio of Mario Alvarez — industrial data developer in Houston, Texas. From Refinery Rope Access to Industrial Data Developer. Vue/Nuxt, Python, and Gulf Coast data tools.'
+const { t_ui } = useI18n()
+
+const siteTitle = computed(() => t_ui.value.meta.siteTitle)
+const siteDescription = PERSON_DESCRIPTION
 
 useSeoMeta({
   title: siteTitle,
   description: siteDescription,
   ogTitle: siteTitle,
   ogDescription: siteDescription,
-  ogUrl: siteUrl,
-  ogType: 'website',
+  ogUrl: SITE_URL,
+  ogType: 'profile',
+  ogImage: OG_IMAGE,
   twitterCard: 'summary_large_image',
   twitterTitle: siteTitle,
   twitterDescription: siteDescription,
+  twitterImage: OG_IMAGE,
   robots: 'index, follow',
 })
 
 useHead({
-  link: [{ rel: 'canonical', href: siteUrl }],
+  link: [{ rel: 'canonical', href: SITE_URL }],
   script: [
     {
       type: 'application/ld+json',
       textContent: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: 'Mario Alvarez',
-        url: siteUrl,
-        jobTitle: 'Industrial Data Developer',
-        description: siteDescription,
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Houston',
-          addressRegion: 'TX',
-          addressCountry: 'US',
-        },
-        sameAs: [
-          'https://github.com/NezbiT',
-          'https://www.linkedin.com/in/mariosalv2/',
-          'https://x.com/nezsbit',
-          'https://zerodigitx.com',
-        ],
-        knowsAbout: [
-          'Nuxt',
-          'Vue.js',
-          'Python',
-          'Industrial data',
-          'Web development',
-        ],
-        hasOccupation: {
-          '@type': 'Occupation',
-          name: 'Industrial Data Developer',
-          occupationLocation: {
-            '@type': 'City',
-            name: 'Houston',
+        '@graph': [
+          personJsonLd(),
+          organizationJsonLd(),
+          websiteJsonLd(),
+          {
+            '@type': 'ItemList',
+            name: 'Featured projects',
+            itemListElement: projects.map((p, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: p.title.en,
+              description: p.shortDescription.en,
+              url: p.links.site || SITE_URL,
+            })),
           },
-        },
-      }),
-    },
-    {
-      type: 'application/ld+json',
-      textContent: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Mario Alvarez',
-        url: siteUrl,
-        description: siteDescription,
-        inLanguage: ['en', 'es'],
-        author: { '@type': 'Person', name: 'Mario Alvarez' },
-      }),
-    },
-    {
-      type: 'application/ld+json',
-      textContent: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        name: 'Featured projects',
-        itemListElement: projects.map((p, i) => ({
-          '@type': 'ListItem',
-          position: i + 1,
-          name: p.title.en,
-          description: p.shortDescription.en,
-          url: p.links.site || siteUrl,
-        })),
-      }),
-    },
-    {
-      type: 'application/ld+json',
-      textContent: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        name: 'Lab tools',
-        itemListElement: labItems.map((item, i) => ({
-          '@type': 'ListItem',
-          position: i + 1,
-          name: item.title.en,
-          description: item.shortDescription.en,
-          url: item.site || item.github || siteUrl,
-        })),
+          {
+            '@type': 'ItemList',
+            name: 'Lab tools',
+            itemListElement: labItems.map((item, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: item.title.en,
+              description: item.shortDescription.en,
+              url: item.site || item.github || SITE_URL,
+            })),
+          },
+        ],
       }),
     },
   ],

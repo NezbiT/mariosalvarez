@@ -2,6 +2,7 @@
  * Reseñas profesionales de clientes y partners.
  */
 import type { BilingualText } from '#shared/types'
+import { PHONE, PHONE_DISPLAY } from './identity'
 
 export interface Review {
   id: string
@@ -58,8 +59,10 @@ export const reviews: Review[] = [
   },
 ]
 
-/** Enlace principal de contacto profesional vía ZeroDigitX */
-export const ZERODIGITX_URL = 'https://zerodigitx.com'
-export const ZERODIGITX_CONTACT_URL = 'https://zerodigitx.com/contact'
-export const ZERODIGITX_PHONE = 'tel:+18325097570'
-export const ZERODIGITX_PHONE_DISPLAY = '(832) 509-7570'
+export {
+  ZERODIGITX_URL,
+  ZERODIGITX_CONTACT_URL,
+} from './identity'
+
+export const ZERODIGITX_PHONE = `tel:${PHONE}`
+export const ZERODIGITX_PHONE_DISPLAY = PHONE_DISPLAY

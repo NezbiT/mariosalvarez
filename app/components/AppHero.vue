@@ -34,6 +34,10 @@ const { scrollToSection } = useScrollTo()
           {{ t_ui.hero.name }}
         </h1>
 
+        <p class="text-lg sm:text-xl font-semibold text-accent-600 leading-snug">
+          {{ t_ui.hero.role }}
+        </p>
+
         <p class="display-lg font-semibold text-theme-secondary leading-snug">
           {{ t_ui.hero.slogan }}
         </p>
@@ -43,6 +47,12 @@ const { scrollToSection } = useScrollTo()
         </p>
 
         <div class="flex flex-wrap gap-3">
+          <a
+            href="https://zerodigitx.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="stat-pill"
+          >ZeroDigitX</a>
           <span class="stat-pill">Nuxt</span>
           <span class="stat-pill">Python</span>
           <span class="stat-pill">15+ {{ locale === 'es' ? 'años web' : 'yrs web' }}</span>
@@ -58,20 +68,20 @@ const { scrollToSection } = useScrollTo()
         </p>
 
         <div class="flex flex-wrap gap-4 pt-2">
-          <button
-            type="button"
-            class="btn-interactive min-h-11 rounded-xl bg-gradient-to-r from-accent-600 to-cyan-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-accent-600/25 hover:shadow-accent-500/40"
-            @click="scrollToSection('projects')"
+          <a
+            href="#projects"
+            class="btn-interactive min-h-11 inline-flex items-center rounded-xl bg-gradient-to-r from-accent-600 to-cyan-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-accent-600/25 hover:shadow-accent-500/40"
+            @click.prevent="scrollToSection('projects')"
           >
             {{ t_ui.hero.ctaProjects }}
-          </button>
-          <button
-            type="button"
-            class="btn-interactive min-h-11 rounded-xl border border-theme glass-btn px-6 py-3.5 font-semibold text-theme-secondary hover:text-accent-600"
-            @click="scrollToSection('contact')"
+          </a>
+          <a
+            href="#contact"
+            class="btn-interactive min-h-11 inline-flex items-center rounded-xl border border-theme glass-btn px-6 py-3.5 font-semibold text-theme-secondary hover:text-accent-600"
+            @click.prevent="scrollToSection('contact')"
           >
             {{ t_ui.hero.ctaContact }}
-          </button>
+          </a>
         </div>
       </div>
 
@@ -84,7 +94,7 @@ const { scrollToSection } = useScrollTo()
           <div class="relative overflow-hidden rounded-2xl xl:rounded-3xl shadow-2xl ring-2 ring-accent-400/30 glass-card-dark">
             <img
               :src="heroImage"
-              alt="Mario Alvarez — Industrial Data Developer"
+              alt="Mario Alvarez, founder, CEO, and owner of ZeroDigitX in Houston, Texas"
               class="h-auto w-full max-w-[min(100%,28rem)] xl:max-w-[min(100%,36rem)] 2xl:max-w-[min(100%,42rem)] object-cover"
               width="640"
               height="640"
@@ -94,8 +104,8 @@ const { scrollToSection } = useScrollTo()
             />
             <div class="absolute inset-0 bg-gradient-to-t from-industrial-900/30 via-transparent to-accent-500/10 pointer-events-none" aria-hidden="true" />
             <div class="absolute bottom-4 left-4 right-4 glass-card-dark rounded-xl px-4 py-3 text-sm text-theme-secondary">
-              <span class="text-accent-500 font-mono text-xs">// developer</span>
-              <p class="mt-1 font-medium text-theme-primary">Industrial Data · Web · Houston</p>
+              <span class="text-accent-500 font-mono text-xs">{{ t_ui.hero.photoKicker }}</span>
+              <p class="mt-1 font-medium text-theme-primary">{{ t_ui.hero.photoCaption }}</p>
             </div>
           </div>
         </div>

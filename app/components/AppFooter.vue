@@ -5,20 +5,24 @@
 import { computed } from 'vue'
 import { useI18n } from '~/composables/useI18n'
 import { useScrollTo } from '~/composables/useScrollTo'
-import { ZERODIGITX_URL } from '~/data/reviews'
+import { GITHUB_URL, LINKEDIN_URL, X_URL, ZERODIGITX_URL } from '~/data/identity'
 
 const { t_ui } = useI18n()
 const { scrollToSection } = useScrollTo()
+const route = useRoute()
 
 const currentYear = computed(() => new Date().getFullYear())
+
+function onFooterNav(event: MouseEvent, sectionId: string): void {
+  if (route.path === '/') {
+    event.preventDefault()
+    scrollToSection(sectionId)
+  }
+}
 
 const rightsText = computed(() =>
   t_ui.value.footer.rights.replace('{year}', String(currentYear.value)),
 )
-
-const LINKEDIN_URL = 'https://www.linkedin.com/in/mariosalv2/'
-const GITHUB_URL = 'https://github.com/NezbiT'
-const X_URL = 'https://x.com/nezsbit'
 </script>
 
 <template>
@@ -30,54 +34,65 @@ const X_URL = 'https://x.com/nezsbit'
           <p class="text-sm italic opacity-80">
             {{ t_ui.footer.tagline }}
           </p>
+          <p class="mt-2 text-sm opacity-80">
+            {{ t_ui.footer.identity }}
+          </p>
         </div>
 
         <nav aria-label="Footer links">
           <ul class="space-y-2 text-sm">
             <li>
-              <button
-                type="button"
+              <a
+                href="/#projects"
                 class="hover:text-accent-400 transition-colors"
-                @click="scrollToSection('projects')"
+                @click="onFooterNav($event, 'projects')"
               >
                 {{ t_ui.nav.projects }}
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                type="button"
+              <a
+                href="/#lab"
                 class="hover:text-accent-400 transition-colors"
-                @click="scrollToSection('lab')"
+                @click="onFooterNav($event, 'lab')"
               >
                 {{ t_ui.nav.lab }}
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                type="button"
+              <a
+                href="/#technologies"
                 class="hover:text-accent-400 transition-colors"
-                @click="scrollToSection('technologies')"
+                @click="onFooterNav($event, 'technologies')"
               >
                 {{ t_ui.nav.technologies }}
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                type="button"
+              <a
+                href="/#reviews"
                 class="hover:text-accent-400 transition-colors"
-                @click="scrollToSection('reviews')"
+                @click="onFooterNav($event, 'reviews')"
               >
                 {{ t_ui.nav.reviews }}
-              </button>
+              </a>
             </li>
             <li>
-              <button
-                type="button"
+              <a
+                href="/#contact"
                 class="hover:text-accent-400 transition-colors"
-                @click="scrollToSection('contact')"
+                @click="onFooterNav($event, 'contact')"
               >
                 {{ t_ui.nav.contact }}
-              </button>
+              </a>
+            </li>
+            <li>
+              <NuxtLink
+                to="/about"
+                class="hover:text-accent-400 transition-colors"
+              >
+                {{ t_ui.nav.about }}
+              </NuxtLink>
             </li>
           </ul>
         </nav>
@@ -94,7 +109,7 @@ const X_URL = 'https://x.com/nezsbit'
           <a
             :href="X_URL"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="me noopener noreferrer"
             class="hover:text-accent-400 transition-colors"
           >
             X / @nezsbit
@@ -102,7 +117,7 @@ const X_URL = 'https://x.com/nezsbit'
           <a
             :href="LINKEDIN_URL"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="me noopener noreferrer"
             class="hover:text-accent-400 transition-colors"
           >
             LinkedIn
@@ -110,7 +125,7 @@ const X_URL = 'https://x.com/nezsbit'
           <a
             :href="GITHUB_URL"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="me noopener noreferrer"
             class="hover:text-accent-400 transition-colors"
           >
             GitHub

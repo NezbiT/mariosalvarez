@@ -21,8 +21,14 @@ const NAVBAR_OFFSET = 80
 export function useScrollTo() {
   /** Desplaza suavemente hacia la sección indicada */
   function scrollToSection(sectionId: string): void {
+    if (!import.meta.client) return
     const element = document.getElementById(sectionId)
-    if (!element) return
+    if (!element) {
+      if (window.location.pathname !== '/') {
+        void navigateTo(`/#${sectionId}`)
+      }
+      return
+    }
 
     const top =
       element.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET

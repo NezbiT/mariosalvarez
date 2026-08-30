@@ -2,9 +2,10 @@
 import tailwindcss from '@tailwindcss/vite'
 
 const siteUrl = 'https://mariosalvarez.com'
-const siteTitle = 'Mario Alvarez | mariosalvarez.com'
+const siteTitle = 'Mario Alvarez — Founder & CEO of ZeroDigitX | Houston'
 const siteDescription =
-  'Portfolio of Mario Alvarez — industrial data developer in Houston, Texas. From Refinery Rope Access to Industrial Data Developer. Vue/Nuxt, Python, and Gulf Coast data tools.'
+  'Mario Alvarez is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com). Industrial data developer in Houston and La Porte, Texas. Vue/Nuxt, Python, and Gulf Coast data tools.'
+const ogImage = `${siteUrl}/og-image.png`
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -16,7 +17,7 @@ export default defineNuxtConfig({
     preset: 'static',
     prerender: {
       crawlLinks: true,
-      routes: ['/'],
+      routes: ['/', '/about'],
     },
   },
 
@@ -45,21 +46,27 @@ export default defineNuxtConfig({
         { name: 'author', content: 'Mario Alvarez' },
         { name: 'robots', content: 'index, follow' },
         { name: 'theme-color', content: '#0284c7' },
-        { property: 'og:type', content: 'website' },
+        { property: 'og:type', content: 'profile' },
         { property: 'og:url', content: siteUrl },
         { property: 'og:title', content: siteTitle },
         { property: 'og:description', content: siteDescription },
+        { property: 'og:image', content: ogImage },
         { property: 'og:locale', content: 'en_US' },
         { property: 'og:locale:alternate', content: 'es_US' },
         { property: 'og:site_name', content: 'Mario Alvarez' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: siteTitle },
         { name: 'twitter:description', content: siteDescription },
+        { name: 'twitter:image', content: ogImage },
         { name: 'twitter:site', content: '@nezsbit' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'canonical', href: siteUrl },
+        { rel: 'me', href: 'https://github.com/NezbiT' },
+        { rel: 'me', href: 'https://www.linkedin.com/in/mariosalv2/' },
+        { rel: 'me', href: 'https://x.com/nezsbit' },
+        { rel: 'me', href: 'https://zerodigitx.com' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {

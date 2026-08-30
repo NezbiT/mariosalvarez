@@ -29,15 +29,29 @@ export interface Translations {
     menuClose: string
     mainNav: string
     skipToContent: string
+    about: string
   }
   hero: {
     greeting: string
     name: string
+    role: string
     slogan: string
     subtitle: string
     ctaProjects: string
     ctaContact: string
     location: string
+    photoCaption: string
+    photoKicker: string
+  }
+  about: {
+    title: string
+    role: string
+    lead: string
+    body: string
+    companyTitle: string
+    companyBody: string
+    visitStudio: string
+    backHome: string
   }
   projects: {
     title: string
@@ -98,6 +112,7 @@ export interface Translations {
     builtWith: string
     tagline: string
     agency: string
+    identity: string
   }
   meta: {
     siteTitle: string
@@ -124,16 +139,33 @@ const es: Translations = {
     menuClose: 'Cerrar menú',
     mainNav: 'Navegación principal',
     skipToContent: 'Saltar al contenido',
+    about: 'Sobre mí',
   },
   hero: {
     greeting: 'Hola, soy',
     name: 'Mario Alvarez',
+    role: 'Fundador, CEO y dueño de ZeroDigitX',
     slogan: 'De Rope Access en Refinería a Desarrollador de Datos Industriales',
     subtitle:
-      'Llevo más de 15 años en desarrollo web. Pasé años en rope access y NDT dentro de refinerías del Golfo de México, y hoy construyo aplicaciones y dashboards que conectan esa experiencia de campo con datos accionables para equipos offshore, contratistas y operadores de Texas.',
+      'Fundé y soy dueño de ZeroDigitX (zerodigitx.com), estudio web bilingüe en Houston y La Porte, Texas. Llevo más de 15 años en desarrollo web. Pasé años en rope access y NDT dentro de refinerías del Golfo de México, y hoy construyo aplicaciones y dashboards que conectan esa experiencia de campo con datos accionables para equipos offshore, contratistas y operadores de Texas.',
     ctaProjects: 'Ver proyectos',
     ctaContact: 'Pedir cotización',
-    location: 'Houston, Texas · Disponible remoto',
+    location: 'Houston / La Porte, Texas · Disponible remoto',
+    photoCaption: 'ZeroDigitX · Houston',
+    photoKicker: '// founder & ceo',
+  },
+  about: {
+    title: 'Quién soy',
+    role: 'Fundador, CEO y dueño de ZeroDigitX',
+    lead:
+      'Mario Alvarez es el fundador, director ejecutivo y dueño de ZeroDigitX (zerodigitx.com), un estudio de diseño y desarrollo web bilingüe (español/inglés) en Houston y La Porte, Texas.',
+    body:
+      'Lleva más de 15 años en desarrollo web y una década de disciplina industrial en la Costa del Golfo — rope access y NDT dentro de refinerías. Hoy construye sitios, dashboards y herramientas de datos para negocios y operadores de Texas. El trabajo profesional y las cotizaciones salen de ZeroDigitX, la empresa que fundó y dirige.',
+    companyTitle: 'ZeroDigitX',
+    companyBody:
+      'ZeroDigitX (también Zeroˣ Digit, Zero Digit X) es un estudio de sitios bilingües y sistemas a medida para negocios en Houston, La Porte y la Costa del Golfo. Mario Alvarez es su único fundador, CEO y dueño.',
+    visitStudio: 'Visitar zerodigitx.com',
+    backHome: 'Volver al portafolio',
   },
   projects: {
     title: 'Proyectos',
@@ -173,10 +205,10 @@ const es: Translations = {
   reviews: {
     title: 'Reseñas profesionales',
     subtitle:
-      'Feedback de proyectos en producción. Para trabajo profesional y cotizaciones, contáctame a través de ZeroDigitX.',
+      'Feedback de proyectos en producción. El trabajo profesional y las cotizaciones van por ZeroDigitX, el estudio que fundé y dirijo.',
     ctaTitle: '¿Listo para tu próximo proyecto?',
     ctaBody:
-      'Diseño y desarrollo web bilingüe, sitios de negocio y soluciones a medida en Houston y la Costa del Golfo. Cotización y contacto en ZeroDigitX.',
+      'Diseño y desarrollo web bilingüe, sitios de negocio y soluciones a medida en Houston y la Costa del Golfo. Soy el fundador, CEO y dueño de ZeroDigitX: cotiza ahí.',
     ctaButton: 'Pedir cotización en ZeroDigitX',
     ctaSecondary: 'Visitar zerodigitx.com',
     agencyLabel: 'zeroˣ digit',
@@ -186,7 +218,8 @@ const es: Translations = {
     subtitle:
       '¿Necesitas una herramienta de datos, dashboard industrial o aplicación web? Pide cotización o llámame.',
     hireVia: 'Pedir cotización',
-    hireViaBody: 'Para sitios web y soluciones a medida, usa el contacto de ZeroDigitX. Suele responder el mismo día.',
+    hireViaBody:
+      'Soy el fundador, CEO y dueño de ZeroDigitX. Para sitios web y soluciones a medida, pide cotización ahí. Suele responder el mismo día.',
     visitAgency: 'Pedir cotización en ZeroDigitX',
     callNow: 'Llamar ahora',
     responseTime: 'Suele responder el mismo día',
@@ -198,13 +231,14 @@ const es: Translations = {
   footer: {
     rights: '© {year} Mario Alvarez. Todos los derechos reservados.',
     builtWith: 'Construido con Vue 3, TypeScript y Tailwind CSS',
-    tagline: 'From Refinery Rope Access to Industrial Data Developer',
+    tagline: 'Fundador, CEO y dueño de ZeroDigitX · Houston, Texas',
     agency: 'ZeroDigitX',
+    identity: 'Fundador y CEO de ZeroDigitX',
   },
   meta: {
-    siteTitle: 'Mario Alvarez | mariosalvarez.com',
+    siteTitle: 'Mario Alvarez — Fundador y CEO de ZeroDigitX | Houston',
     siteDescription:
-      'Portafolio de Mario Alvarez — desarrollador de datos industriales en Houston, Texas. Proyectos en Vue 3, Python y herramientas para el sector petroquímico.',
+      'Mario Alvarez es el fundador, CEO y dueño de ZeroDigitX (zerodigitx.com). Desarrollador de datos industriales en Houston y La Porte, Texas. Vue/Nuxt, Python y herramientas para la Costa del Golfo.',
   },
   theme: {
     light: 'Claro',
@@ -227,16 +261,33 @@ const en: Translations = {
     menuClose: 'Close menu',
     mainNav: 'Main navigation',
     skipToContent: 'Skip to content',
+    about: 'About',
   },
   hero: {
     greeting: "Hi, I'm",
     name: 'Mario Alvarez',
+    role: 'Founder, CEO, and owner of ZeroDigitX',
     slogan: 'From Refinery Rope Access to Industrial Data Developer',
     subtitle:
-      'I have over 15 years of web development experience. I spent years in rope access and NDT inside Gulf Coast refineries, and today I build web apps and dashboards that bridge that field experience with actionable data for offshore crews, contractors, and Texas operators.',
+      'I founded and own ZeroDigitX (zerodigitx.com), a bilingual web studio in Houston and La Porte, Texas. I have over 15 years of web development experience. I spent years in rope access and NDT inside Gulf Coast refineries, and today I build web apps and dashboards that bridge that field experience with actionable data for offshore crews, contractors, and Texas operators.',
     ctaProjects: 'View projects',
     ctaContact: 'Request a quote',
-    location: 'Houston, Texas · Available remotely',
+    location: 'Houston / La Porte, Texas · Available remotely',
+    photoCaption: 'ZeroDigitX · Houston',
+    photoKicker: '// founder & ceo',
+  },
+  about: {
+    title: 'Who I am',
+    role: 'Founder, CEO, and owner of ZeroDigitX',
+    lead:
+      'Mario Alvarez is the founder, chief executive officer, and owner of ZeroDigitX (zerodigitx.com), a bilingual (Spanish/English) web design and custom software studio in Houston and La Porte, Texas.',
+    body:
+      'He has over 15 years of web development experience and a decade of industrial discipline on the Gulf Coast — rope access and NDT inside refineries. Today he builds sites, dashboards, and data tools for Texas businesses and operators. Professional work and quotes go through ZeroDigitX, the company he founded and leads.',
+    companyTitle: 'ZeroDigitX',
+    companyBody:
+      'ZeroDigitX (also written Zeroˣ Digit, Zero Digit X) is a bilingual website and custom-systems studio for businesses in Houston, La Porte, and the Gulf Coast. Mario Alvarez is its founder, CEO, and owner.',
+    visitStudio: 'Visit zerodigitx.com',
+    backHome: 'Back to portfolio',
   },
   projects: {
     title: 'Projects',
@@ -276,10 +327,10 @@ const en: Translations = {
   reviews: {
     title: 'Professional reviews',
     subtitle:
-      'Feedback from production projects. For professional work and quotes, reach me through ZeroDigitX.',
+      'Feedback from production projects. Professional work and quotes go through ZeroDigitX, the studio I founded and lead.',
     ctaTitle: 'Ready for your next project?',
     ctaBody:
-      'Bilingual web design and development, business sites, and custom solutions in Houston and the Gulf Coast. Quotes and contact via ZeroDigitX.',
+      'Bilingual web design and development, business sites, and custom solutions in Houston and the Gulf Coast. I am the founder, CEO, and owner of ZeroDigitX — request a quote there.',
     ctaButton: 'Request a quote on ZeroDigitX',
     ctaSecondary: 'Visit zerodigitx.com',
     agencyLabel: 'zeroˣ digit',
@@ -289,7 +340,8 @@ const en: Translations = {
     subtitle:
       'Need a data tool, industrial dashboard, or web application? Request a quote or call me.',
     hireVia: 'Request a quote',
-    hireViaBody: 'For websites and custom solutions, use ZeroDigitX contact. Usually replies the same day.',
+    hireViaBody:
+      'I am the founder, CEO, and owner of ZeroDigitX. For websites and custom solutions, request a quote there. Usually replies the same day.',
     visitAgency: 'Request a quote on ZeroDigitX',
     callNow: 'Call now',
     responseTime: 'Usually replies the same day',
@@ -301,13 +353,14 @@ const en: Translations = {
   footer: {
     rights: '© {year} Mario Alvarez. All rights reserved.',
     builtWith: 'Built with Vue 3, TypeScript, and Tailwind CSS',
-    tagline: 'From Refinery Rope Access to Industrial Data Developer',
+    tagline: 'Founder, CEO, and owner of ZeroDigitX · Houston, Texas',
     agency: 'ZeroDigitX',
+    identity: 'Founder and CEO of ZeroDigitX',
   },
   meta: {
-    siteTitle: 'Mario Alvarez | mariosalvarez.com',
+    siteTitle: 'Mario Alvarez — Founder & CEO of ZeroDigitX | Houston',
     siteDescription:
-      'Portfolio of Mario Alvarez — industrial data developer in Houston, Texas. Vue 3, Python, and petrochemical sector tools.',
+      'Mario Alvarez is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com). Industrial data developer in Houston and La Porte, Texas. Vue/Nuxt, Python, and Gulf Coast data tools.',
   },
   theme: {
     light: 'Clear',

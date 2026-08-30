@@ -4,18 +4,19 @@
 <script setup lang="ts">
 import { useI18n } from '~/composables/useI18n'
 import {
+  GITHUB_URL,
+  LINKEDIN_URL,
+  X_URL,
   ZERODIGITX_CONTACT_URL,
   ZERODIGITX_URL,
+} from '~/data/identity'
+import {
   ZERODIGITX_PHONE,
   ZERODIGITX_PHONE_DISPLAY,
 } from '~/data/reviews'
 import ScrollReveal from './ScrollReveal.vue'
 
 const { t_ui } = useI18n()
-
-const LINKEDIN_URL = 'https://www.linkedin.com/in/mariosalv2/'
-const GITHUB_URL = 'https://github.com/NezbiT'
-const X_URL = 'https://x.com/nezsbit'
 
 const socialLinkClass =
   'theme-aside-card inline-flex min-h-11 items-center gap-3 rounded-lg px-4 py-3 text-theme-secondary transition-all duration-200 hover:-translate-y-0.5 hover:border-accent-500 hover:text-accent-600 hover:shadow-md'
@@ -91,7 +92,7 @@ const socialLinkClass =
             <a
               :href="X_URL"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
               :class="socialLinkClass"
             >
               <svg class="h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -102,7 +103,7 @@ const socialLinkClass =
             <a
               :href="LINKEDIN_URL"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
               :class="socialLinkClass"
             >
               <svg class="h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -113,7 +114,7 @@ const socialLinkClass =
             <a
               :href="GITHUB_URL"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
               :class="socialLinkClass"
             >
               <svg class="h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

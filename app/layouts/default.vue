@@ -1,25 +1,32 @@
 <script setup lang="ts">
 const { t_ui, locale } = useI18n()
 const { enableHeavyEffects } = useDeviceCapability()
+const { scrollToSection } = useScrollTo()
+const route = useRoute()
 
 const isDevHost = computed(() =>
   import.meta.client && window.location.hostname.startsWith('dev.'),
 )
 
-// Keep <html lang> and title in sync with active locale
 watch(
   locale,
   (val) => {
     useHead({
       htmlAttrs: { lang: val },
-      title: t_ui.value.meta.siteTitle,
-      meta: [
-        { name: 'description', content: t_ui.value.meta.siteDescription },
-      ],
     })
   },
   { immediate: true },
 )
+
+function scrollToHash(): void {
+  const hash = route.hash.replace('#', '')
+  if (hash && (route.path === '/' || route.path === '')) {
+    void nextTick(() => scrollToSection(hash))
+  }
+}
+
+onMounted(scrollToHash)
+watch(() => route.fullPath, scrollToHash)
 </script>
 
 <template>

@@ -15,8 +15,10 @@ const { scrollAndClose } = useScrollTo()
 const { isScrolled } = useScrollDetection()
 const { activeSection } = useScrollSpy(['hero', 'projects', 'lab', 'technologies', 'reviews', 'contact'])
 
+const route = useRoute()
+const isHome = computed(() => route.path === '/' || route.path === '')
 const isMenuOpen = ref(false)
-const onHero = computed(() => activeSection.value === 'hero' && !isScrolled.value)
+const onHero = computed(() => isHome.value && activeSection.value === 'hero' && !isScrolled.value)
 
 const navLinks = [
   { id: 'hero', key: 'home' as const },
@@ -29,7 +31,16 @@ const navLinks = [
 
 function closeMenu(): void { isMenuOpen.value = false }
 function navigate(sectionId: string): void { scrollAndClose(sectionId, closeMenu) }
-function isActive(sectionId: string): boolean { return activeSection.value === sectionId }
+function isActive(sectionId: string): boolean { return isHome.value && activeSection.value === sectionId }
+
+function onSectionClick(event: MouseEvent, sectionId: string): void {
+  if (isHome.value) {
+    event.preventDefault()
+    navigate(sectionId)
+    return
+  }
+  closeMenu()
+}
 </script>
 
 <template>
@@ -42,25 +53,25 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
       :aria-label="t_ui.nav.mainNav"
     >
       <div class="flex items-center gap-3">
-        <button
-          type="button"
+        <NuxtLink
+          to="/"
           class="flex min-h-11 min-w-11 items-center justify-center rounded-full transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/50"
           :aria-label="t_ui.nav.home"
-          @click="navigate('hero')"
+          @click="onSectionClick($event, 'hero')"
         >
           <CanvasLogo :size="36" />
-        </button>
+        </NuxtLink>
         <span v-if="showDevBadge" class="dev-badge">DEV</span>
       </div>
 
       <ul class="hidden items-center gap-1 md:flex">
         <li v-for="link in navLinks" :key="link.id">
-          <button
-            type="button"
-            class="nav-link relative min-h-11 rounded-xl px-4 py-2 text-sm font-medium"
+          <a
+            :href="`/#${link.id}`"
+            class="nav-link relative min-h-11 inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium"
             :class="isActive(link.id) ? 'nav-link--active' : ''"
             :aria-current="isActive(link.id) ? 'true' : undefined"
-            @click="navigate(link.id)"
+            @click="onSectionClick($event, link.id)"
           >
             {{ t_ui.nav[link.key] }}
             <span
@@ -68,7 +79,7 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
               class="absolute bottom-0.5 left-1/2 h-0.5 w-3/4 -translate-x-1/2 rounded-full bg-gradient-to-r from-accent-400 to-cyan-400"
               aria-hidden="true"
             />
-          </button>
+          </a>
         </li>
         <li class="ml-1">
           <ThemeToggle />
@@ -115,15 +126,15 @@ function isActive(sectionId: string): boolean { return activeSection.value === s
       <div v-if="isMenuOpen" id="mobile-nav-menu" class="border-t border-theme glass-nav md:hidden">
         <ul class="site-container flex flex-col py-3">
           <li v-for="link in navLinks" :key="link.id">
-            <button
-              type="button"
+            <a
+              :href="`/#${link.id}`"
               class="block min-h-11 w-full rounded-xl py-3 px-3 text-left transition-colors nav-link"
               :class="isActive(link.id) ? 'nav-link--active font-medium' : ''"
               :aria-current="isActive(link.id) ? 'true' : undefined"
-              @click="navigate(link.id)"
+              @click="onSectionClick($event, link.id)"
             >
               {{ t_ui.nav[link.key] }}
-            </button>
+            </a>
           </li>
         </ul>
       </div>
