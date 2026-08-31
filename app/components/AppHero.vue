@@ -3,6 +3,8 @@
  * Hero sin parallax multi-capa ni delays largos — contenido visible al primer paint.
  */
 import heroImage from '~/assets/images/hero.png'
+import zxMark from '~/assets/images/zx-mark-0x.png'
+import { ZERODIGITX_URL } from '~/data/identity'
 
 const { t_ui, locale } = useI18n()
 const { scrollToSection } = useScrollTo()
@@ -105,11 +107,24 @@ const { scrollToSection } = useScrollTo()
               decoding="async"
               fetchpriority="high"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-industrial-900/30 via-transparent to-accent-500/10 pointer-events-none" aria-hidden="true" />
-            <div class="absolute bottom-4 left-4 right-4 glass-card-dark rounded-xl px-4 py-3 text-sm text-theme-secondary">
-              <span class="text-accent-500 font-mono text-xs">{{ t_ui.hero.photoKicker }}</span>
-              <p class="mt-1 font-medium text-theme-primary">{{ t_ui.hero.photoCaption }}</p>
-            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-industrial-900/50 via-transparent to-accent-500/10 pointer-events-none" aria-hidden="true" />
+            <a
+              :href="ZERODIGITX_URL"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="zx-mark absolute bottom-3 right-3 z-10 flex h-16 w-16 items-center justify-center sm:bottom-4 sm:right-4 sm:h-20 sm:w-20"
+              :aria-label="t_ui.footer.agency"
+            >
+              <span class="zx-mark-glow" aria-hidden="true" />
+              <img
+                :src="zxMark"
+                alt=""
+                class="zx-mark-img relative z-10 h-[88%] w-[88%] object-contain"
+                width="1024"
+                height="1024"
+                decoding="async"
+              />
+            </a>
           </div>
         </div>
       </div>

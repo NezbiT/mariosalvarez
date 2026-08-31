@@ -498,6 +498,47 @@ body {
   transition: background 0.4s ease, border-color 0.4s ease;
 }
 
+/* ZeroDigitX 0x mark on the hero photo */
+.zx-mark-glow {
+  position: absolute;
+  inset: -35%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgb(178 59 52 / 0.55) 0%, rgb(232 227 217 / 0.18) 38%, transparent 70%);
+  filter: blur(14px);
+  animation: zx-mark-pulse 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.zx-mark-img {
+  filter:
+    drop-shadow(0 0 10px rgb(178 59 52 / 0.75))
+    drop-shadow(0 0 22px rgb(232 227 217 / 0.35));
+}
+
+.zx-mark:hover .zx-mark-glow,
+.zx-mark:focus-visible .zx-mark-glow {
+  animation-duration: 1.4s;
+}
+
+.zx-mark:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 4px;
+  border-radius: 1rem;
+}
+
+@keyframes zx-mark-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
