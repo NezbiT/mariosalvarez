@@ -197,7 +197,7 @@ const es: Translations = {
     eyebrow: 'Tools',
     title: 'Lab',
     subtitle:
-      'Herramientas propias del lab: auditorías web, licencias open source y utilidades listas para usar.',
+      'Herramientas propias del lab: Pyron, auditorías web, licencias open source y utilidades listas para usar.',
     openTool: 'Abrir tool',
     viewGithub: 'Ver en GitHub',
     viewPypi: 'Instalar desde PyPI',
@@ -320,7 +320,7 @@ const en: Translations = {
     eyebrow: 'Tools',
     title: 'Lab',
     subtitle:
-      'My lab tools: website audits, open-source license scanning, and utilities ready to use.',
+      'My lab tools: Pyron, website audits, open-source license scanning, and utilities ready to use.',
     openTool: 'Open tool',
     viewGithub: 'View on GitHub',
     viewPypi: 'Install from PyPI',

@@ -43,7 +43,7 @@ const items = computed(() =>
         <p class="text-sm text-theme-muted">{{ t_ui.lab.emptyBody }}</p>
       </div>
 
-      <div v-else class="grid gap-6 md:grid-cols-2">
+      <div v-else class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         <ScrollReveal
           v-for="(item, index) in items"
           :key="item.id"

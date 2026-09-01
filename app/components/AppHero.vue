@@ -3,7 +3,7 @@
  * Hero sin parallax multi-capa ni delays largos — contenido visible al primer paint.
  */
 import heroImage from '~/assets/images/hero.png'
-import zxMark from '~/assets/images/zx-mark-0x.png'
+import zxMark from '~/assets/images/zx-mark-x.png'
 import { ZERODIGITX_URL } from '~/data/identity'
 
 const { t_ui, locale } = useI18n()
@@ -112,14 +112,14 @@ const { scrollToSection } = useScrollTo()
               :href="ZERODIGITX_URL"
               target="_blank"
               rel="noopener noreferrer"
-              class="zx-mark absolute bottom-3 right-3 z-10 flex h-16 w-16 items-center justify-center sm:bottom-4 sm:right-4 sm:h-20 sm:w-20"
+              class="zx-mark absolute bottom-3 right-3 z-10 flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl sm:bottom-4 sm:right-4 sm:h-20 sm:w-20"
               :aria-label="t_ui.footer.agency"
             >
               <span class="zx-mark-glow" aria-hidden="true" />
               <img
                 :src="zxMark"
                 alt=""
-                class="zx-mark-img relative z-10 h-[88%] w-[88%] object-contain"
+                class="zx-mark-img relative z-10 h-full w-full object-cover"
                 width="1024"
                 height="1024"
                 decoding="async"

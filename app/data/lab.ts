@@ -5,6 +5,29 @@ import type { LabItem } from '#shared/types'
 
 export const labItems: LabItem[] = [
   {
+    id: 'pyron',
+    title: {
+      es: 'Pyron',
+      en: 'Pyron',
+    },
+    shortDescription: {
+      es: 'Framework web híbrido: Python para escribir, núcleo en Rust. FastAPI para crear, admin estilo Django para operar.',
+      en: 'Hybrid Python web framework with a Rust core — FastAPI to write, Django-style admin to operate.',
+    },
+    longDescription: {
+      es: 'Open source (MIT). El mismo modelo sirve HTML, JSON/OpenAPI y un panel /admin opcional. CLI `pyron init`, Pydantic, Jinja2 y routing en Rust. Docs en GitHub Pages.',
+      en: 'Open source (MIT). The same model serves HTML, JSON/OpenAPI, and an optional /admin panel. `pyron init` CLI, Pydantic, Jinja2, and Rust routing. Docs on GitHub Pages.',
+    },
+    technologies: ['Python', 'Rust', 'Pydantic', 'Jinja2', 'OpenAPI'],
+    site: 'https://nezbit.github.io/pyron/',
+    github: 'https://github.com/NezbiT/pyron',
+    badge: {
+      es: 'Open source',
+      en: 'Open source',
+    },
+    priority: 1,
+  },
+  {
     id: 'pitch-doctor',
     title: {
       es: 'Pitch Doctor',
@@ -25,7 +48,7 @@ export const labItems: LabItem[] = [
       es: 'Tool',
       en: 'Tool',
     },
-    priority: 1,
+    priority: 2,
   },
   {
     id: 'github-license-scanner',
@@ -50,6 +73,6 @@ export const labItems: LabItem[] = [
       es: 'Open source',
       en: 'Open source',
     },
-    priority: 2,
+    priority: 3,
   },
 ]

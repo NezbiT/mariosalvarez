@@ -9,6 +9,7 @@ for (const s of [
   'zerodigitx.com',
   'TexasBizFinder',
   'Pitch Doctor',
+  'Pyron',
   'GitHub License',
   'From Refinery',
   'application/ld+json',
