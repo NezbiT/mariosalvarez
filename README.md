@@ -3,14 +3,14 @@
 </p>
 
 <p align="center">
-  <img src="docs/images/hero.png" alt="Mario S. Alvarez (Mario Alvarez) — Founder & CEO of ZeroDigitX" width="280" />
+  <img src="docs/images/hero.png" alt="ZeroDigitX crimson X — Mario S. Alvarez (Mario Alvarez), Founder & CEO" width="280" />
 </p>
 
 <h1 align="center">mariosalvarez.com</h1>
 
 <p align="center">
   <strong>Portafolio profesional bilingüe (ES/EN) de Mario S. Alvarez (Mario Alvarez)</strong><br/>
-  <em>From Refinery Rope Access to Industrial Data Developer</em>
+  <em>I've been building on the web for more than 15 years. Zeroˣ Digit. Houston area.</em>
 </p>
 
 <p align="center">
@@ -32,7 +32,7 @@
 
 ## Sobre Mario S. Alvarez (Mario Alvarez)
 
-**Founder & CEO of ZeroDigitX.** Con **más de 15 años en desarrollo web**, Mario S. Alvarez (Mario Alvarez) combina experiencia real en **rope access y NDT en refinerías del Golfo de México** con desarrollo moderno de **aplicaciones web, dashboards y herramientas de datos** para el sector energético de Houston/Texas.
+**Zeroˣ Digit. Houston area.** Mario Alvarez lleva **más de 15 años construyendo en la web** — Latinoamérica, Canadá, Texas. Para quedarse, tomó rope access y NDT; después del turno volvía al teclado. Hoy dirige Zeroˣ Digit para que los pequeños negocios **se encuentren en Google y en ChatGPT**.
 
 Disponible para proyectos **freelance** y oportunidades **full-time** en el área de Houston.
 

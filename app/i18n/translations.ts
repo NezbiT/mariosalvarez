@@ -38,6 +38,8 @@ export interface Translations {
     role: string
     slogan: string
     subtitle: string
+    pitch: string
+    invite: string
     ctaProjects: string
     ctaContact: string
     location: string
@@ -146,10 +148,13 @@ const es: Translations = {
     greeting: 'Hola, soy',
     name: 'Mario Alvarez',
     legalName: 'Mario S. Alvarez',
-    role: 'Fundador, CEO y dueño de ZeroDigitX',
-    slogan: 'De Rope Access en Refinería a Desarrollador de Datos Industriales',
+    role: 'Zero Digit. Área de Houston.',
+    slogan: 'Llevo más de 15 años construyendo en la web.',
     subtitle:
-      'Fundé y soy dueño de ZeroDigitX (zerodigitx.com), estudio web bilingüe en Houston y La Porte, Texas. Llevo más de 15 años en desarrollo web. Pasé años en rope access y NDT dentro de refinerías del Golfo de México, y hoy construyo aplicaciones y dashboards que conectan esa experiencia de campo con datos accionables para equipos offshore, contratistas y operadores de Texas.',
+      'Lo aprendí en Latinoamérica, lo seguí en Canadá, y ahora trabajo desde el área de Houston. Para quedarme en Texas, tomé rope access y NDT en las refinerías. Después de un turno, volvía al teclado. Nunca dejé la web: crecí con ella.',
+    pitch:
+      'La búsqueda cambió. Los clientes siguen usando Google, pero muchos también le preguntan a ChatGPT a quién llamar. Dirijo {brand} para ayudar a dueños de pequeños negocios a seguirle el paso: un sitio que funciona, una presencia que se encuentra, y menos adivinanzas.',
+    invite: 'Si tienes preguntas, haz clic en la X de la derecha, o ve a',
     ctaProjects: 'Ver proyectos',
     ctaContact: 'Pedir cotización',
     location: 'Houston / La Porte, Texas · Disponible remoto',
@@ -160,9 +165,9 @@ const es: Translations = {
     title: 'Quién soy',
     role: 'Fundador, CEO y dueño de ZeroDigitX',
     lead:
-      'Mario S. Alvarez, también conocido como Mario Alvarez, es el fundador, director ejecutivo y dueño de ZeroDigitX (zerodigitx.com), un estudio de diseño y desarrollo web bilingüe (español/inglés) en Houston y La Porte, Texas.',
+      'Mario S. Alvarez, también conocido como Mario Alvarez, lleva más de 15 años construyendo en la web. Lo aprendió en Latinoamérica, lo siguió en Canadá, y ahora trabaja desde el área de Houston.',
     body:
-      'Lleva más de 15 años en desarrollo web y una década de disciplina industrial en la Costa del Golfo — rope access y NDT dentro de refinerías. Hoy construye sitios, dashboards y herramientas de datos para negocios y operadores de Texas. El trabajo profesional y las cotizaciones salen de ZeroDigitX, la empresa que fundó y dirige.',
+      'Para quedarse en Texas, tomó rope access y NDT en las refinerías. Después de un turno, volvía al teclado. Nunca dejó la web: creció con ella. La búsqueda cambió: los clientes siguen usando Google, pero muchos también le preguntan a ChatGPT a quién llamar. Dirige Zeroˣ Digit para ayudar a dueños de pequeños negocios a seguirle el paso: un sitio que funciona, una presencia que se encuentra, y menos adivinanzas.',
     companyTitle: 'ZeroDigitX',
     companyBody:
       'ZeroDigitX (también Zeroˣ Digit, Zero Digit X) es un estudio de sitios bilingües y sistemas a medida para negocios en Houston, La Porte y la Costa del Golfo. Mario S. Alvarez (Mario Alvarez) es su único fundador, CEO y dueño.',
@@ -269,10 +274,13 @@ const en: Translations = {
     greeting: "Hi, I'm",
     name: 'Mario Alvarez',
     legalName: 'Mario S. Alvarez',
-    role: 'Founder, CEO, and owner of ZeroDigitX',
-    slogan: 'From Refinery Rope Access to Industrial Data Developer',
+    role: 'Zero Digit. Houston area.',
+    slogan: "I've been building on the web for more than 15 years.",
     subtitle:
-      'I founded and own ZeroDigitX (zerodigitx.com), a bilingual web studio in Houston and La Porte, Texas. I have over 15 years of web development experience. I spent years in rope access and NDT inside Gulf Coast refineries, and today I build web apps and dashboards that bridge that field experience with actionable data for offshore crews, contractors, and Texas operators.',
+      'I learned it in Latin America, kept at it in Canada, and I work from the Houston area now. To stay in Texas, I took rope access and NDT in the refineries. After a shift, I went back to the keyboard. I never left the web — I just grew up with it.',
+    pitch:
+      'Search changed. Customers still use Google, but a lot of them also ask ChatGPT who to call. I run {brand} to help small business owners keep up with that: a site that works, a presence people can find, and less guesswork.',
+    invite: 'If you have questions, click the X on the right, or go to',
     ctaProjects: 'View projects',
     ctaContact: 'Request a quote',
     location: 'Houston / La Porte, Texas · Available remotely',
@@ -283,9 +291,9 @@ const en: Translations = {
     title: 'Who I am',
     role: 'Founder, CEO, and owner of ZeroDigitX',
     lead:
-      'Mario S. Alvarez, also known as Mario Alvarez, is the founder, chief executive officer, and owner of ZeroDigitX (zerodigitx.com), a bilingual (Spanish/English) web design and custom software studio in Houston and La Porte, Texas.',
+      'Mario S. Alvarez, also known as Mario Alvarez, has been building on the web for more than 15 years. He learned it in Latin America, kept at it in Canada, and works from the Houston area now.',
     body:
-      'He has over 15 years of web development experience and a decade of industrial discipline on the Gulf Coast — rope access and NDT inside refineries. Today he builds sites, dashboards, and data tools for Texas businesses and operators. Professional work and quotes go through ZeroDigitX, the company he founded and leads.',
+      'To stay in Texas, he took rope access and NDT in the refineries. After a shift, he went back to the keyboard. He never left the web — he just grew up with it. Search changed: customers still use Google, but a lot of them also ask ChatGPT who to call. He runs Zeroˣ Digit to help small business owners keep up: a site that works, a presence people can find, and less guesswork.',
     companyTitle: 'ZeroDigitX',
     companyBody:
       'ZeroDigitX (also written Zeroˣ Digit, Zero Digit X) is a bilingual website and custom-systems studio for businesses in Houston, La Porte, and the Gulf Coast. Mario S. Alvarez (Mario Alvarez) is its founder, CEO, and owner.',

@@ -22,7 +22,7 @@ Mario S. Alvarez, also known as Mario Alvarez, is a software developer and entre
 
 ## What he does
 
-Over 15 years of web development (Vue, Nuxt, TypeScript, Python). Years of rope access and NDT inside Gulf Coast refineries. Builds bilingual business websites through ZeroDigitX and industrial data tools (directories, permits, maps, emissions, grid, flood) for Texas operators.
+Has been building on the web for more than 15 years (Vue, Nuxt, TypeScript, Python). Learned it in Latin America, kept at it in Canada, works from the Houston area now. Took rope access and NDT in the refineries to stay in Texas; after a shift, went back to the keyboard. Runs Zeroˣ Digit (zerodigitx.com) to help small business owners keep up with search: a site that works, a presence people can find on Google and in ChatGPT, and less guesswork.
 
 ## Company
 

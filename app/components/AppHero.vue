@@ -2,12 +2,18 @@
 /**
  * Hero sin parallax multi-capa ni delays largos — contenido visible al primer paint.
  */
+import { computed } from 'vue'
 import heroImage from '~/assets/images/hero.png'
-import zxMark from '~/assets/images/zx-mark-x.png'
 import { ZERODIGITX_URL } from '~/data/identity'
 
+const BRAND = 'Zeroˣ Digit'
 const { t_ui, locale } = useI18n()
 const { scrollToSection } = useScrollTo()
+
+const pitchParts = computed(() => {
+  const [before, after] = t_ui.value.hero.pitch.split('{brand}')
+  return { before: before ?? '', after: after ?? '' }
+})
 </script>
 
 <template>
@@ -39,25 +45,34 @@ const { scrollToSection } = useScrollTo()
           {{ t_ui.hero.legalName }}
         </p>
 
-        <p class="text-lg sm:text-xl font-semibold text-accent-600 leading-snug">
-          {{ t_ui.hero.role }}
-        </p>
-
         <p class="display-lg font-semibold text-theme-secondary leading-snug">
           {{ t_ui.hero.slogan }}
         </p>
 
-        <p class="text-base sm:text-lg lg:text-xl text-theme-muted max-w-2xl leading-relaxed">
-          {{ t_ui.hero.subtitle }}
+        <div class="max-w-2xl space-y-4 text-base sm:text-lg lg:text-xl text-theme-muted leading-relaxed">
+          <p>{{ t_ui.hero.subtitle }}</p>
+          <p>
+            {{ pitchParts.before }}<span class="brand-crimson">{{ BRAND }}</span>{{ pitchParts.after }}
+          </p>
+        </div>
+
+        <p class="text-base sm:text-lg text-theme-secondary leading-relaxed">
+          {{ t_ui.hero.invite }}
+          <a
+            :href="ZERODIGITX_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-medium underline decoration-crimson/60 underline-offset-4 hover:text-crimson"
+          >zerodigitx.com</a>
         </p>
 
         <div class="flex flex-wrap gap-3">
           <a
-            href="https://zerodigitx.com"
+            :href="ZERODIGITX_URL"
             target="_blank"
             rel="noopener noreferrer"
-            class="stat-pill"
-          >ZeroDigitX</a>
+            class="stat-pill brand-crimson"
+          >{{ BRAND }}</a>
           <span class="stat-pill">Nuxt</span>
           <span class="stat-pill">Python</span>
           <span class="stat-pill">15+ {{ locale === 'es' ? 'años web' : 'yrs web' }}</span>
@@ -91,42 +106,27 @@ const { scrollToSection } = useScrollTo()
       </div>
 
       <div class="relative flex justify-center lg:justify-end">
-        <div class="relative">
-          <div
-            class="absolute -inset-3 rounded-3xl bg-gradient-to-r from-accent-500/30 to-cyan-400/30 blur-xl opacity-50"
-            aria-hidden="true"
+        <a
+          :href="ZERODIGITX_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="zx-mark zx-mark-hero relative flex items-center justify-center"
+          :aria-label="t_ui.footer.agency"
+        >
+          <span class="zx-mark-ping" aria-hidden="true" />
+          <span class="zx-mark-ping zx-mark-ping-delay" aria-hidden="true" />
+          <span class="zx-mark-glow" aria-hidden="true" />
+          <img
+            :src="heroImage"
+            alt="Zeroˣ Digit crimson X — click to visit zerodigitx.com"
+            class="zx-mark-img relative z-10 h-auto w-full max-w-[min(100%,22rem)] xl:max-w-[min(100%,28rem)] object-contain"
+            width="637"
+            height="637"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
           />
-          <div class="relative overflow-hidden rounded-2xl xl:rounded-3xl shadow-2xl ring-2 ring-accent-400/30 glass-card-dark">
-            <img
-              :src="heroImage"
-              alt="Mario S. Alvarez (Mario Alvarez), founder, CEO, and owner of ZeroDigitX in Houston, Texas"
-              class="h-auto w-full max-w-[min(100%,28rem)] xl:max-w-[min(100%,36rem)] 2xl:max-w-[min(100%,42rem)] object-cover"
-              width="640"
-              height="640"
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-industrial-900/50 via-transparent to-accent-500/10 pointer-events-none" aria-hidden="true" />
-            <a
-              :href="ZERODIGITX_URL"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="zx-mark absolute bottom-2 right-2 z-10 flex h-20 w-20 items-center justify-center sm:bottom-3 sm:right-3 sm:h-24 sm:w-24"
-              :aria-label="t_ui.footer.agency"
-            >
-              <span class="zx-mark-glow" aria-hidden="true" />
-              <img
-                :src="zxMark"
-                alt=""
-                class="zx-mark-img relative z-10 h-full w-full object-contain"
-                width="637"
-                height="637"
-                decoding="async"
-              />
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>

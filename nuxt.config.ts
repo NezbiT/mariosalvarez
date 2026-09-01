@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 const siteUrl = 'https://mariosalvarez.com'
 const siteTitle = 'Mario S. Alvarez (Mario Alvarez) — CEO of ZeroDigitX | Houston'
 const siteDescription =
-  'Mario S. Alvarez, also known as Mario Alvarez, is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com). Industrial data developer in Houston and La Porte, Texas.'
+  'Mario Alvarez (Mario S. Alvarez) has been building on the web for more than 15 years from the Houston area. He runs Zeroˣ Digit (zerodigitx.com) to help small businesses get found on Google and in ChatGPT.'
 const ogImage = `${siteUrl}/og-image.png`
 
 export default defineNuxtConfig({

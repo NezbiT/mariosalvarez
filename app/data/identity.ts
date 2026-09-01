@@ -28,7 +28,7 @@ export const JOB_TITLE_CEO = 'Founder and CEO of ZeroDigitX'
 export const JOB_TITLE_DEV = 'Industrial Data Developer'
 
 export const PERSON_DESCRIPTION =
-  'Mario S. Alvarez (Mario Alvarez) is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com), a bilingual web studio in Houston and La Porte, Texas. Industrial data developer with 15+ years in web development and a decade of Gulf Coast refinery field experience (rope access and NDT).'
+  'Mario Alvarez (Mario S. Alvarez) has been building on the web for more than 15 years. He learned it in Latin America, kept at it in Canada, and works from the Houston area now. He runs Zeroˣ Digit (zerodigitx.com) to help small business owners keep up with search: Google, ChatGPT, a site that works, and a presence people can find.'
 
 export const SAME_AS = [
   ZERODIGITX_URL,
@@ -69,6 +69,10 @@ export function personJsonLd() {
       'Industrial data',
       'Web development',
       'Bilingual websites',
+      'ChatGPT',
+      'Google',
+      'Latin America',
+      'Canada',
       'Houston',
       'La Porte',
     ],
