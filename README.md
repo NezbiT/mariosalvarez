@@ -9,8 +9,8 @@
 <h1 align="center">mariosalvarez.com</h1>
 
 <p align="center">
-  <strong>Mario Alvarez — web + Python from Houston</strong><br/>
-  <em>Turno en la refinería. Luego el teclado. 15+ años construyendo en la web.</em>
+  <strong>Mario Alvarez — Web from Houston</strong><br/>
+  <em>Software Developer · Building for the web since 2011 · Python · Vue · Houston,TX.</em>
 </p>
 
 <p align="center">
@@ -25,7 +25,6 @@
   <img src="https://img.shields.io/badge/Vue_3-3.5-4FC08D?logo=vue.js&logoColor=white" alt="Vue 3"/>
   <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript"/>
   <img src="https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS"/>
-  <img src="https://img.shields.io/badge/Vercel-Deploy-000000?logo=vercel&logoColor=white" alt="Vercel"/>
 </p>
 
 ---
@@ -36,15 +35,15 @@ I learned to code at 15 the way a lot of us did: **C**, then **Java**. In 2011 I
 
 The path wasn't a straight tech job. To stay in Texas I took **rope access and NDT** in the Gulf Coast refineries. After a shift I came home and built. That mix is the point: I ship like someone who has worked where mistakes are expensive, and I still write software for people who have to find a contractor on Google — or ask ChatGPT who to call.
 
-Today I run **[Zeroˣ Digit](https://zerodigitx.com)** from the Houston / La Porte area: bilingual sites and tools so small businesses actually show up online.
+Today I run **[Zeroˣ Digit](https://zerodigitx.com)** from the Houston area: bilingual sites and tools so small businesses actually show up online.
 
 This repo is my personal site. The Python work lives next to it — Pitch Doctor, GitHub License Scanner, TexasBizFinder, and [Pyron](https://github.com/NezbiT/pyron).
 
 | | |
 |---|---|
-| Location | Houston / La Porte, Texas · open to remote |
+| Location | Houston, Texas · open to remote |
 | What I build | Python tools, Vue/Nuxt sites, maps and data for the Gulf Coast |
-| Languages | Spanish (native) · English (professional) |
+| Languages | Spanish (native) · English (professional) · French (Intermediate)|
 | GitHub | [NezbiT](https://github.com/NezbiT) |
 | LinkedIn | [mariosalv2](https://www.linkedin.com/in/mariosalv2/) |
 | X | [@NezsbiT](https://x.com/nezsbit) |
@@ -53,7 +52,7 @@ This repo is my personal site. The Python work lives next to it — Pitch Doctor
 
 ## En español
 
-Llevo más de 15 años en la web — Latinoamérica, Canadá y Texas. A los 15 empecé con C y Java. En 2011 me pasé a HTML5/CSS3. En Platzi aprendí Python. Para quedarme en Texas entré a rope access y NDT; después del turno volvía al teclado. Hoy dirijo Zeroˣ Digit para que un negocio pequeño se encuentre en Google y en ChatGPT.
+Llevo más de 15 años en la web — Latinoamérica, Canadá y Texas(USA). A los 15 empecé con C y Java. En 2011 me pasé a HTML5/CSS3/JAVASCRIPT. En Platzi aprendí Python, sigo refinando mis habilidades en technologias y herramientas web. Para quedarme en Texas entré a rope access y NDT; después del trabajo sigo creando web. Hoy dirijo Zeroˣ Digit para que un negocio pequeño se encuentre en Google y en ChatGPT.
 
 ---
 
@@ -62,9 +61,7 @@ Llevo más de 15 años en la web — Latinoamérica, Canadá y Texas. A los 15 e
 - A live bilingual portfolio: [mariosalvarez.com](https://mariosalvarez.com)
 - Production sites for real Gulf Coast clients (notary, insurance, institute, local shops)
 - Python tools I use in the studio: website audits, license scanning, Texas business data
-- Stack I ship with: **Python**, Vue 3 / Nuxt, TypeScript, Tailwind, FastAPI-style APIs, Vercel
-
-If you want the short version: I can talk to a plant supervisor in the morning and ship a bilingual app at night.
+- Stack I ship with: **Python**, Vue 3 / Nuxt, TypeScript, Tailwind, FastAPI-style APIs, 
 
 ---
 
@@ -77,24 +74,11 @@ If you want the short version: I can talk to a plant supervisor in the morning a
 | **Pitch Doctor** | Tool | [GitHub](https://github.com/NezbiT/pitch-doctor) | Audit a weak website and turn it into a conversation |
 | **GitHub License Scanner** | Open source | [GitHub](https://github.com/NezbiT/github-license-scanner) | Repo + dependency license risk, local CLI/UI |
 | **Pyron** | Open source | [GitHub](https://github.com/NezbiT/pyron) | Python web framework with a Rust core |
+### In Construction..
 | **PermitRadar Houston** | Live | — | Industrial permit monitor for Houston |
 | **ChannelWatch La Porte** | Live | — | Navigation-channel conditions close to home |
 
 ---
-
-## Stack for this site
-
-```
-Nuxt 4 (SSG / nuxt generate)
-├── Vue 3 Composition API
-├── TypeScript
-├── Tailwind CSS v4
-├── app/ + shared/types
-└── Vercel (static deploy from .output/public)
-```
-
-HTML is prerendered for crawlers (projects, lab, meta, JSON-LD). The client hydrates filters, the project modal, and the ES/EN toggle.
-
 ### Scripts
 
 ```bash
@@ -114,7 +98,6 @@ npm install
 npm run dev
 ```
 
-Open the URL Nuxt prints (usually **http://localhost:3000**).
 
 ---
 
