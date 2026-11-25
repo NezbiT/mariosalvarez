@@ -13,7 +13,7 @@
  * - useI18n.ts lee locale actual y devuelve translations[locale].clave
  * - Las claves son planas (nav.projects) para simplicidad sin vue-i18n
  */
-import type { Locale } from '../types'
+import type { Locale } from '#shared/types'
 
 export interface Translations {
   nav: {
@@ -32,19 +32,19 @@ export interface Translations {
     about: string
   }
   hero: {
-    greeting: string
+    eyebrow: string
     name: string
     legalName: string
     role: string
-    slogan: string
-    subtitle: string
-    pitch: string
-    invite: string
-    ctaProjects: string
-    ctaContact: string
-    location: string
-    photoCaption: string
-    photoKicker: string
+    statement: string
+    story: string
+    ctaWork: string
+    ctaQuote: string
+    mapLive: string
+    mapBuild: string
+    mapLegend: string
+    mapLink: string
+    severity: Record<'Extreme' | 'Severe' | 'Moderate' | 'Minor' | 'Unknown', string>
   }
   about: {
     title: string
@@ -57,24 +57,34 @@ export interface Translations {
     backHome: string
   }
   projects: {
+    eyebrow: string
     title: string
     subtitle: string
-    viewDetails: string
-    visitSite: string
-    viewGithub: string
-    statusLive: string
-    statusComingSoon: string
-    realUseLabel: string
-    technologiesLabel: string
-    closeModal: string
+    filterLabel: string
     filterAll: string
-    filterLive: string
-    filterComingSoon: string
-    emptyTitle: string
-    emptyBody: string
-    emptyAction: string
+    filterClients: string
+    filterProducts: string
+    /** Screen-reader suffix after the project name on each card link. */
+    caseSuffix: string
+    /** `{name}` is replaced with the project name. */
+    screenshotAlt: string
+    kindClient: string
+    kindProduct: string
+    visitSite: string
+    chapterProblem: string
+    chapterSolution: string
+    chapterResult: string
+    highlightsTitle: string
+    stackTitle: string
+    caseNavLabel: string
+    prevCase: string
+    nextCase: string
+    backToWork: string
+    metaTitleSuffix: string
+    notFound: string
   }
   technologies: {
+    eyebrow: string
     title: string
     subtitle: string
   }
@@ -87,6 +97,7 @@ export interface Translations {
     viewPypi: string
     emptyTitle: string
     emptyBody: string
+    stackLabel: string
   }
   reviews: {
     title: string
@@ -98,6 +109,7 @@ export interface Translations {
     agencyLabel: string
   }
   contact: {
+    eyebrow: string
     title: string
     subtitle: string
     hireVia: string
@@ -115,7 +127,7 @@ export interface Translations {
     builtWith: string
     tagline: string
     agency: string
-    identity: string
+    navLabel: string
   }
   meta: {
     siteTitle: string
@@ -137,7 +149,7 @@ const es: Translations = {
     reviews: 'Reseñas',
     contact: 'Contacto',
     language: 'EN',
-    languageAria: 'Cambiar idioma a inglés',
+    languageAria: 'EN — cambiar idioma a inglés',
     menuOpen: 'Abrir menú',
     menuClose: 'Cerrar menú',
     mainNav: 'Navegación principal',
@@ -145,21 +157,20 @@ const es: Translations = {
     about: 'Sobre mí',
   },
   hero: {
-    greeting: 'Hola, soy',
+    eyebrow: 'Diseñador y desarrollador web · Houston, TX',
     name: 'Mario Alvarez',
     legalName: 'Mario S. Alvarez',
-    role: 'Zero Digit. Área de Houston.',
-    slogan: 'Llevo más de 15 años construyendo en la web.',
-    subtitle:
-      'Lo aprendí en Latinoamérica, lo seguí en Canadá, y ahora trabajo desde el área de Houston. Para quedarme en Texas, tomé rope access y NDT en las refinerías. Después de un turno, volvía al teclado. Nunca dejé la web: crecí con ella.',
-    pitch:
-      'La búsqueda cambió. Los clientes siguen usando Google, pero muchos también le preguntan a ChatGPT a quién llamar. Dirijo {brand} para ayudar a dueños de pequeños negocios a seguirle el paso: un sitio que funciona, una presencia que se encuentra, y menos adivinanzas.',
-    invite: 'Si tienes preguntas, haz clic en la X de la derecha, o ve a',
-    ctaProjects: 'Ver proyectos',
-    ctaContact: 'Pedir cotización',
-    location: 'Houston / La Porte, Texas · Disponible remoto',
-    photoCaption: 'ZeroDigitX · Houston',
-    photoKicker: '// founder & ceo',
+    role: 'Fundador de ZeroDigitX',
+    statement: 'Llevo más de 15 años construyendo en la web.',
+    story:
+      'Lo aprendí en Latinoamérica, lo seguí en Canadá y hoy trabajo desde Houston. Para quedarme en Texas hice rope access y NDT en las refinerías; después de cada turno volvía al teclado. Ahora diseño y construyo sitios y herramientas de datos para negocios de Texas.',
+    ctaWork: 'Ver mi trabajo',
+    ctaQuote: 'Pedir cotización',
+    mapLive: 'En vivo · {n} alertas activas del NWS en Texas · actualizado {time}',
+    mapBuild: '{n} alertas activas del NWS en Texas al publicar el sitio · {time}',
+    mapLegend: 'Severidad',
+    mapLink: 'Cómo construyo esto',
+    severity: { Extreme: 'Extrema', Severe: 'Severa', Moderate: 'Moderada', Minor: 'Menor', Unknown: 'Sin dato' },
   },
   about: {
     title: 'Quién soy',
@@ -175,39 +186,48 @@ const es: Translations = {
     backHome: 'Volver al portafolio',
   },
   projects: {
-    title: 'Proyectos',
+    eyebrow: 'Casos de estudio',
+    title: 'Trabajo seleccionado',
     subtitle:
-      'Herramientas reales para el corredor industrial de Houston: directorios, permisos, canales y cumplimiento ambiental.',
-    viewDetails: 'Ver detalles del proyecto',
-    visitSite: 'Abrir sitio en vivo',
-    viewGithub: 'Ver código en GitHub',
-    statusLive: 'En vivo',
-    statusComingSoon: 'Próximamente',
-    realUseLabel: 'Uso real',
-    technologiesLabel: 'Tecnologías',
-    closeModal: 'Cerrar detalles del proyecto',
+      'Proyectos terminados y entregados con ZeroDigitX, el estudio que dirijo: cuál era el problema, qué construí y qué cambió.',
+    filterLabel: 'Filtrar proyectos',
     filterAll: 'Todos',
-    filterLive: 'En vivo',
-    filterComingSoon: 'Próximamente',
-    emptyTitle: 'No hay proyectos en este filtro',
-    emptyBody: 'Prueba “Todos” o “En vivo” para ver el trabajo en producción.',
-    emptyAction: 'Mostrar todos los proyectos',
+    filterClients: 'Clientes',
+    filterProducts: 'Productos',
+    caseSuffix: 'caso de estudio',
+    screenshotAlt: 'Página de inicio de {name}',
+    kindClient: 'Proyecto de cliente',
+    kindProduct: 'Producto propio',
+    visitSite: 'Visitar sitio',
+    chapterProblem: 'El problema',
+    chapterSolution: 'La solución',
+    chapterResult: 'El resultado',
+    highlightsTitle: 'Lo destacado',
+    stackTitle: 'Stack',
+    caseNavLabel: 'Más casos de estudio',
+    prevCase: 'Caso anterior',
+    nextCase: 'Caso siguiente',
+    backToWork: 'Todo el trabajo',
+    metaTitleSuffix: 'caso de estudio',
+    notFound: 'Caso de estudio no encontrado',
   },
   technologies: {
     title: 'Tecnologías',
+    eyebrow: 'Stack',
     subtitle:
-      'Stack real de producción: Vue/Nuxt, mapas MapLibre, FastAPI, Supabase y pipelines de datos usados en la suite TxBizFinder y proyectos de clientes.',
+      'Lo que he usado en mis repos de GitHub: lenguajes, frameworks, bases de datos, mapas, IA, pruebas e infraestructura, de sitios para clientes a herramientas de datos de Texas.',
   },
   lab: {
     eyebrow: 'Tools',
     title: 'Lab',
     subtitle:
-      'Herramientas propias del lab: Pyron, auditorías web, licencias open source y utilidades listas para usar.',
+      'Herramientas propias, open source y listas para usar: un framework web en Python/Rust y un escáner de licencias.',
     openTool: 'Abrir tool',
     viewGithub: 'Ver en GitHub',
     viewPypi: 'Instalar desde PyPI',
     emptyTitle: 'Aún no hay tools en el lab',
     emptyBody: 'Pronto publicaré más herramientas open source y utilidades aquí.',
+    stackLabel: 'Tecnologías',
   },
   reviews: {
     title: 'Reseñas profesionales',
@@ -222,6 +242,7 @@ const es: Translations = {
   },
   contact: {
     title: 'Contacto',
+    eyebrow: 'Trabajemos juntos',
     subtitle:
       '¿Necesitas una herramienta de datos, dashboard industrial o aplicación web? Pide cotización o llámame.',
     hireVia: 'Pedir cotización',
@@ -236,11 +257,11 @@ const es: Translations = {
     github: 'GitHub',
   },
   footer: {
-    rights: '© {year} Mario S. Alvarez (Mario Alvarez). Todos los derechos reservados.',
-    builtWith: 'Construido con Vue 3, TypeScript y Tailwind CSS',
+    rights: '© {year}. Todos los derechos reservados.',
+    builtWith: 'Hecho con Nuxt, TypeScript y Tailwind CSS',
     tagline: 'Fundador, CEO y dueño de ZeroDigitX · Houston, Texas',
     agency: 'ZeroDigitX',
-    identity: 'Fundador y CEO de ZeroDigitX',
+    navLabel: 'Secciones del sitio',
   },
   meta: {
     siteTitle: 'Mario S. Alvarez (Mario Alvarez) — CEO de ZeroDigitX | Houston',
@@ -263,7 +284,7 @@ const en: Translations = {
     reviews: 'Reviews',
     contact: 'Contact',
     language: 'ES',
-    languageAria: 'Switch language to Spanish',
+    languageAria: 'ES — switch language to Spanish',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',
     mainNav: 'Main navigation',
@@ -271,21 +292,20 @@ const en: Translations = {
     about: 'About',
   },
   hero: {
-    greeting: "Hi, I'm",
+    eyebrow: 'Web designer & developer · Houston, TX',
     name: 'Mario Alvarez',
     legalName: 'Mario S. Alvarez',
-    role: 'Zero Digit. Houston area.',
-    slogan: "I've been building on the web for more than 15 years.",
-    subtitle:
-      'I learned it in Latin America, kept at it in Canada, and I work from the Houston area now. To stay in Texas, I took rope access and NDT in the refineries. After a shift, I went back to the keyboard. I never left the web — I just grew up with it.',
-    pitch:
-      'Search changed. Customers still use Google, but a lot of them also ask ChatGPT who to call. I run {brand} to help small business owners keep up with that: a site that works, a presence people can find, and less guesswork.',
-    invite: 'If you have questions, click the X on the right, or go to',
-    ctaProjects: 'View projects',
-    ctaContact: 'Request a quote',
-    location: 'Houston / La Porte, Texas · Available remotely',
-    photoCaption: 'ZeroDigitX · Houston',
-    photoKicker: '// founder & ceo',
+    role: 'Founder of ZeroDigitX',
+    statement: "I've been building on the web for more than 15 years.",
+    story:
+      'I learned it in Latin America, kept at it in Canada, and work from Houston now. To stay in Texas I did rope access and NDT in the refineries; after every shift I went back to the keyboard. Today I design and build websites and data tools for Texas businesses.',
+    ctaWork: 'See my work',
+    ctaQuote: 'Request a quote',
+    mapLive: 'Live · {n} active NWS alerts in Texas · updated {time}',
+    mapBuild: '{n} active NWS alerts in Texas when this site was published · {time}',
+    mapLegend: 'Severity',
+    mapLink: 'How I build this',
+    severity: { Extreme: 'Extreme', Severe: 'Severe', Moderate: 'Moderate', Minor: 'Minor', Unknown: 'Unknown' },
   },
   about: {
     title: 'Who I am',
@@ -301,39 +321,48 @@ const en: Translations = {
     backHome: 'Back to portfolio',
   },
   projects: {
-    title: 'Projects',
+    eyebrow: 'Case studies',
+    title: 'Selected work',
     subtitle:
-      'Real tools for the Houston industrial corridor: directories, permits, channels, and environmental compliance.',
-    viewDetails: 'View project details',
-    visitSite: 'Open live site',
-    viewGithub: 'View code on GitHub',
-    statusLive: 'Live',
-    statusComingSoon: 'Coming soon',
-    realUseLabel: 'Real-world use',
-    technologiesLabel: 'Technologies',
-    closeModal: 'Close project details',
+      'Finished projects shipped through ZeroDigitX, the studio I run: what was in the way, what I built, and what changed.',
+    filterLabel: 'Filter projects',
     filterAll: 'All',
-    filterLive: 'Live',
-    filterComingSoon: 'Coming soon',
-    emptyTitle: 'No projects in this filter',
-    emptyBody: 'Try “All” or “Live” to see production work.',
-    emptyAction: 'Show all projects',
+    filterClients: 'Clients',
+    filterProducts: 'Products',
+    caseSuffix: 'case study',
+    screenshotAlt: '{name} homepage',
+    kindClient: 'Client project',
+    kindProduct: 'Studio product',
+    visitSite: 'Visit site',
+    chapterProblem: 'The problem',
+    chapterSolution: 'The solution',
+    chapterResult: 'The result',
+    highlightsTitle: 'Highlights',
+    stackTitle: 'Stack',
+    caseNavLabel: 'More case studies',
+    prevCase: 'Previous case',
+    nextCase: 'Next case',
+    backToWork: 'All work',
+    metaTitleSuffix: 'case study',
+    notFound: 'Case study not found',
   },
   technologies: {
     title: 'Technologies',
+    eyebrow: 'Stack',
     subtitle:
-      'Real production stack: Vue/Nuxt, MapLibre maps, FastAPI, Supabase, and data pipelines used across the TxBizFinder suite and client projects.',
+      'What I have shipped with across my GitHub repos: languages, frameworks, databases, maps, AI, testing and infrastructure, from client sites to Texas data tools.',
   },
   lab: {
     eyebrow: 'Tools',
     title: 'Lab',
     subtitle:
-      'My lab tools: Pyron, website audits, open-source license scanning, and utilities ready to use.',
+      'Tools I build in the open and ship ready to use: a Python/Rust web framework and a license scanner.',
     openTool: 'Open tool',
     viewGithub: 'View on GitHub',
     viewPypi: 'Install from PyPI',
     emptyTitle: 'No lab tools yet',
     emptyBody: 'More open-source tools and utilities will show up here soon.',
+    stackLabel: 'Technologies',
   },
   reviews: {
     title: 'Professional reviews',
@@ -348,6 +377,7 @@ const en: Translations = {
   },
   contact: {
     title: 'Contact',
+    eyebrow: 'Work with me',
     subtitle:
       'Need a data tool, industrial dashboard, or web application? Request a quote or call me.',
     hireVia: 'Request a quote',
@@ -362,11 +392,11 @@ const en: Translations = {
     github: 'GitHub',
   },
   footer: {
-    rights: '© {year} Mario S. Alvarez (Mario Alvarez). All rights reserved.',
-    builtWith: 'Built with Vue 3, TypeScript, and Tailwind CSS',
+    rights: '© {year}. All rights reserved.',
+    builtWith: 'Built with Nuxt, TypeScript, and Tailwind CSS',
     tagline: 'Founder, CEO, and owner of ZeroDigitX · Houston, Texas',
     agency: 'ZeroDigitX',
-    identity: 'Founder and CEO of ZeroDigitX',
+    navLabel: 'Site sections',
   },
   meta: {
     siteTitle: 'Mario S. Alvarez (Mario Alvarez) — CEO of ZeroDigitX | Houston',
@@ -374,7 +404,7 @@ const en: Translations = {
       'Mario S. Alvarez, also known as Mario Alvarez, is the founder, CEO, and owner of ZeroDigitX (zerodigitx.com). Industrial data developer in Houston and La Porte, Texas.',
   },
   theme: {
-    light: 'Clear',
+    light: 'Light',
     dark: 'Dark',
     label: 'Theme',
   },

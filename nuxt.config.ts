@@ -1,6 +1,4 @@
 // https://nuxt.com/docs/4.x/getting-started/configuration
-import tailwindcss from '@tailwindcss/vite'
-
 const siteUrl = 'https://mariosalvarez.com'
 const siteTitle = 'Mario S. Alvarez (Mario Alvarez) — CEO of ZeroDigitX | Houston'
 const siteDescription =
@@ -10,6 +8,15 @@ const ogImage = `${siteUrl}/og-image.png`
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
+
+  modules: ['@nuxt/ui'],
+
+  // Theme (data-theme + localStorage) is handled by the site itself.
+  // Fonts: @nuxt/fonts (enabled by Nuxt UI) self-hosts Inter/Poppins with
+  // metric-matched fallbacks, so text doesn't shift when the web font lands.
+  ui: {
+    colorMode: false,
+  },
 
   // Full HTML at build time for crawlers (SSG)
   ssr: true,
@@ -29,11 +36,8 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['~/assets/css/main.css'],
-
-  vite: {
-    plugins: [tailwindcss() as never],
-  },
+  // Nuxt UI registers the Tailwind v4 Vite plugin
+  css: ['~/assets/css/main.css', '~/assets/css/hero.css', '~/assets/css/work.css'],
 
   app: {
     head: {
@@ -45,7 +49,7 @@ export default defineNuxtConfig({
         { name: 'description', content: siteDescription },
         { name: 'author', content: 'Mario S. Alvarez' },
         { name: 'robots', content: 'index, follow' },
-        { name: 'theme-color', content: '#0284c7' },
+        { name: 'theme-color', content: '#131110' },
         { property: 'og:type', content: 'profile' },
         { property: 'og:url', content: siteUrl },
         { property: 'og:title', content: siteTitle },
@@ -67,12 +71,6 @@ export default defineNuxtConfig({
         { rel: 'me', href: 'https://www.linkedin.com/in/mariosalv2/' },
         { rel: 'me', href: 'https://x.com/nezsbit' },
         { rel: 'me', href: 'https://zerodigitx.com' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap',
-        },
       ],
       script: [
         {

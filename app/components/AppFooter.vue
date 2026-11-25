@@ -6,12 +6,21 @@ import { computed } from 'vue'
 import { useI18n } from '~/composables/useI18n'
 import { useScrollTo } from '~/composables/useScrollTo'
 import { GITHUB_URL, LINKEDIN_URL, X_URL, ZERODIGITX_URL } from '~/data/identity'
+import { hasReviews } from '~/data/reviews'
 
 const { t_ui } = useI18n()
 const { scrollToSection } = useScrollTo()
 const route = useRoute()
 
 const currentYear = computed(() => new Date().getFullYear())
+
+const sectionLinks = computed(() => [
+  { id: 'projects', label: t_ui.value.nav.projects },
+  { id: 'lab', label: t_ui.value.nav.lab },
+  { id: 'technologies', label: t_ui.value.nav.technologies },
+  ...(hasReviews ? [{ id: 'reviews', label: t_ui.value.nav.reviews }] : []),
+  { id: 'contact', label: t_ui.value.nav.contact },
+])
 
 function onFooterNav(event: MouseEvent, sectionId: string): void {
   if (route.path === '/') {
@@ -26,115 +35,61 @@ const rightsText = computed(() =>
 </script>
 
 <template>
-  <footer class="site-footer py-12 px-4 sm:px-6">
-    <div class="mx-auto max-w-6xl">
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+  <footer class="site-footer">
+    <div class="site-container py-14">
+      <div class="mb-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
         <div>
-          <p class="text-xl font-bold footer-title mb-2">Mario Alvarez</p>
-          <p class="text-sm opacity-80">Mario S. Alvarez</p>
-          <p class="text-sm italic opacity-80">
-            {{ t_ui.footer.tagline }}
+          <p class="footer-title font-display text-2xl font-semibold tracking-tight">
+            Mario Alvarez
           </p>
-          <p class="mt-2 text-sm opacity-80">
-            {{ t_ui.footer.identity }}
-          </p>
+          <p class="mt-1 text-sm">Mario S. Alvarez</p>
+          <p class="mt-4 max-w-sm text-sm">{{ t_ui.footer.tagline }}</p>
         </div>
 
-        <nav aria-label="Footer links">
-          <ul class="space-y-2 text-sm">
-            <li>
+        <nav :aria-label="t_ui.footer.navLabel">
+          <ul class="text-sm">
+            <li v-for="link in sectionLinks" :key="link.id">
               <a
-                href="/#projects"
-                class="hover:text-accent-400 transition-colors"
-                @click="onFooterNav($event, 'projects')"
+                :href="`/#${link.id}`"
+                class="footer-link"
+                @click="onFooterNav($event, link.id)"
               >
-                {{ t_ui.nav.projects }}
+                {{ link.label }}
               </a>
             </li>
             <li>
-              <a
-                href="/#lab"
-                class="hover:text-accent-400 transition-colors"
-                @click="onFooterNav($event, 'lab')"
-              >
-                {{ t_ui.nav.lab }}
-              </a>
-            </li>
-            <li>
-              <a
-                href="/#technologies"
-                class="hover:text-accent-400 transition-colors"
-                @click="onFooterNav($event, 'technologies')"
-              >
-                {{ t_ui.nav.technologies }}
-              </a>
-            </li>
-            <li>
-              <a
-                href="/#reviews"
-                class="hover:text-accent-400 transition-colors"
-                @click="onFooterNav($event, 'reviews')"
-              >
-                {{ t_ui.nav.reviews }}
-              </a>
-            </li>
-            <li>
-              <a
-                href="/#contact"
-                class="hover:text-accent-400 transition-colors"
-                @click="onFooterNav($event, 'contact')"
-              >
-                {{ t_ui.nav.contact }}
-              </a>
-            </li>
-            <li>
-              <NuxtLink
-                to="/about"
-                class="hover:text-accent-400 transition-colors"
-              >
+              <NuxtLink to="/about" class="footer-link">
                 {{ t_ui.nav.about }}
               </NuxtLink>
             </li>
           </ul>
         </nav>
 
-        <div class="flex flex-col gap-2 text-sm">
-          <a
-            :href="ZERODIGITX_URL"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-accent-400 transition-colors"
-          >
-            {{ t_ui.footer.agency }}
-          </a>
-          <a
-            :href="X_URL"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="hover:text-accent-400 transition-colors"
-          >
-            X / @nezsbit
-          </a>
-          <a
-            :href="LINKEDIN_URL"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="hover:text-accent-400 transition-colors"
-          >
-            LinkedIn
-          </a>
-          <a
-            :href="GITHUB_URL"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="hover:text-accent-400 transition-colors"
-          >
-            GitHub
-          </a>
-        </div>
+        <ul class="text-sm">
+          <li>
+            <a :href="ZERODIGITX_URL" target="_blank" rel="noopener noreferrer" class="footer-link">
+              {{ t_ui.footer.agency }}
+            </a>
+          </li>
+          <li>
+            <a :href="X_URL" target="_blank" rel="me noopener noreferrer" class="footer-link">
+              X / @nezsbit
+            </a>
+          </li>
+          <li>
+            <a :href="LINKEDIN_URL" target="_blank" rel="me noopener noreferrer" class="footer-link">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a :href="GITHUB_URL" target="_blank" rel="me noopener noreferrer" class="footer-link">
+              GitHub
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <div class="footer-divider border-t pt-8 flex flex-col sm:flex-row justify-between gap-4 text-sm opacity-70">
+      <div class="footer-divider flex flex-col justify-between gap-4 border-t pt-8 text-sm sm:flex-row">
         <p>{{ rightsText }}</p>
         <p>{{ t_ui.footer.builtWith }}</p>
       </div>

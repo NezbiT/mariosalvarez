@@ -3,7 +3,7 @@
  * Home — fully prerendered for SEO (SSG).
  * Crawlers receive real HTML: hero, projects, lab, tech, reviews, contact.
  */
-import { projects } from '~/data/projects'
+import feed from '#zdx-work'
 import { labItems } from '~/data/lab'
 import {
   OG_IMAGE,
@@ -47,13 +47,13 @@ useHead({
           websiteJsonLd(),
           {
             '@type': 'ItemList',
-            name: 'Featured projects',
-            itemListElement: projects.map((p, i) => ({
+            name: 'Selected work',
+            itemListElement: feed.items.map((item, i) => ({
               '@type': 'ListItem',
               position: i + 1,
-              name: p.title.en,
-              description: p.shortDescription.en,
-              url: p.links.site || SITE_URL,
+              name: item.name,
+              description: item.problem.en,
+              url: `${SITE_URL}/projects/${item.id}`,
             })),
           },
           {
@@ -78,7 +78,7 @@ useHead({
   <div>
     <!--
       Semantic content is in the static HTML for crawlers.
-      Client hydrates interactivity (filters, modal, i18n toggle).
+      Client hydrates interactivity (work filter, i18n toggle).
     -->
     <AppHero />
     <div class="section-wave -mt-1" aria-hidden="true" />

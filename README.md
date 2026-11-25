@@ -67,16 +67,20 @@ Llevo más de 15 años en la web — Latinoamérica, Canadá y Texas(USA). A los
 
 ## Featured work
 
-| Project | Status | Link | Why it exists |
-|---------|--------|------|----------------|
-| **TexasBizFinder** | Live | [txbizfinder.com](https://www.txbizfinder.com) | Find Texas businesses with real data, not a brochure |
-| **INESA Institute** | Live | [inesa.institute](https://inesa.institute) | Trilingual institutional site + PWA |
-| **Pitch Doctor** | Tool | [GitHub](https://github.com/NezbiT/pitch-doctor) | Audit a weak website and turn it into a conversation |
-| **GitHub License Scanner** | Open source | [GitHub](https://github.com/NezbiT/github-license-scanner) | Repo + dependency license risk, local CLI/UI |
-| **Pyron** | Open source | [GitHub](https://github.com/NezbiT/pyron) | Python web framework with a Rust core |
-### In Construction..
-| **PermitRadar Houston** | Live | — | Industrial permit monitor for Houston |
-| **ChannelWatch La Porte** | Live | — | Navigation-channel conditions close to home |
+Case studies (problem → solution → result) come from the ZeroDigitX work feed, so both sites always show the same projects:
+
+| Project | Kind | Link |
+|---------|------|------|
+| **Coumasso Medical Center** | Client | [coumasso.com](https://coumasso.com) |
+| **NAVCO Solutions** | Client | [navcosolutions.com](https://navcosolutions.com) |
+| **INESA Institute** | Client | [inesa.institute](https://inesa.institute) |
+| **Sweet Hearts Daycare** | Client | [sweetheartdaycare.net](https://sweetheartdaycare.net) |
+| **Family Appliances & Furniture** | Client | [familyappliancefurniture.com](https://familyappliancefurniture.com) |
+| **Pitch Doctor** | Product | [doctor.zerodigitx.com](https://doctor.zerodigitx.com) |
+| **Texas-Intelligence** | Product | [txbizfinder.com/map](https://www.txbizfinder.com/map) |
+| **ReadyCDL** | Product | In development |
+
+Open source in the Lab: [Pyron](https://github.com/NezbiT/pyron) and [GitHub License Scanner](https://github.com/NezbiT/github-license-scanner).
 
 ---
 ### Scripts
@@ -120,7 +124,9 @@ mariosalvarez/
 └── README.md
 ```
 
-Add a project in `app/data/projects.ts`. Copy lives in `app/i18n/translations.ts`.
+Projects are not stored here. `modules/zdx-work.ts` reads the ZeroDigitX feed at build time, validates it, and prerenders `/projects/<id>` for each item. Source: `ZDX_WORK_URL` if set; otherwise the `dev` branch (dev.mariosalvarez.com) reads `https://dev.zerodigitx.com/work.json` and production reads `https://zerodigitx.com/work.json`. A local file path also works. The build fails if the feed is missing or invalid, so a bad feed never publishes an empty portfolio. To add or edit a project, change `public/work.json` in the zerodigitx repo, deploy it, then redeploy this site. Copy lives in `app/i18n/translations.ts`.
+
+Working offline, or before a feed change is deployed? Point the build at a local copy: `ZDX_WORK_URL=../zerodigitx.com/public/work.json npm run dev`.
 
 ---
 

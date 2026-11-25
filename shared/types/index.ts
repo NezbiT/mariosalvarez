@@ -8,30 +8,13 @@ export interface BilingualText {
   en: string
 }
 
-export interface ProjectLinks {
-  site?: string
-  github?: string
-}
-
-export interface Project {
-  id: string
-  title: BilingualText
-  shortDescription: BilingualText
-  realUse: BilingualText
-  longDescription: BilingualText
-  technologies: string[]
-  status: 'live' | 'coming-soon'
-  links: ProjectLinks
-  priority: number
-}
-
 /** Tecnología con logo y enlace oficial */
 export interface TechItem {
   id: string
   name: string
   url: string
-  /** Slug de Simple Icons para cdn.simpleicons.org */
-  icon: string
+  /** Simple Icons slug (cdn.simpleicons.org); omitted when there is no logo */
+  icon?: string
   color?: string
 }
 

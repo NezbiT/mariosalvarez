@@ -4,7 +4,7 @@ import { useI18n } from '~/composables/useI18n'
 import { useScrollTo, useScrollDetection } from '~/composables/useScrollTo'
 import { useScrollSpy } from '~/composables/useScrollSpy'
 import ThemeToggle from './ThemeToggle.vue'
-import CanvasLogo from './CanvasLogo.vue'
+import { hasReviews } from '~/data/reviews'
 
 defineProps<{
   showDevBadge?: boolean
@@ -13,21 +13,22 @@ defineProps<{
 const { t_ui, toggleLocale } = useI18n()
 const { scrollAndClose } = useScrollTo()
 const { isScrolled } = useScrollDetection()
-const { activeSection } = useScrollSpy(['hero', 'projects', 'lab', 'technologies', 'reviews', 'contact'])
-
-const route = useRoute()
-const isHome = computed(() => route.path === '/' || route.path === '')
-const isMenuOpen = ref(false)
-const onHero = computed(() => isHome.value && activeSection.value === 'hero' && !isScrolled.value)
 
 const navLinks = [
   { id: 'hero', key: 'home' as const },
   { id: 'projects', key: 'projects' as const },
   { id: 'lab', key: 'lab' as const },
   { id: 'technologies', key: 'technologies' as const },
-  { id: 'reviews', key: 'reviews' as const },
+  ...(hasReviews ? [{ id: 'reviews', key: 'reviews' as const }] : []),
   { id: 'contact', key: 'contact' as const },
 ]
+
+const { activeSection } = useScrollSpy(navLinks.map(link => link.id))
+
+const route = useRoute()
+const isHome = computed(() => route.path === '/' || route.path === '')
+const isMenuOpen = ref(false)
+const onHero = computed(() => isHome.value && activeSection.value === 'hero' && !isScrolled.value)
 
 function closeMenu(): void { isMenuOpen.value = false }
 function navigate(sectionId: string): void { scrollAndClose(sectionId, closeMenu) }
@@ -45,8 +46,8 @@ function onSectionClick(event: MouseEvent, sectionId: string): void {
 
 <template>
   <header
-    class="fixed top-1 left-0 right-0 z-50 transition-all duration-500"
-    :class="onHero ? 'glass-nav mx-3 mt-2 rounded-2xl' : 'glass-nav shadow-lg'"
+    class="ms-nav fixed inset-x-0 top-0 z-50"
+    :class="[onHero ? 'ms-nav--on-hero' : 'glass-nav ms-nav--solid', { 'ms-nav--open': isMenuOpen }]"
   >
     <nav
       class="site-container flex items-center justify-between py-3 sm:py-4"
@@ -55,11 +56,13 @@ function onSectionClick(event: MouseEvent, sectionId: string): void {
       <div class="flex items-center gap-3">
         <NuxtLink
           to="/"
-          class="flex min-h-11 min-w-11 items-center justify-center rounded-full transition-all duration-300 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/50"
-          :aria-label="t_ui.nav.home"
+          class="ms-logo"
           @click="onSectionClick($event, 'hero')"
         >
-          <CanvasLogo :size="36" />
+          <span class="ms-logo__word">Mario Alvarez</span>
+          <span class="ms-logo__dock" data-logo-dock aria-hidden="true">
+            <XMark class="ms-logo__x" :depth="false" />
+          </span>
         </NuxtLink>
         <span v-if="showDevBadge" class="dev-badge">DEV</span>
       </div>
@@ -74,11 +77,7 @@ function onSectionClick(event: MouseEvent, sectionId: string): void {
             @click="onSectionClick($event, link.id)"
           >
             {{ t_ui.nav[link.key] }}
-            <span
-              v-if="isActive(link.id)"
-              class="absolute bottom-0.5 left-1/2 h-0.5 w-3/4 -translate-x-1/2 rounded-full bg-gradient-to-r from-accent-400 to-cyan-400"
-              aria-hidden="true"
-            />
+            <span v-if="isActive(link.id)" class="ms-nav__bar" aria-hidden="true" />
           </a>
         </li>
         <li class="ml-1">
@@ -87,7 +86,7 @@ function onSectionClick(event: MouseEvent, sectionId: string): void {
         <li>
           <button
             type="button"
-            class="btn-interactive min-h-11 rounded-xl border border-theme px-3 py-1.5 text-sm font-medium text-theme-secondary hover:text-accent-500 transition-all duration-300"
+            class="ms-lang"
             :aria-label="t_ui.nav.languageAria"
             @click="toggleLocale"
           >
@@ -97,10 +96,9 @@ function onSectionClick(event: MouseEvent, sectionId: string): void {
       </ul>
 
       <div class="flex items-center gap-2 md:hidden">
-        <ThemeToggle />
         <button
           type="button"
-          class="min-h-11 min-w-11 rounded-lg border border-theme px-2.5 text-sm text-theme-secondary"
+          class="ms-lang"
           :aria-label="t_ui.nav.languageAria"
           @click="toggleLocale"
         >
@@ -108,7 +106,7 @@ function onSectionClick(event: MouseEvent, sectionId: string): void {
         </button>
         <button
           type="button"
-          class="flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2 text-theme-primary"
+          class="flex min-h-11 min-w-11 items-center justify-center rounded p-2"
           :aria-expanded="isMenuOpen"
           aria-controls="mobile-nav-menu"
           :aria-label="isMenuOpen ? t_ui.nav.menuClose : t_ui.nav.menuOpen"
@@ -123,7 +121,7 @@ function onSectionClick(event: MouseEvent, sectionId: string): void {
     </nav>
 
     <Transition name="menu-slide">
-      <div v-if="isMenuOpen" id="mobile-nav-menu" class="border-t border-theme glass-nav md:hidden">
+      <div v-if="isMenuOpen" id="mobile-nav-menu" class="ms-nav__panel md:hidden">
         <ul class="site-container flex flex-col py-3">
           <li v-for="link in navLinks" :key="link.id">
             <a
@@ -135,6 +133,9 @@ function onSectionClick(event: MouseEvent, sectionId: string): void {
             >
               {{ t_ui.nav[link.key] }}
             </a>
+          </li>
+          <li class="mt-2 border-t border-theme px-3 pt-4">
+            <ThemeToggle />
           </li>
         </ul>
       </div>

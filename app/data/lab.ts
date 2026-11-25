@@ -28,29 +28,6 @@ export const labItems: LabItem[] = [
     priority: 1,
   },
   {
-    id: 'pitch-doctor',
-    title: {
-      es: 'Pitch Doctor',
-      en: 'Pitch Doctor',
-    },
-    shortDescription: {
-      es: 'Audita sitios web de negocios y genera reportes HTML con marca para convertir malas webs en clientes.',
-      en: 'Audit business websites and generate branded HTML reports — turn weak sites into your next client.',
-    },
-    longDescription: {
-      es: 'Tool de ZeroDigitX: analiza un sitio, resalta problemas de diseño, SEO y conversión, y entrega un informe listo para presentar al cliente. Ideal para freelancers y agencias en ventas consultivas.',
-      en: 'ZeroDigitX tool: analyzes a site, flags design/SEO/conversion issues, and delivers a report ready to pitch. Built for freelancers and agencies doing consultative sales.',
-    },
-    technologies: ['Web', 'CLI', 'HTML reports', 'ES/EN/FR'],
-    site: 'https://doctor.zerodigitx.com/',
-    github: 'https://github.com/NezbiT/pitch-doctor',
-    badge: {
-      es: 'Tool',
-      en: 'Tool',
-    },
-    priority: 2,
-  },
-  {
     id: 'github-license-scanner',
     title: {
       es: 'GitHub License Scanner',
@@ -73,6 +50,6 @@ export const labItems: LabItem[] = [
       es: 'Open source',
       en: 'Open source',
     },
-    priority: 3,
+    priority: 2,
   },
 ]

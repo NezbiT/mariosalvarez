@@ -1,0 +1,407 @@
+/* Work grid (home) + case-study pages (/projects/<id>). */
+
+/* ── Filter (All / Clients / Products) ────────────────────────── */
+.work-filter {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+}
+
+.work-filter__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.125rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.work-filter__btn:hover { color: var(--color-text-primary); }
+
+.work-filter__btn[aria-pressed="true"] {
+  background: var(--color-crimson);
+  color: var(--color-ivory);
+}
+
+.work-filter__count {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+}
+
+.work-filter__btn[aria-pressed="true"] .work-filter__count { color: var(--color-ivory); }
+
+/* ── Card ─────────────────────────────────────────────────────── */
+.work-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Keyboard focus lands on the stretched link; ring the whole card. */
+.work-card:has(.work-card__link:focus-visible) {
+  outline: 2px solid var(--color-crimson);
+  outline-offset: 3px;
+}
+.work-card__link:focus-visible { outline: none; }
+
+/* Grows with the row so neighbours of different widths line up. */
+.work-card__media {
+  position: relative;
+  flex: 1 0 auto;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-carbon);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.work-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transform-origin: top center;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.work-card:hover .work-card__img,
+.work-card:focus-within .work-card__img {
+  transform: scale(1.035);
+}
+
+.work-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.work-card__title {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.work-card--large .work-card__title { font-size: clamp(1.5rem, 1vw + 1.1rem, 2rem); }
+.work-card--feature .work-card__title { font-size: clamp(1.75rem, 2vw + 1rem, 3rem); }
+
+/* Stretched link: the whole card is the hit area. */
+.work-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.work-card__teaser {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.work-card--feature .work-card__teaser {
+  font-size: clamp(1rem, 0.4vw + 0.9rem, 1.1875rem);
+}
+
+.work-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding-top: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .work-card--feature {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+
+  .work-card--feature .work-card__media {
+    border-bottom: 0;
+    border-right: 1px solid var(--color-border);
+  }
+
+  .work-card--feature .work-card__body {
+    justify-content: center;
+    gap: 1rem;
+    padding: clamp(2rem, 3vw, 3.5rem);
+  }
+}
+
+/* Crimson underline that draws in on hover/focus (transform only). */
+.work-underline {
+  position: relative;
+}
+
+.work-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.12em;
+  height: 2px;
+  background: var(--color-crimson);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+:is(.work-card, .work-pager__link):is(:hover, :focus-within) .work-underline::after {
+  transform: scaleX(1);
+}
+
+/* Cards entering after a filter change. */
+@keyframes work-in {
+  from { opacity: 0; transform: translateY(12px); }
+}
+
+.work-cell--enter { animation: work-in 0.6s var(--ease-out-expo) both; }
+
+/* ── Typographic poster (projects without a screenshot) ───────── */
+.work-poster {
+  position: absolute;
+  inset: 0;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: clamp(1.25rem, 5%, 3.5rem);
+  overflow: hidden;
+  background-color: var(--color-carbon);
+  background-image:
+    linear-gradient(rgba(235, 230, 220, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(235, 230, 220, 0.05) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+  color: var(--color-ivory);
+}
+
+.work-poster__mark {
+  position: absolute;
+  top: -12%;
+  right: -4%;
+  height: 125%;
+  width: auto;
+  opacity: 0.14;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.work-card:hover .work-poster__mark,
+.work-card:focus-within .work-poster__mark {
+  transform: scale(1.035);
+}
+
+.work-poster__category {
+  position: relative;
+  font-size: clamp(0.6875rem, 1.6cqi, 0.9375rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-400);
+}
+
+.work-poster__name {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 10cqi, 7rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* ── Case page ────────────────────────────────────────────────── */
+.work-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.work-back:hover { color: var(--color-text-accent); }
+
+.work-frame { overflow: hidden; }
+
+.work-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.work-frame__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-industrial-400);
+  opacity: 0.5;
+}
+
+.work-frame__address {
+  margin-left: 0.5rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--color-text-muted);
+}
+
+.work-frame__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--color-carbon);
+}
+
+.work-frame__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.work-chapter,
+.work-details {
+  display: grid;
+  gap: 1rem 2rem;
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid var(--color-border);
+}
+
+.work-chapter__num {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 3vw + 1.5rem, 4.5rem);
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-accent);
+}
+
+.work-chapter__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1vw + 1rem, 1.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+.work-chapter__body {
+  max-width: 44rem;
+  font-size: clamp(1.0625rem, 0.5vw + 0.95rem, 1.375rem);
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 1024px) {
+  .work-chapter {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: baseline;
+  }
+  .work-chapter__num { grid-column: span 2; }
+  .work-chapter__title { grid-column: span 3; }
+  .work-chapter__body { grid-column: span 7; }
+
+  .work-details { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .work-detail { grid-column: 3 / span 6; }
+  .work-detail--aside { grid-column: 10 / span 3; }
+}
+
+.work-highlights {
+  display: grid;
+  gap: 1rem;
+}
+
+.work-highlights li {
+  position: relative;
+  padding-left: 1.75rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.work-highlights li::before {
+  content: "";
+  position: absolute;
+  top: 0.8em;
+  left: 0;
+  width: 1rem;
+  height: 2px;
+  background: var(--color-crimson);
+}
+
+.work-pager {
+  display: grid;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.work-pager > li + li { border-top: 1px solid var(--color-border); }
+
+@media (min-width: 640px) {
+  .work-pager { grid-template-columns: 1fr 1fr; }
+  .work-pager > li + li {
+    border-top: 0;
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+.work-pager__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  padding: clamp(1.75rem, 3vw, 2.75rem) 0;
+}
+
+@media (min-width: 640px) {
+  .work-pager__link { padding-right: 2rem; }
+  .work-pager__link--next {
+    align-items: flex-end;
+    padding-right: 0;
+    padding-left: 2rem;
+    text-align: right;
+  }
+}
+
+.work-pager__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.5vw + 1rem, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card__img,
+  .work-poster__mark,
+  .work-underline::after {
+    transition: none;
+  }
+
+  .work-card:hover .work-card__img,
+  .work-card:focus-within .work-card__img,
+  .work-card:hover .work-poster__mark,
+  .work-card:focus-within .work-poster__mark {
+    transform: none;
+  }
+
+  .work-cell--enter { animation: none; }
+}

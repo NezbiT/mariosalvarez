@@ -15,15 +15,18 @@
     "typecheck": "nuxt prepare && vue-tsc -b --noEmit"
   },
   "dependencies": {
-    "nuxt": "^4.5.0",
-    "vue": "^3.5.39",
-    "vue-router": "^4.5.0"
+    "@nuxt/ui": "^4.12.0",
+    "nuxt": "^4.6.4",
+    "vue": "^3.5.45",
+    "vue-router": "^5.5.1"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.2",
-    "@types/node": "^24.13.2",
-    "tailwindcss": "^4.3.2",
-    "typescript": "~7.0.2",
-    "vue-tsc": "^3.3.5"
+    "@types/node": "^24.19.2",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~5.9",
+    "vue-tsc": "^3.3.14"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
   }
 }

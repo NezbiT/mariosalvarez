@@ -1,0 +1,25 @@
+# Redeploys mariosalvarez.com every day so the case studies (read at build
+# time from https://zerodigitx.com/work.json) and the build-time NWS snapshot
+# stay current. Can also be triggered by hand after updating the feed.
+#
+# Setup: Vercel → Project → Settings → Git → Deploy Hooks → create one for the
+# production branch, then save its URL as the repo secret VERCEL_DEPLOY_HOOK.
+name: Rebuild from ZeroDigitX feed
+
+on:
+  schedule:
+    - cron: '17 11 * * *' # 05:17 / 06:17 Houston time
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the feed is reachable
+        run: curl --fail --silent --show-error --output /dev/null https://zerodigitx.com/work.json
+      - name: Trigger Vercel deploy hook
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          test -n "$HOOK" || { echo "VERCEL_DEPLOY_HOOK secret is not set"; exit 1; }
+          curl --fail --silent --show-error -X POST "$HOOK"

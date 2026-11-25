@@ -64,48 +64,43 @@ useHead({
 </script>
 
 <template>
-  <section class="relative py-28 sm:py-32">
-    <div class="site-container relative z-10 max-w-3xl">
-      <p class="text-sm font-semibold uppercase tracking-widest text-accent-600 mb-3">
-        {{ t_ui.about.role }}
-      </p>
-      <h1 class="display-lg font-bold text-theme-primary mb-2">
-        {{ t_ui.hero.name }}
-      </h1>
-      <p class="text-lg font-medium text-theme-muted mb-6">
-        {{ t_ui.hero.legalName }}
-      </p>
-      <p class="text-lg sm:text-xl text-theme-secondary leading-relaxed mb-6">
-        {{ t_ui.about.lead }}
-      </p>
-      <p class="text-base sm:text-lg text-theme-muted leading-relaxed mb-12">
-        {{ t_ui.about.body }}
-      </p>
-
-      <article class="theme-aside-card rounded-xl p-6 sm:p-8">
-        <h2 class="text-xl font-semibold text-theme-primary mb-3">
-          {{ t_ui.about.companyTitle }}
-        </h2>
-        <p class="text-theme-muted leading-relaxed mb-5">
-          {{ t_ui.about.companyBody }}
+  <section class="section pt-32 sm:pt-40">
+    <div class="site-container">
+      <div class="max-w-3xl">
+        <p class="eyebrow">{{ t_ui.about.role }}</p>
+        <h1 class="display-xl">{{ t_ui.hero.name }}</h1>
+        <p class="mt-3 mb-10 font-display text-lg font-medium text-theme-muted">
+          {{ t_ui.hero.legalName }}
         </p>
-        <div class="flex flex-wrap gap-3">
-          <a
-            :href="ZERODIGITX_URL"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex min-h-11 items-center justify-center rounded-lg bg-accent-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-accent-500 transition-colors"
-          >
-            {{ t_ui.about.visitStudio }}
-          </a>
-          <NuxtLink
-            to="/"
-            class="inline-flex min-h-11 items-center justify-center rounded-lg border border-theme px-4 py-2.5 text-sm font-medium text-theme-secondary hover:text-accent-600 transition-colors"
-          >
-            {{ t_ui.about.backHome }}
-          </NuxtLink>
-        </div>
-      </article>
+        <p class="mb-6 text-xl leading-relaxed text-theme-primary sm:text-2xl">
+          {{ t_ui.about.lead }}
+        </p>
+        <p class="mb-14 text-base leading-relaxed text-theme-secondary sm:text-lg">
+          {{ t_ui.about.body }}
+        </p>
+
+        <article class="surface surface--accent p-6 sm:p-8">
+          <h2 class="mb-3 font-display text-2xl font-semibold tracking-tight text-theme-primary">
+            {{ t_ui.about.companyTitle }}
+          </h2>
+          <p class="mb-6 leading-relaxed text-theme-secondary">
+            {{ t_ui.about.companyBody }}
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a
+              :href="ZERODIGITX_URL"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              {{ t_ui.about.visitStudio }}
+            </a>
+            <NuxtLink to="/" class="btn btn-ghost">
+              {{ t_ui.about.backHome }}
+            </NuxtLink>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 </template>
