@@ -2,10 +2,12 @@
  * Loads the ZeroDigitX work feed once per build and exposes it as `#zdx-work`.
  *
  * Source: ZDX_WORK_URL when set. Otherwise the feed that pairs with this
- * deploy: Vercel builds of the `dev` branch (dev.mariosalvarez.com) read
- * https://dev.zerodigitx.com/work.json; everything else reads
- * https://zerodigitx.com/work.json. An http(s) URL is fetched; anything else
- * is read as a local file path, handy while editing the feed in zerodigitx.
+ * deploy: builds of the `dev` branch (dev.mariosalvarez.com; branch from
+ * Cloudflare Workers Builds `WORKERS_CI_BRANCH` or Vercel
+ * `VERCEL_GIT_COMMIT_REF`) read https://dev.zerodigitx.com/work.json;
+ * everything else reads https://zerodigitx.com/work.json. An http(s) URL is
+ * fetched; anything else is read as a local file path, handy while editing
+ * the feed in zerodigitx.
  *
  * The build fails if the feed is unreachable or malformed: a deploy that would
  * publish an empty portfolio is worse than keeping the previous deploy live.
@@ -15,7 +17,8 @@ import { resolve } from 'node:path'
 import { addTemplate, addTypeTemplate, defineNuxtModule } from 'nuxt/kit'
 import type { WorkFeed, WorkItem } from '../shared/types/work'
 
-const DEFAULT_SOURCE = process.env.VERCEL_GIT_COMMIT_REF === 'dev'
+const BRANCH = process.env.WORKERS_CI_BRANCH || process.env.VERCEL_GIT_COMMIT_REF
+const DEFAULT_SOURCE = BRANCH === 'dev'
   ? 'https://dev.zerodigitx.com/work.json'
   : 'https://zerodigitx.com/work.json'
 

@@ -1,0 +1,20 @@
+// Cloudflare Workers: the site is fully prerendered (`nuxt generate`, Nitro
+// preset `static`), so the Worker only serves files from .output/public.
+// No `main` script. Without this file `wrangler deploy` auto-configures a
+// server-rendered Nuxt Worker and fails looking for .output/server/index.mjs.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mariosalvarez",
+  "compatibility_date": "2026-11-23",
+  "assets": {
+    "directory": "./.output/public",
+    // Prerendered pages live at /<path>/index.html; serve them at /<path>
+    // (the canonical URL, no trailing slash) and redirect /<path>/ → /<path>.
+    "html_handling": "drop-trailing-slash",
+    // Unknown URLs get Nuxt's prerendered 404 page with a 404 status.
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

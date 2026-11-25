@@ -128,6 +128,8 @@ Projects are not stored here. `modules/zdx-work.ts` reads the ZeroDigitX feed at
 
 Working offline, or before a feed change is deployed? Point the build at a local copy: `ZDX_WORK_URL=../zerodigitx.com/public/work.json npm run dev`.
 
+Deploy on Cloudflare Workers Builds: build command `npm run build`, deploy command `npx wrangler deploy`. `wrangler.jsonc` serves the prerendered `.output/public` as static assets (no server script); `public/_headers` sets long-lived caching for `/_nuxt/*`.
+
 ---
 
 ## Related sites
