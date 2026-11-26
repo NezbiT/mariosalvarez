@@ -35,7 +35,7 @@ I learned to code at 15 the way a lot of us did: **C**, then **Java**. In 2011 I
 
 The path wasn't a straight tech job. To stay in Texas I took **rope access and NDT** in the Gulf Coast refineries. After a shift I came home and built. That mix is the point: I ship like someone who has worked where mistakes are expensive, and I still write software for people who have to find a contractor on Google — or ask ChatGPT who to call.
 
-Today I run **[Zeroˣ Digit](https://zerodigitx.com)** from the Houston area: bilingual sites and tools so small businesses actually show up online.
+Today I run **[ZeroDigitX](https://zerodigitx.com)** from the Houston area: bilingual sites and tools so small businesses actually show up online.
 
 This repo is my personal site. The Python work lives next to it — Pitch Doctor, GitHub License Scanner, TexasBizFinder, and [Pyron](https://github.com/NezbiT/pyron).
 
@@ -52,7 +52,7 @@ This repo is my personal site. The Python work lives next to it — Pitch Doctor
 
 ## En español
 
-Llevo más de 15 años en la web — Latinoamérica, Canadá y Texas(USA). A los 15 empecé con C y Java. En 2011 me pasé a HTML5/CSS3/JAVASCRIPT. En Platzi aprendí Python, sigo refinando mis habilidades en technologias y herramientas web. Para quedarme en Texas entré a rope access y NDT; después del trabajo sigo creando web. Hoy dirijo Zeroˣ Digit para que un negocio pequeño se encuentre en Google y en ChatGPT.
+Llevo más de 15 años en la web — Latinoamérica, Canadá y Texas(USA). A los 15 empecé con C y Java. En 2011 me pasé a HTML5/CSS3/JAVASCRIPT. En Platzi aprendí Python, sigo refinando mis habilidades en technologias y herramientas web. Para quedarme en Texas entré a rope access y NDT; después del trabajo sigo creando web. Hoy dirijo ZeroDigitX para que un negocio pequeño se encuentre en Google y en ChatGPT.
 
 ---
 

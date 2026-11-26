@@ -1,6 +1,6 @@
-# Redeploys mariosalvarez.com every day so the case studies (read at build
-# time from https://zerodigitx.com/work.json) and the build-time NWS snapshot
-# stay current. Can also be triggered by hand after updating the feed.
+# Redeploys mariosalvarez.com every day so the client results (read at build
+# time from https://zerodigitx.com/work.json) stay current. Can also be
+# triggered by hand after updating the feed.
 #
 # Setup: Vercel → Project → Settings → Git → Deploy Hooks → create one for the
 # production branch, then save its URL as the repo secret VERCEL_DEPLOY_HOOK.

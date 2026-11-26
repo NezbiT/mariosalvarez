@@ -2,32 +2,14 @@
 import ScrollProgressBar from '~/components/effects/ScrollProgressBar.vue'
 
 const { t_ui, locale } = useI18n()
-const { scrollToSection } = useScrollTo()
-const route = useRoute()
 
 const isDevHost = computed(() =>
   import.meta.client && window.location.hostname.startsWith('dev.'),
 )
 
-watch(
-  locale,
-  (val) => {
-    useHead({
-      htmlAttrs: { lang: val },
-    })
-  },
-  { immediate: true },
-)
-
-function scrollToHash(): void {
-  const hash = route.hash.replace('#', '')
-  if (hash && (route.path === '/' || route.path === '')) {
-    void nextTick(() => scrollToSection(hash))
-  }
-}
-
-onMounted(scrollToHash)
-watch(() => route.fullPath, scrollToHash)
+useHead({
+  htmlAttrs: { lang: locale },
+})
 </script>
 
 <template>

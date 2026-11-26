@@ -1,15 +1,15 @@
 // https://nuxt.com/docs/4.x/getting-started/configuration
 const siteUrl = 'https://mariosalvarez.com'
-const siteTitle = 'Mario S. Alvarez (Mario Alvarez) — CEO of ZeroDigitX | Houston'
+const siteTitle = 'Mario S. Alvarez (Mario Alvarez) — Websites for businesses, plans for families | Houston'
 const siteDescription =
-  'Mario Alvarez (Mario S. Alvarez) has been building on the web for more than 15 years from the Houston area. He runs Zeroˣ Digit (zerodigitx.com) to help small businesses get found on Google and in ChatGPT.'
+  'Mario Alvarez helps small businesses show up and sell online through ZeroDigitX, and helps families protect their income, invest, and plan. Bilingual, from the Houston area.'
 const ogImage = `${siteUrl}/og-image.png`
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
-  modules: ['@nuxt/ui'],
+  modules: ['@nuxt/ui', '@nuxt/eslint'],
 
   // Theme (data-theme + localStorage) is handled by the site itself.
   // Fonts: @nuxt/fonts (enabled by Nuxt UI) self-hosts Inter/Poppins with
@@ -24,7 +24,8 @@ export default defineNuxtConfig({
     preset: 'static',
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/about'],
+      // Both language homes; every other page is reached through links.
+      routes: ['/', '/es'],
     },
   },
 
@@ -37,7 +38,7 @@ export default defineNuxtConfig({
   },
 
   // Nuxt UI registers the Tailwind v4 Vite plugin
-  css: ['~/assets/css/main.css', '~/assets/css/hero.css', '~/assets/css/work.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/work.css'],
 
   app: {
     head: {
@@ -66,7 +67,6 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'canonical', href: siteUrl },
         { rel: 'me', href: 'https://github.com/NezbiT' },
         { rel: 'me', href: 'https://www.linkedin.com/in/mariosalv2/' },
         { rel: 'me', href: 'https://x.com/nezsbit' },

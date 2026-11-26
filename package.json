@@ -12,7 +12,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "typecheck": "nuxt prepare && vue-tsc -b --noEmit"
+    "typecheck": "nuxt prepare && vue-tsc -b --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@nuxt/ui": "^4.12.0",
@@ -21,7 +23,10 @@
     "vue-router": "^5.5.1"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.159",
+    "@nuxt/eslint": "^1.17.0",
     "@types/node": "^24.19.2",
+    "eslint": "^10.15.0",
     "tailwindcss": "^4.3.5",
     "typescript": "~5.9",
     "vue-tsc": "^3.3.14"

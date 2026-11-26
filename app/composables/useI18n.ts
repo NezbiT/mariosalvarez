@@ -1,63 +1,35 @@
 /**
- * i18n ligero ES/EN con persistencia en localStorage (client only).
- * Default EN for SSG so prerendered HTML is in English for recruiters/crawlers.
+ * ES/EN driven by the URL: English at the root, Spanish under /es
+ * (app/i18n/routes.ts). Both languages are prerendered as separate pages, so
+ * there is no stored preference and no client-side switch.
  */
-import { ref, computed, watch } from 'vue'
+import { computed } from 'vue'
 import type { Locale, BilingualText } from '#shared/types'
 import { translations } from '~/i18n/translations'
-
-const STORAGE_KEY = 'mariosalvarez-locale'
-const DEFAULT_LOCALE: Locale = 'en'
-
-function getStoredLocale(): Locale {
-  if (!import.meta.client) return DEFAULT_LOCALE
-  const stored = localStorage.getItem(STORAGE_KEY)
-  if (stored === 'es' || stored === 'en') return stored
-  return DEFAULT_LOCALE
-}
-
-const locale = ref<Locale>(DEFAULT_LOCALE)
-let hydrated = false
+import { PAGES, localeOf, projectPath, type PageKey } from '~/i18n/routes'
 
 export function useI18n() {
+  const route = useRoute()
+  const locale = computed<Locale>(() => localeOf(route.path))
   const t_ui = computed(() => translations[locale.value])
-
-  function setLocale(newLocale: Locale): void {
-    locale.value = newLocale
-    if (import.meta.client) {
-      localStorage.setItem(STORAGE_KEY, newLocale)
-      document.documentElement.lang = newLocale
-    }
-  }
-
-  function toggleLocale(): void {
-    setLocale(locale.value === 'es' ? 'en' : 'es')
-  }
 
   function t(text: BilingualText): string {
     return text[locale.value]
   }
 
-  // Hydrate preference once on client (avoids SSR/localStorage mismatch)
-  if (import.meta.client && !hydrated) {
-    hydrated = true
-    const stored = getStoredLocale()
-    if (stored !== locale.value) locale.value = stored
+  function localePath(key: PageKey): string {
+    return PAGES[key][locale.value]
   }
 
-  watch(
-    locale,
-    (val) => {
-      if (import.meta.client) document.documentElement.lang = val
-    },
-    { immediate: true },
-  )
+  function localeProjectPath(id: string): string {
+    return projectPath(id, locale.value)
+  }
 
   return {
     locale,
     t_ui,
     t,
-    setLocale,
-    toggleLocale,
+    localePath,
+    localeProjectPath,
   }
 }

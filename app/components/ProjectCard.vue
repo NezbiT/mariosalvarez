@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
- * One case study in the Work grid. The whole card is a single link to
- * `/projects/<id>` (stretched link on the name), so it's one tab stop.
+ * One client result. The whole card is a single link to its case study
+ * (stretched link on the name), so it's one tab stop.
  */
 import type { WorkItem } from '#shared/types/work'
 
@@ -12,7 +12,10 @@ const props = defineProps<{
   eager?: boolean
 }>()
 
-const { t, t_ui } = useI18n()
+const { t, t_ui, localeProjectPath } = useI18n()
+
+/** Live address, shown so the card reads as a real site, not a mockup. */
+const host = props.item.url ? new URL(props.item.url).host.replace(/^www\./, '') : null
 
 /** First sentence of the problem statement: a one-line teaser. */
 const teaser = computed(() => {
@@ -46,18 +49,14 @@ const teaser = computed(() => {
         {{ t(item.category) }}<template v-if="item.year"> · {{ item.year }}</template>
       </p>
       <h3 class="work-card__title">
-        <NuxtLink :to="`/projects/${item.id}`" class="work-card__link">
+        <NuxtLink :to="localeProjectPath(item.id)" class="work-card__link">
           <span class="work-underline">{{ item.name }}</span><span class="sr-only">, {{ t_ui.projects.caseSuffix }}</span>
         </NuxtLink>
       </h3>
       <p class="work-card__teaser" :class="{ 'line-clamp-2': variant !== 'feature' }">
         {{ teaser }}
       </p>
-      <ul class="work-card__stack" :aria-label="t_ui.projects.stackTitle">
-        <li v-for="tech in item.stack.slice(0, 4)" :key="tech" class="tag">
-          {{ tech }}
-        </li>
-      </ul>
+      <p v-if="host" class="work-card__host">{{ host }}</p>
     </div>
   </article>
 </template>

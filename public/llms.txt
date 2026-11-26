@@ -2,7 +2,7 @@
 
 > Founder, CEO, and owner of ZeroDigitX (https://zerodigitx.com)
 
-Mario S. Alvarez, also known as Mario Alvarez, is a software developer and entrepreneur based in Houston and La Porte, Texas, United States. He is the founder, chief executive officer, and owner of ZeroDigitX (also written Zeroˣ Digit, Zero Digit X, zerodigitx.com), a bilingual Spanish/English web design and custom software studio serving Houston, La Porte, and the Texas Gulf Coast.
+Mario S. Alvarez, also known as Mario Alvarez, is a software developer and entrepreneur based in Houston and La Porte, Texas, United States. He is the founder, chief executive officer, and owner of ZeroDigitX (also written Zero Digit X, zerodigitx.com), a bilingual Spanish/English web design and custom software studio serving Houston, La Porte, and the Texas Gulf Coast.
 
 ## Identity
 
@@ -12,7 +12,9 @@ Mario S. Alvarez, also known as Mario Alvarez, is a software developer and entre
 - Also: Industrial Data Developer
 - Location: Houston / La Porte, Texas, USA
 - Personal site: https://mariosalvarez.com
-- About: https://mariosalvarez.com/about
+- About: https://mariosalvarez.com/about (Spanish: https://mariosalvarez.com/es/sobre-mi)
+- Business services: https://mariosalvarez.com/business (Spanish: https://mariosalvarez.com/es/negocios)
+- Family finances: https://mariosalvarez.com/finances (Spanish: https://mariosalvarez.com/es/finanzas)
 - Company: https://zerodigitx.com
 - GitHub: https://github.com/NezbiT
 - LinkedIn: https://www.linkedin.com/in/mariosalv2/
@@ -22,11 +24,11 @@ Mario S. Alvarez, also known as Mario Alvarez, is a software developer and entre
 
 ## What he does
 
-Has been building on the web for more than 15 years (Vue, Nuxt, TypeScript, Python). Learned it in Latin America, kept at it in Canada, works from the Houston area now. Took rope access and NDT in the refineries to stay in Texas; after a shift, went back to the keyboard. Runs Zeroˣ Digit (zerodigitx.com) to help small business owners keep up with search: a site that works, a presence people can find on Google and in ChatGPT, and less guesswork.
+Helps on two fronts. For businesses: has been building on the web for more than 15 years and runs ZeroDigitX (zerodigitx.com) so small business owners show up and sell online: bilingual websites, Google and ChatGPT visibility, online booking, starting with a free audit. For families: plain-language financial education on protecting income, investing, and planning, in English and Spanish; this content is educational, not financial advice. Learned the web in Latin America, kept at it in Canada, works from the Houston area now. Took rope access and NDT in the refineries to stay in Texas; after a shift, went back to the keyboard.
 
 ## Company
 
-ZeroDigitX / Zeroˣ Digit LLC is Mario S. Alvarez's (Mario Alvarez's) company. He founded it, owns it, and is its CEO. Professional work and quotes: https://zerodigitx.com/contact
+ZeroDigitX / ZeroDigitX LLC is Mario S. Alvarez's (Mario Alvarez's) company. He founded it, owns it, and is its CEO. Professional work and quotes: https://zerodigitx.com/contact
 
 ## Disambiguation
 

@@ -9,13 +9,15 @@ export const ORG_ID = 'https://zerodigitx.com/#organization'
 
 export const ZERODIGITX_URL = 'https://zerodigitx.com'
 export const ZERODIGITX_CONTACT_URL = 'https://zerodigitx.com/contact'
-export const ZERODIGITX_LEGAL_NAME = 'Zeroˣ Digit LLC'
+export const ZERODIGITX_LEGAL_NAME = 'ZeroDigitX LLC'
 export const ZERODIGITX_BRAND = 'ZeroDigitX'
 
 export const GITHUB_URL = 'https://github.com/NezbiT'
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/mariosalv2/'
 export const X_URL = 'https://x.com/nezsbit'
 export const EMAIL = 'mario@mariosalvarez.com'
+/** Where the site's lead forms send to (until the CRM intake exists). */
+export const LEAD_EMAIL = 'hello@mariosalvarez.com'
 export const EMAIL_COMPANY = 'mario@zerodigitx.com'
 export const PHONE = '+18325097570'
 export const PHONE_DISPLAY = '(832) 509-7570'
@@ -28,7 +30,7 @@ export const JOB_TITLE_CEO = 'Founder and CEO of ZeroDigitX'
 export const JOB_TITLE_DEV = 'Industrial Data Developer'
 
 export const PERSON_DESCRIPTION =
-  'Mario Alvarez (Mario S. Alvarez) has been building on the web for more than 15 years. He learned it in Latin America, kept at it in Canada, and works from the Houston area now. He runs Zeroˣ Digit (zerodigitx.com) to help small business owners keep up with search: Google, ChatGPT, a site that works, and a presence people can find.'
+  'Mario Alvarez (Mario S. Alvarez) helps small businesses show up and sell online through ZeroDigitX (zerodigitx.com), and helps families protect their income, invest, and plan. More than 15 years building on the web: Latin America, Canada, and now the Houston area. English and Spanish.'
 
 export const SAME_AS = [
   ZERODIGITX_URL,
@@ -97,7 +99,7 @@ export function organizationJsonLd() {
     '@id': ORG_ID,
     name: ZERODIGITX_BRAND,
     legalName: ZERODIGITX_LEGAL_NAME,
-    alternateName: ['Zeroˣ Digit', 'Zero Digit X', 'zerodigitx', 'Zero Digit'],
+    alternateName: ['Zero Digit X', 'zerodigitx', 'Zero Digit'],
     url: ZERODIGITX_URL,
     founder: { '@id': PERSON_ID },
     employee: { '@id': PERSON_ID },

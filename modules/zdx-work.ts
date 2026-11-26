@@ -108,12 +108,14 @@ export default defineNuxtModule({
       ].join('\n'),
     })
 
-    // Case-study pages are prerendered from the feed.
+    // Client results get a case-study page in each language; products are
+    // not shown on this site.
     nuxt.hook('nitro:config', (config) => {
+      const clients = feed.items.filter(item => item.kind === 'client')
       config.prerender ||= {}
       config.prerender.routes = [
         ...(config.prerender.routes ?? []),
-        ...feed.items.map(item => `/projects/${item.id}`),
+        ...clients.flatMap(item => [`/projects/${item.id}`, `/es/proyectos/${item.id}`]),
       ]
     })
   },
